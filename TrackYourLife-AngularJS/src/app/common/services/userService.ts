@@ -9,26 +9,16 @@ import {StorageService} from "./storageService";
 import {AuthService} from "./authService";
 import {AccountResource} from "../resources/account.resource";
 import {AuthDataHolder} from "../../models/authDataHolder";
+import {Router} from "@angular/router";
 
 // Do not forget to register new @Injectable() in module 'Providers' section
 @Injectable()
 export class UserService {
-  public onUserLogout = new EventEmitter<any>();
   public onUserChanged = new EventEmitter<any>();
   public userInfo: IUserInfo;
 
 
-  constructor(private authService: AuthService,
-              private accountResource: AccountResource) {
-  }
-
-  toLoginPage() {
-    this.authService.login();
-  }
-
-  logout() {
-    this.authService.logout();
-    this.onUserLogout.emit();
+  constructor(private accountResource: AccountResource) {
   }
 
   isAuthenticated() {
@@ -39,7 +29,7 @@ export class UserService {
     return this.userInfo;
   }
 
-  updateUserInfo(token: string): Promise<any> {
+  updateUserInfo(): Promise<any> {
     return this.accountResource.getUserInfo().then(result => {
       const data = result.json();
       console.log(data);

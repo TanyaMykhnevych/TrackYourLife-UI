@@ -1,0 +1,41 @@
+<div class="container" id="app-login-page">
+  <div class="wrapper">
+    <h3 class="form-signin-heading">Welcome Back! Please Sign In</h3>
+    <form #loginForm="ngForm">
+      <label for="username-input">Username</label>
+      <input type="text" class="form-control" id="username-input" [(ngModel)]="entity.username" required
+             placeholder="Enter your username..." name="username-input" #usernameInput="ngModel">
+
+      <div *ngIf="usernameInput.errors && $submitted">
+        <p [hidden]="!usernameInput.errors.required" class="error">
+          This field is required
+        </p>
+      </div>
+
+      <label for="password-input">Password</label>
+      <input class="form-control" id="password-input" type="password" name="password-input" required
+             [(ngModel)]="entity.password" #passwordInput="ngModel">
+
+      <div *ngIf="passwordInput.errors && $submitted">
+        <p [hidden]="!passwordInput.errors.required" class="error">
+          This field is required
+        </p>
+      </div>
+    </form>
+
+
+    <button class="btn btn-lg btn-primary btn-block" (click)="signIn()">Login</button>
+
+
+    <!--<form action="" method="post" name="Login_Form" class="form-signin">-->
+      <!--<h3 class="form-signin-heading">Welcome Back! Please Sign In</h3>-->
+      <!--<hr class="colorgraph">-->
+      <!--<br>-->
+
+      <!--<input type="text" class="form-control" name="Username" placeholder="Username" required="" autofocus=""/>-->
+      <!--<input type="password" class="form-control" name="Password" placeholder="Password" required=""/>-->
+
+      <!--<button class="btn btn-lg btn-primary btn-block" name="Submit" value="Login" type="Submit">Login</button>-->
+    <!--</form>-->
+  </div>
+</div>

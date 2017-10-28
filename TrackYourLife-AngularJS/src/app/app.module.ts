@@ -24,15 +24,20 @@ import {MenuService} from "./common/components/menu/menu.service";
 import {RouterModule} from "@angular/router";
 import {ModalModule} from "ng2-bootstrap";
 import {ScrollPositionDirective} from "./common/components/directives/scrollPosition/scrollPosition.directive";
-import {routing} from "./app.routing";
-import {PhoneNumberPipe} from "./pipes/phoneNumber.pipe";
-import {TruncatePipe} from "./pipes/truncate.pipe";
+import {defaultRouting} from "./app.routing";
+import {PhoneNumberPipe} from "./common/pipes/phoneNumber.pipe";
+import {TruncatePipe} from "./common/pipes/truncate.pipe";
+import {LoginComponent} from "./pages/login/login.component";
+import {FormsModule} from "@angular/forms";
+import {HttpServiceWrapper} from "./common/base/httpServiceWrapper";
+import {HttpModule} from "@angular/http";
+import {loginRouting} from "./pages/login/login.routing";
 
 @NgModule({
   declarations: [
     AppComponent,
 
-    // AppComponents
+    // App Components
     ActionNotifierComponent,
     ConfirmationModalComponent,
     PagePreloaderComponent,
@@ -41,6 +46,7 @@ import {TruncatePipe} from "./pipes/truncate.pipe";
     MenuComponent,
     MenuItemComponent,
     PageTopBarComponent,
+    LoginComponent,
 
     // Directives
     ScrollPositionDirective,
@@ -52,12 +58,17 @@ import {TruncatePipe} from "./pipes/truncate.pipe";
   imports: [
     BrowserModule,
     RouterModule,
+    HttpModule,
     ModalModule,
-    routing
+    FormsModule,
+
+    defaultRouting,
+    loginRouting
   ],
   providers: [
     SysConfig,
     GlobalState,
+    HttpServiceWrapper,
 
     // Resources
     AuthResource,

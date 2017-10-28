@@ -1,8 +1,8 @@
 export let AppEnums = {
 
   routes: {
-    login: 'login',
     pages: 'pages',
+    login: 'login',
     tests: 'tests',
     history: 'history',
   },
@@ -16,7 +16,7 @@ export let AppEnums = {
     recurrentTestHistId: {route: ':recurrentTestHistId', key: 'recurrentTestHistId'},
     divisionId: {route: ':divisionId', key: 'divisionId'}
   },
-  
+
   storageTypes: {
     sessionStorage: 'sessionStorage',
     localStorage: 'localStorage'

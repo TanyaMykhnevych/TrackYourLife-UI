@@ -1,4 +1,4 @@
-import {ModalDirective} from "ng2-bootstrap/ng2-bootstrap";
+import {ModalDirective} from "ng2-bootstrap";
 import {Component, ViewChild, Output, Input, EventEmitter, OnInit} from '@angular/core';
 import {BaseModalComponent} from "../../base/baseModal.component";
 

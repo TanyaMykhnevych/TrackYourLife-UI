@@ -1,0 +1,108 @@
+@import '../../../styles/sass/conf/conf';
+
+#authorization {
+  //background: white;
+  //min-width: 1000px;
+  position: relative;
+  color: #ffffff;
+
+  #central-block {
+    margin: 0 auto;
+    max-width: 1000px;
+
+    #body-container {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      font-weight: inherit;
+      font-style: inherit;
+      font-size: 100%;
+      vertical-align: baseline;
+
+      .pageBody {
+        max-width: 800px;
+        vertical-align: baseline;
+        margin: auto;
+      }
+
+    }
+  }
+
+  .top-bar {
+    position: relative;
+    margin-bottom: 15px;
+    padding-top: 80px;
+    background: #fff;
+
+    .logo {
+      font-size: 20px;
+      color: #42579A;
+    }
+
+    .tabs {
+      display: inline-block;
+      position: absolute;
+      bottom: 0px;
+      right: 0;
+
+      ul {
+        color: #333333;
+        font-family: "AvenirNext-DemiBold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin-bottom: 0;
+
+        li {
+          display: inline;
+          border-left: solid 1px lightgray;
+          padding-left: 10px;
+          padding-right: 10px;
+          margin-top: 5px;
+          margin-bottom: 5px;
+
+          &:nth-child(1) {
+            border: 0;
+          }
+        }
+      }
+
+      a {
+        color: #333;
+        text-decoration: none;
+        font-size: 15px;
+
+        &.selected {
+          color: #333333;
+          font-family: "AvenirNext-DemiBold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+      }
+
+      h1, h2, .large {
+        margin-bottom: 0;
+        font-family: "AvenirNext-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      }
+    }
+
+  }
+
+  .mainContent {
+    box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.2);
+    height: 100%;
+    background-color: #fff;
+
+    .contentBody {
+      display: block;
+      position: relative;
+      padding: 43px 50px 50px 50px;
+      // color: #43589B;
+      //font-size: 24px;
+      line-height: 24px;
+      font-size: 20px;
+      color: #e73d4a;
+
+      .btn {
+        display: block;
+        margin-top: 30px;
+      }
+    }
+  }
+}
+

@@ -12,7 +12,7 @@ import {SysConfig} from "../../../environments/sysConfig";
 import {AuthService} from "../services/authService";
 import {AuthDataHolder} from "../../models/authDataHolder";
 
-
+// Do not forget to register new @Injectable() in module 'Providers' section
 @Injectable()
 export class HttpServiceWrapper {
   constructor(private http: Http,
