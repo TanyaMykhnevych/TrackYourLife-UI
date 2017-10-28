@@ -1,0 +1,12 @@
+@import '../../../../styles/sass/conf/conf';
+
+.logo-box {
+  height: 70px;
+  background: #42579A;
+  cursor: pointer;
+}
+
+.menu-collapsed {
+  .logo-box {
+  }
+}

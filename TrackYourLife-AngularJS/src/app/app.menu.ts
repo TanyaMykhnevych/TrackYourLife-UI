@@ -9,7 +9,7 @@ export const MENU = [
         data: {
           menu: {
             title: 'My Dashboard',
-            icon: null, //'fa fa-file-text-o',
+            icon: null,
             img: 'dist/assets/img/my dashboard_active.svg',
             unactiveimg: 'dist/assets/img/my dashboard_unactive.svg',
             selected: true,
@@ -25,7 +25,7 @@ export const MENU = [
         data: {
           menu: {
             title: 'Testing',
-            icon: null, //'fa fa-file-text-o',
+            icon: null,
             img: 'dist/assets/img/testing_active.svg',
             unactiveimg: 'dist/assets/img/testing_unactive.svg',
             selected: true,

@@ -3,6 +3,7 @@ import {NotificationService} from "../../services/notificationService";
 import {AppEnums} from "../../../app.constants";
 import * as $ from 'jquery';
 
+// Do not forget to register Components into Declarations section of App.module
 @Component({
   selector: 'app-action-notifier',
   styleUrls: ['./actionNotifier.scss'],

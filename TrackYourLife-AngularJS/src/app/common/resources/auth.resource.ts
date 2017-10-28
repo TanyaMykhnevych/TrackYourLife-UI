@@ -5,7 +5,7 @@ import {HttpServiceWrapper} from "../base/httpServiceWrapper";
 
 // Do not forget to register new @Injectable() in module 'Providers' section
 @Injectable()
-export class AuthResource extends ResourceBase  {
+export class AuthResource extends ResourceBase {
 
   constructor(config: SysConfig, http: HttpServiceWrapper) {
     super(config, http, {

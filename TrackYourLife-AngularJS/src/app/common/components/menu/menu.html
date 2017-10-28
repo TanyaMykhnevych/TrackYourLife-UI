@@ -1,0 +1,12 @@
+<aside class="al-sidebar" (mouseleave)="hoverElemTop=outOfArea" sidebarResize>
+  <div class="logo-box" (click)="goToHomePage()"></div>
+
+  <ul id="al-sidebar-list" class="al-sidebar-list">
+    <app-menu-item
+      [menuItem]="item"
+      (itemHover)="hoverItem($event)"
+      (toggleSubMenu)="toggleSubMenu($event)"
+      *ngFor="let item of menuItems"
+    ></app-menu-item>
+  </ul>
+</aside>

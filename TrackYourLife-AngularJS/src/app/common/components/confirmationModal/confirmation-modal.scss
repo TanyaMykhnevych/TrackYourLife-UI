@@ -1,0 +1,84 @@
+.note-date {
+  vertical-align: sub;
+  padding-left: 8px;
+}
+
+.form-control[disabled], .form-control[readonly] {
+  color: #55595c;
+  border: 0;
+}
+
+
+.modal {
+  text-align: center;
+  padding: 0 !important;
+
+  &:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -4px;
+  }
+
+  .modal-dialog {
+    width: 25%;
+    min-width: 365px;
+    padding: 10px;
+
+
+    .modal-content {
+
+      .confirmation-question {
+        font-size: 18px;
+        text-align: center;
+        margin-top: 10px;
+        text-wrap: normal;
+      }
+
+      .confirm-buttons {
+
+        padding-top: 20px;
+
+        .confirm-button-div {
+
+          &.accept {
+            text-align: right;
+          }
+          &.decline {
+            text-align: left;
+          }
+
+          button {
+            border: 1px solid #D0D1D1;
+            color: black;
+            padding: 10px 58px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+
+            &.accept-button {
+              background-color: white;
+            }
+
+            &.decline-button {
+              background-color: #A0ABCC;
+            }
+          }
+        }
+      }
+
+      .modal-body {
+        height: 130px;
+      }
+    }
+  }
+}
+
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}

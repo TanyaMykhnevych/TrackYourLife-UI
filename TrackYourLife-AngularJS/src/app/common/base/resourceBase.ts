@@ -16,14 +16,14 @@ export class ResourceBase {
     const params = options && options.params ? options.params : {};
     const url = this.buildUrl(this.urlOptions['getById'], params);
 
-    return this.http.get(url, options).catch(this.handleError);
+    return this.http.get(url).catch(this.handleError);
   }
 
   get(options?: any): Promise<any> {
     const params = options && options.params ? options.params : {};
     const url = this.buildUrl(this.urlOptions['get'], params);
 
-    return this.http.get(url, options).catch(this.handleError.bind(this));
+    return this.http.get(url).catch(this.handleError.bind(this));
   }
 
   public save(enity: any, options?: any): Promise<any> {
@@ -31,10 +31,10 @@ export class ResourceBase {
     const params = (options && options.params) ? options.params : {};
     if (enity.id) {
       const url = this.buildUrl(this.urlOptions['put'], params);
-      obs = this.http.put(url, enity, options);
+      obs = this.http.put(url, enity);
     } else {
       const url = this.buildUrl(this.urlOptions['post'], params);
-      obs = this.http.post(url, enity, options);
+      obs = this.http.post(url, enity);
     }
 
     return obs.catch(this.handleError.bind(this));
@@ -43,7 +43,7 @@ export class ResourceBase {
   public delete(options: any): Promise<any> {
     const params = options && options.params ? options.params : {};
     const url = this.buildUrl(this.urlOptions['delete'], params);
-    return this.http.get(url, options).catch(this.handleError);
+    return this.http.get(url).catch(this.handleError);
   }
 
   protected buildUrl(urlTemplate: string, params: any): string {

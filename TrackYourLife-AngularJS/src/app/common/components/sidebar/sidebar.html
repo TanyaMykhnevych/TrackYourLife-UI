@@ -1,0 +1,5 @@
+<aside class="al-sidebar" (mouseleave)="hoverElemTop=outOfArea" sidebarResize [ngClass]="{'test': isTestUser}">
+  <app-menu [menuHeight]="menuHeight"
+           [sidebarCollapsed]="isMenuCollapsed"
+           (expandMenu)="menuExpand()" #appMenu></app-menu>
+</aside>

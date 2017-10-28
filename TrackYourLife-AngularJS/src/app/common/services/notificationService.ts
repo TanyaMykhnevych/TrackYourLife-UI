@@ -2,6 +2,7 @@ import {AppEnums} from "../../app.constants";
 import {Injectable} from '@angular/core';
 import {ActionNotifierComponent} from "../components/actionNotifier/actionNotifier";
 
+// Do not forget to register new @Injectable() in module 'Providers' section
 @Injectable()
 export class NotificationService {
   notificator: ActionNotifierComponent;

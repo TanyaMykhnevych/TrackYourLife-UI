@@ -10,14 +10,14 @@ import 'rxjs/add/operator/catch';
 import {Router} from '@angular/router';
 import {SysConfig} from "../../../environments/sysConfig";
 import {AuthService} from "../services/authService";
+import {AuthDataHolder} from "../../models/authDataHolder";
 
 
 @Injectable()
 export class HttpServiceWrapper {
   constructor(private http: Http,
               private config: SysConfig,
-              private router: Router,
-              private authService: AuthService) {
+              private router: Router) {
   }
 
   static createOptions(): RequestOptions {
@@ -31,16 +31,10 @@ export class HttpServiceWrapper {
   /**
    * Performs a request with `post` http method.
    */
-  post(url: string, body: any, options?: any): Promise<Response> {
-    return this.processOptions(url, options).then(requestOptions => {
+  post(url: string, body: any): Promise<Response> {
+    return this.appendHeaders(url).then(requestOptions => {
       const requestBody = JSON.stringify(body);
       const result = this.http.post(this.config.fullUrl + '/' + url, requestBody, requestOptions).toPromise();
-
-      if (options && options.noIntercept) {
-        return result.then(res => {
-          return res.json();
-        });
-      }
 
       return this.interceptAuthError(result).then(res => {
         return res.text() ? res.json() : {};
@@ -52,17 +46,10 @@ export class HttpServiceWrapper {
   /**
    * Performs a request with `put` http method.
    */
-  put(url: string, body: string, options?: any): Promise<Response> {
-    return this.processOptions(url, options).then(requestOptions => {
+  put(url: string, body: string): Promise<Response> {
+    return this.appendHeaders(url).then(requestOptions => {
       const requestBody = JSON.stringify(body);
-
       const result = this.http.put(this.config.fullUrl + '/' + url, requestBody, requestOptions).toPromise();
-
-      if (options && options.noIntercept) {
-        return result.then(res => {
-          return res.json();
-        });
-      }
 
       return this.interceptAuthError(result).then(res => {
         return res.text() ? res.json() : {};
@@ -71,8 +58,8 @@ export class HttpServiceWrapper {
   }
 
 
-  get(url: string, options?: any): Promise<Response> {
-    return this.processOptions(url, options).then(requestOptions => {
+  get(url: string): Promise<Response> {
+    return this.appendHeaders(url).then(requestOptions => {
       const result = this.http.get(this.config.fullUrl + '/' + url, requestOptions).toPromise();
 
       return this.interceptAuthError(result).then((res) => {
@@ -84,8 +71,8 @@ export class HttpServiceWrapper {
   /**
    * Performs a request with `delete` http method.
    */
-  delete(url: string, options?: any): Promise<Response> {
-    return this.processOptions(url, options).then(requestOptions => {
+  delete(url: string): Promise<Response> {
+    return this.appendHeaders(url).then(requestOptions => {
       requestOptions.headers.delete('Content-Type');
 
       const result = this.http.delete(this.config.fullUrl + '/' + url, requestOptions).toPromise();
@@ -94,30 +81,19 @@ export class HttpServiceWrapper {
   }
 
 
-  protected processOptions(url: string, options: any): Promise<RequestOptions> {
+  protected appendHeaders(url: string): Promise<RequestOptions> {
     const requestOptions = HttpServiceWrapper.createOptions();
 
-    return this.authService.acquireToken(url).then(token => {
-      if (token) {
-        requestOptions.headers.append('Authentication', 'Bearer ' + token);
-      }
+    if (AuthDataHolder.isAuthenticated) {
+      requestOptions.headers.append('Authentication', 'Bearer ' + AuthDataHolder.accessToken);
+    }
 
-      if (!options) {
-        return requestOptions;
-      }
-
-      return requestOptions;
-    }, error => {
-      console.log(error);
-      this.router.navigate(["/login"]);
-      return Promise.reject({message: error, status: 401});
-    });
+    return Promise.resolve(requestOptions);
   }
 
   interceptAuthError(promise: Promise<Response>): Promise<Response> {
     return promise.catch(err => {
       if (err.status === 401) {
-        this.authService.login();
         return;
       } else {
         return Promise.reject(err);

@@ -8,6 +8,7 @@ import {IUserInfo} from "../../models/interfaces/IUserInfo";
 import {StorageService} from "./storageService";
 import {AuthService} from "./authService";
 import {AccountResource} from "../resources/account.resource";
+import {AuthDataHolder} from "../../models/authDataHolder";
 
 // Do not forget to register new @Injectable() in module 'Providers' section
 @Injectable()
@@ -17,11 +18,8 @@ export class UserService {
   public userInfo: IUserInfo;
 
 
-  constructor(private storageService: StorageService,
-              private authService: AuthService,
-              private accountResource: AccountResource,
-              private sysConfig: SysConfig,
-              private http: Http) {
+  constructor(private authService: AuthService,
+              private accountResource: AccountResource) {
   }
 
   toLoginPage() {
@@ -30,16 +28,11 @@ export class UserService {
 
   logout() {
     this.authService.logout();
+    this.onUserLogout.emit();
   }
 
   isAuthenticated() {
-    return this.authService.OAuthData
-      && this.authService.OAuthData.isAuthenticated
-      && this.authService.OAuthData.accessToken;
-  }
-
-  get() {
-    return this.authService.OAuthData;
+    return AuthDataHolder.isAuthenticated;
   }
 
   getUserInfo(): IUserInfo {
@@ -48,11 +41,13 @@ export class UserService {
 
   updateUserInfo(token: string): Promise<any> {
     return this.accountResource.getUserInfo().then(result => {
-        const data = result.json();
-        console.log(data);
-        this.userInfo = data.content;
-        return result;
-      });
+      const data = result.json();
+      console.log(data);
+      if (!this.userInfo || this.userInfo.username !== data.content.username) {
+        this.onUserChanged.emit(data.content);
+      }
+      this.userInfo = data.content;
+      return result;
+    });
   }
-
 }

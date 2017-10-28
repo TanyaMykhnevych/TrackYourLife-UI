@@ -1,22 +1,10 @@
 import {Injectable} from '@angular/core';
 import {AuthResource} from "../resources/auth.resource";
-
-export interface AuthUser {
-  userName: string;
-  accessToken: string;
-}
-
+import {AuthDataHolder} from "../../models/authDataHolder";
 
 // Do not forget to register new @Injectable() in module 'Providers' section
 @Injectable()
 export class AuthService {
-  public OAuthData = {
-    accessToken: '',
-    tokenType: '',
-    expiresIn: 0,
-    isAuthenticated: false,
-    errorMessage: ''
-  };
 
   constructor(private authResource: AuthResource) {
   }
@@ -39,17 +27,15 @@ export class AuthService {
       username: params.username,
       password: params.password
     }).then(result => {
-      this.OAuthData.accessToken = result.accessToken;
-      this.OAuthData.tokenType = result.tokenType;
-      this.OAuthData.expiresIn = result.expiresIn;
-      this.OAuthData.isAuthenticated = true;
+      AuthDataHolder.accessToken = result.accessToken;
+      AuthDataHolder.tokenType = result.tokenType;
+      AuthDataHolder.expiresIn = result.expiresIn;
     }, err => {
-      this.OAuthData.isAuthenticated = false;
-      this.OAuthData.errorMessage = err;
+      AuthDataHolder.errorMessage = err ? err : 'Not authorized';
 
-      this.OAuthData.accessToken = '';
-      this.OAuthData.tokenType = '';
-      this.OAuthData.expiresIn = 0;
+      AuthDataHolder.accessToken = '';
+      AuthDataHolder.tokenType = '';
+      AuthDataHolder.expiresIn = 0;
     });
   }
 }

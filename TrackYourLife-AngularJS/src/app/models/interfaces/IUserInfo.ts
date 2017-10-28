@@ -1,5 +1,6 @@
+import {IClaimModel} from "../../common/models/user-info";
+
 export interface IUserInfo  {
   username: string;
-  expires: number;
-  access_token: string;
+  claims: Array<IClaimModel>;
 }
