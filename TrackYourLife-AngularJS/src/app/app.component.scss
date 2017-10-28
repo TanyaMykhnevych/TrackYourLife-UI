@@ -1,0 +1,416 @@
+@import "../styles/sass/conf/conf";
+@import "../styles/sass/bootstrap-overrides/overrides";
+@import "../styles/sass/typography";
+@import "../styles/sass/buttons";
+@import "../styles/sass/modals";
+@import "../styles/sass/layout";
+@import "../styles/sass/table";
+@import "../styles/sass/form";
+
+span.k {
+  font-family: "Ionicons";
+}
+
+/* Overrides */
+main, .al-main, .al-content {
+  height: 100%;
+}
+
+.btn:hover {
+  transform: none;
+}
+
+.action-create {
+  font-size: 35px;
+  cursor: pointer;
+  color: $info;
+
+  &:hover {
+    font-size: 45px;
+  }
+}
+
+input:disabled {
+  background-color: #f6f6f6;
+}
+
+.action-icon {
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0.5;
+  color: $info;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+button.btn.btn-default {
+  color: #4D61A0;
+  border-color: #4D61A0;
+}
+
+/* End Overrides */
+
+.cs-loader {
+  background: #fff;
+}
+
+.form-control-static {
+  padding-top: 9px;
+  padding-bottom: 10px;
+  padding-left: 5px;
+  margin-bottom: 0;
+  font-family: Arial, sans-serif;
+  letter-spacing: 0.01em;
+  font-size: 13px;
+}
+
+.form-group label {
+  font-family: Arial, sans-serif;
+  letter-spacing: 0.01em;
+  font-size: 13px;
+}
+
+.form-group label.required:after {
+  color: #e21a1a;
+  content: "*";
+  font-size: 18px;
+}
+
+.help-block {
+  padding-top: 5px;
+  display: inline-block;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.hidden {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+.form-group-part.invalid, .form-group.invalid {
+  input, select {
+    border-color: #ff5027;
+    border-top-color: rgb(255, 80, 39);
+    border-right-color: rgb(255, 80, 39);
+    border-bottom-color: rgb(255, 80, 39);
+    border-left-color: rgb(255, 80, 39);
+  }
+}
+
+p.error {
+  margin-top: 6px;
+  padding: 0 3px;
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  line-height: normal;
+  font-size: 13px;
+  color: #ff5027;
+
+  i {
+    font-size: 1.3em;
+  }
+}
+
+.form-group {
+
+  p.info, p.success {
+    margin-top: 6px;
+    padding: 0 3px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    line-height: normal;
+    font-size: 0.85em;
+  }
+
+  &.success {
+    .form-control {
+      border-color: #79d183;
+      -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    }
+
+    p.success {
+      color: #53c460;
+    }
+  }
+
+  &.info {
+    .form-control {
+      border-color: #84caf3;
+      -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    }
+
+    p.info {
+      color: #55b6ef;
+    }
+  }
+
+}
+
+.al-main {
+  margin-left: $sidebar-width;
+
+  @media print {
+    margin-left: 0 !important;
+  }
+}
+
+.al-content {
+  padding: 0;
+}
+
+.btn {
+  &.im-right {
+    i {
+      margin-right: 5px;
+    }
+  }
+}
+
+.btn-default-size {
+  min-width: 100px;
+}
+
+.buttonsCell {
+  text-align: center;
+}
+
+.card-block-footer {
+  border-top: 1px solid #7e7e7e;
+}
+
+.al-breadcrumb {
+  padding-top: 5px;
+}
+
+.widgets {
+  padding: 10px;
+  padding-top: 5px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1600px !important;
+}
+
+.progress-bar {
+  float: left;
+  width: 0;
+  height: 100%;
+  font-size: 12px;
+  line-height: 20px;
+  color: #fff;
+  text-align: center;
+  background-color: #337ab7;
+  -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15);
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15);
+  -webkit-transition: width .6s ease;
+  -o-transition: width .6s ease;
+  transition: width .6s ease;
+}
+
+.progress-bar-striped .progress-bar {
+  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+  background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+  -webkit-background-size: 40px 40px;
+  background-size: 40px 40px;
+}
+
+ba-sidebar {
+  background-color: #000000;
+}
+
+@-webkit-keyframes progress-bar-stripes {
+  from {
+    background-position: 40px 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+
+@keyframes progress-bar-stripes {
+  from {
+    background-position: 40px 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+
+.progress-bar.active, .progress.active .progress-bar {
+  -webkit-animation: progress-bar-stripes 2s linear infinite;
+  -o-animation: progress-bar-stripes 2s linear infinite;
+  animation: progress-bar-stripes 2s linear infinite;
+}
+
+div.dataTables_wrapper {
+  div {
+    margin: 0 0 0.75em 0;
+  }
+  input[type="radio"] {
+    display: none;
+  }
+
+  input[type="radio"] + label {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+
+    span {
+      border: 3px solid #3498db;
+    }
+  }
+
+  div.dataTables_processing {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: 9px !important;
+    text-align: center;
+    padding: 1em 0;
+    display: block;
+    background: #e2e2e2;
+    color: black;
+    width: 98% !important;
+    margin-left: -50% !important;
+    opacity: 0.6;
+  }
+
+  .dataTable {
+    .tbl_action {
+      float: right;
+      border: 0;
+      border: 0;
+      font-size: 17px;
+      background: transparent;
+      padding: 3px 0 0;
+    }
+
+    td a {
+      color: white;
+      text-decoration: underline !important;
+    }
+
+    &.stripe tbody tr.odd {
+      background-color: #F6F6F6;
+    }
+  }
+
+  .page-item.active .page-link {
+    background-color: #2e689a;
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+
+  //.page-item.disabled .page-link {
+  //  background: transparent;
+  //  border-color: #818a91;
+  //}
+
+}
+
+.table-header {
+  .table-header-filters {
+    text-align: right;
+
+    label {
+      font-size: 15px;
+    }
+
+    select {
+      min-width: 250px;
+      width: auto;
+      display: inline-block;
+      margin-left: 5px;
+    }
+  }
+}
+
+.card {
+  > .card-header {
+    //    background: #1f282d;
+    border-radius: 0;
+  }
+
+  > .card-body {
+    background-color: #fff;
+    //box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.13);
+  }
+
+  &.card-bordered {
+    > .card-body {
+      //border-top: 10px solid #3498db;
+    }
+  }
+
+  > .card-footer {
+    background-color: $body-bg;
+  }
+}
+
+//.card-block {
+//  background-color: $body-bg;
+//}
+
+.btn {
+  border-radius: 2px;
+}
+
+.form-control {
+  border-radius: 2px;
+}
+
+/* Base Form Structure */
+
+.btn-group.bottom-bar {
+  width: 100%;
+  margin-top: 1.1rem;
+  margin-bottom: 2rem;
+
+  .btn {
+    width: 47%;
+  }
+
+  .btn-default {
+    float: left;
+  }
+
+  .btn-primary {
+    float: right;
+    padding-left: 40px;
+    padding-right: 50px;
+  }
+}
+
+.btn-arrow-left {
+  &:before {
+    font: normal normal normal 14px/1 FontAwesome;
+    content: "\f053";
+    position: absolute;
+    left: 30px;
+    top: 50%;
+    margin-top: -6px;
+  }
+}
+
+.top-bar {
+  width: 100%;
+  background: #E2E2E2;
+  padding: 13px 20px 10px 25px;
+}
+
+// Scroll style
+//
+.scroll::-webkit-scrollbar {
+  width: 12px;
+  background-color: #D9DDEB;
+}
+
+.scroll::-webkit-scrollbar-track {
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  background-color: #BBC2DB;
+}
