@@ -1,21 +1,20 @@
 import {AppEnums} from "./app.constants";
 
+const r = AppEnums.routes;
 export const MENU = [
   {
-    path: 'pages',
+    path: r.pages,
     children: [
       {
-        path: 'dashboard',
+        path: r.home,
         data: {
           menu: {
-            title: 'My Dashboard',
+            title: 'Home',
             icon: null,
-            img: 'dist/assets/img/my dashboard_active.svg',
-            unactiveimg: 'dist/assets/img/my dashboard_unactive.svg',
             selected: true,
             expanded: false,
             order: 0,
-            claims: [AppEnums.claims.MyDashboard]
+            claims: []
           }
         }
       },
@@ -44,7 +43,7 @@ export const MENU = [
                 notificationCount: 0,
                 claims: [AppEnums.claims.Scheduling]
               }
-            }
+            },
           },
           {
             path: 'test-scheduled',

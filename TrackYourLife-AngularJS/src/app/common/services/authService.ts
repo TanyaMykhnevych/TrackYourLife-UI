@@ -16,7 +16,7 @@ export class AuthService {
   }
 
   public toLoginPage() {
-    this.router.navigate(['/', AppEnums.routes.pages, AppEnums.routes.login]);
+    this.router.navigate(['/', AppEnums.routes.login]);
     AuthDataHolder.accessToken = "";
   }
 
@@ -28,6 +28,8 @@ export class AuthService {
       AuthDataHolder.accessToken = result.accessToken;
       AuthDataHolder.tokenType = result.tokenType;
       AuthDataHolder.expiresIn = result.expiresIn;
+      AuthDataHolder.when = new Date();
+
       return this.userService.updateUserInfo();
     }, err => {
       AuthDataHolder.errorMessage = err ? err : 'Not authorized';

@@ -94,6 +94,7 @@ export class HttpServiceWrapper {
   interceptAuthError(promise: Promise<Response>): Promise<Response> {
     return promise.catch(err => {
       if (err.status === 401) {
+        console.error(err);
         return;
       } else {
         return Promise.reject(err);

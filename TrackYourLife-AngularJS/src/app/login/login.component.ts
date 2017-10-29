@@ -1,9 +1,8 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {Title} from '@angular/platform-browser';
-import {UserService} from "../../common/services/userService";
-import {AuthService} from "../../common/services/authService";
 import {Router} from "@angular/router";
 import {NgForm} from "@angular/forms";
+import {AuthService} from "../common/services/authService";
+import {AppEnums} from "../app.constants";
 
 // Do not forget to register Components in Declarations sections of App.module
 @Component({
@@ -41,7 +40,7 @@ export class LoginComponent implements OnInit {
       username: this.entity.username,
       password: this.entity.password
     }).then(() => {
-      this.router.navigate(['/']);
+      this.router.navigate(['/', AppEnums.routes.pages]);
     });
   }
 

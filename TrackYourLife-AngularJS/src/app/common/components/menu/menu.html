@@ -1,5 +1,8 @@
 <aside class="al-sidebar" (mouseleave)="hoverElemTop=outOfArea" sidebarResize>
-  <div class="logo-box" (click)="goToHomePage()"></div>
+
+  <div class="logo-box-container">
+    <div class="logo-box" (click)="goToHomePage()"></div>
+  </div>
 
   <ul id="al-sidebar-list" class="al-sidebar-list">
     <app-menu-item

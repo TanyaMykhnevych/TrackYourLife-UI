@@ -1,10 +1,5 @@
 <li *ngIf="!menuItem.hidden" [title]="menuItem.title"
-    [ngClass]="{
-    'al-sidebar-list-item': !child,
-    'app-sidebar-sublist-item': child,
-    'selected': menuItem.selected && !menuItem.expanded,
-    'with-sub-menu': menuItem.children,
-    'app-sidebar-item-expanded': menuItem.expanded}">
+    [ngClass]="{'al-sidebar-list-item': !child,'app-sidebar-sublist-item': child,'selected': menuItem.selected && !menuItem.expanded,'with-sub-menu': menuItem.children,'app-sidebar-item-expanded': menuItem.expanded}">
 
 
   <a *ngIf="!menuItem.children  || menuItem.children.length == 0" (mouseenter)="onHoverItem($event, item)"

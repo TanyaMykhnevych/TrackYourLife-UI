@@ -2,7 +2,8 @@
 
 .logo-box {
   height: 70px;
-  background: #42579A;
+  background: #42579A url('assets/logo.png') no-repeat;
+  background-size: contain;
   cursor: pointer;
 }
 

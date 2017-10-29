@@ -18,7 +18,7 @@ import * as $ from 'jquery';
   encapsulation: ViewEncapsulation.None
 })
 export class SidebarComponent implements OnInit, OnDestroy, AfterViewInit {
-  @ViewChild('menu') menu: MenuComponent;
+  @ViewChild('appMenu') menu: MenuComponent;
 
   // here we declare which routes we want to use as a menu in our sidebar
   public routes = []; // we're creating a deep copy since we are going to change that object
@@ -56,7 +56,7 @@ export class SidebarComponent implements OnInit, OnDestroy, AfterViewInit {
           });
         }
       } else {
-        if (item.data.menu.claims.length > 0) {
+        if (item.data.menu.claims && item.data.menu.claims.length > 0) {
           const hasClaim = claims.filter(function (claim) {
             return item.data.menu.claims.indexOf(claim.type) > -1;
           })[0] !== undefined;
@@ -106,7 +106,8 @@ export class SidebarComponent implements OnInit, OnDestroy, AfterViewInit {
     const unfilteredRoutes = $.extend(true, [], MENU);
 
       this.routes = unfilteredRoutes;
-      const userClaims = this.userService.getUserInfo().claims;
+      const userInfo = this.userService.getUserInfo();
+      const userClaims = userInfo ? userInfo.claims : [];
       const filtered = this.filterRoute(unfilteredRoutes, userClaims);
 
       this.menu.setMenu(filtered);

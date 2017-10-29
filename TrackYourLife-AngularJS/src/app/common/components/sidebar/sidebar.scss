@@ -347,9 +347,6 @@ a.al-sidebar-list-link:not([href]):not([tabindex]) {
   .menu-collapsed {
     @include sidebar-hidden();
   }
-  .al-main {
-    margin-left: 0;
-  }
   .al-footer {
     padding-left: 0;
   }

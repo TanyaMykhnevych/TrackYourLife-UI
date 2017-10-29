@@ -3,8 +3,7 @@ export let AppEnums = {
   routes: {
     pages: 'pages',
     login: 'login',
-    tests: 'tests',
-    history: 'history',
+    home: 'home'
   },
 
   navigationParams: {

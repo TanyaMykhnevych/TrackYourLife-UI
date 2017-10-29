@@ -1,8 +1,9 @@
 import { Routes, RouterModule } from '@angular/router';
-import {LoginComponent} from "./pages/login/login.component";
+import {LoginComponent} from "./login/login.component";
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'pages', pathMatch: 'full' }
+  { path: '', redirectTo: 'pages', pathMatch: 'full' },
+  { path: 'signin', redirectTo: 'login', pathMatch: 'full' }
 ];
 
-export const defaultRouting = RouterModule.forRoot(routes, {enableTracing : true});
+export const routing = RouterModule.forRoot(routes, {enableTracing : true});

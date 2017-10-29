@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ViewContainerRef} from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewContainerRef} from '@angular/core';
 import {NavigationEnd, NavigationError, NavigationStart, Router} from '@angular/router';
 import * as $ from "jquery";
 
@@ -33,6 +33,6 @@ export class AppComponent implements AfterViewInit {
     }
   }
 
-  public ngAfterViewInit(): void {
+  public ngAfterViewInit() {
   }
 }

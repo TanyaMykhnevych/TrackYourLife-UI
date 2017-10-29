@@ -23,65 +23,58 @@ import {PageTopBarComponent} from "./common/components/pageTopBar/pageTopBar.com
 import {MenuService} from "./common/components/menu/menu.service";
 import {RouterModule} from "@angular/router";
 import {ModalModule} from "ng2-bootstrap";
-import {ScrollPositionDirective} from "./common/components/directives/scrollPosition/scrollPosition.directive";
-import {defaultRouting} from "./app.routing";
+import {routing} from "./app.routing";
 import {PhoneNumberPipe} from "./common/pipes/phoneNumber.pipe";
 import {TruncatePipe} from "./common/pipes/truncate.pipe";
-import {LoginComponent} from "./pages/login/login.component";
-import {FormsModule} from "@angular/forms";
+import {LoginComponent} from "./login/login.component";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpServiceWrapper} from "./common/base/httpServiceWrapper";
 import {HttpModule} from "@angular/http";
-import {loginRouting} from "./pages/login/login.routing";
+import {PagesModule} from "./pages/pages.module";
+import {ScrollPositionDirective} from "./common/directives/scrollPosition/scrollPosition.directive";
+import {CommonModule} from "@angular/common";
+import {AppEnums} from "./app.constants";
+import {LoginModule} from "./login/login.module";
+
+// Application wide providers
+const APP_PROVIDERS = [
+  GlobalState,
+
+  AccountResource,
+  AuthResource,
+
+  StorageService,
+  AuthService,
+  UserService,
+  NotificationService,
+  SysConfig,
+  HttpServiceWrapper,
+  PreloaderService,
+  AppRouterService
+];
 
 @NgModule({
   declarations: [
-    AppComponent,
-
-    // App Components
-    ActionNotifierComponent,
-    ConfirmationModalComponent,
-    PagePreloaderComponent,
-    ProfileTopBarComponent,
-    SidebarComponent,
-    MenuComponent,
-    MenuItemComponent,
-    PageTopBarComponent,
-    LoginComponent,
-
-    // Directives
-    ScrollPositionDirective,
-
-    // Pipes
-    PhoneNumberPipe,
-    TruncatePipe
+    AppComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
-    RouterModule,
     HttpModule,
-    ModalModule,
+    RouterModule,
     FormsModule,
+    ReactiveFormsModule,
 
-    defaultRouting,
-    loginRouting
+    PagesModule,
+    LoginModule,
+
+    routing
+  ],
+  exports: [
+    AppComponent
   ],
   providers: [
-    SysConfig,
-    GlobalState,
-    HttpServiceWrapper,
-
-    // Resources
-    AuthResource,
-    AccountResource,
-
-    // Services
-    StorageService,
-    AuthService,
-    UserService,
-    AppRouterService,
-    PreloaderService,
-    NotificationService,
-    MenuService
+    APP_PROVIDERS
   ],
   bootstrap: [AppComponent]
 })
