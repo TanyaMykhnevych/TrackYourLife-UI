@@ -41,6 +41,9 @@ export class LoginComponent implements OnInit {
       password: this.entity.password
     }).then(() => {
       this.router.navigate(['/', AppEnums.routes.pages]);
+    }, (err) => {
+      alert('invalid username or password');
+      console.error(err);
     });
   }
 

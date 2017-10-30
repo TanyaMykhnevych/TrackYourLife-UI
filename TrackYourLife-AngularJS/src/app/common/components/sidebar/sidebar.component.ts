@@ -5,7 +5,6 @@ import {MENU} from '../../../../app/app.menu';
 import {UserService} from "../../services/userService";
 import {GlobalState} from "../../../global.state";
 import {layoutSizes} from "../../theme.constants";
-import {IClaimModel} from "../../models/user-info";
 import {AuthService} from "../../services/authService";
 import {MenuComponent} from "../menu/menu.component";
 import * as $ from 'jquery';
@@ -26,7 +25,6 @@ export class SidebarComponent implements OnInit, OnDestroy, AfterViewInit {
   public menuHeight: number;
   public isMenuCollapsed = false;
   public isMenuShouldCollapsed = false;
-  public isTestUser;
   private userChangeSb;
 
 
@@ -41,7 +39,7 @@ export class SidebarComponent implements OnInit, OnDestroy, AfterViewInit {
     });
   }
 
-  public filterRoute(routes, claims: Array<IClaimModel>) {
+  public filterRoute(routes, claims: Array<number>) {
     const filteredRoutes = [];
 
     routes.forEach((item) => {
@@ -58,7 +56,7 @@ export class SidebarComponent implements OnInit, OnDestroy, AfterViewInit {
       } else {
         if (item.data.menu.claims && item.data.menu.claims.length > 0) {
           const hasClaim = claims.filter(function (claim) {
-            return item.data.menu.claims.indexOf(claim.type) > -1;
+            return item.data.menu.claims.indexOf(claim) > -1;
           })[0] !== undefined;
         }
 

@@ -85,7 +85,7 @@ export class HttpServiceWrapper {
     const requestOptions = HttpServiceWrapper.createOptions();
 
     if (AuthDataHolder.isAuthenticated) {
-      requestOptions.headers.append('Authentication', 'Bearer ' + AuthDataHolder.accessToken);
+      requestOptions.headers.append('Authorization', 'Bearer ' + AuthDataHolder.accessToken);
     }
 
     return Promise.resolve(requestOptions);

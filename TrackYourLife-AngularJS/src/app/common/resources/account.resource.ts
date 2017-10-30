@@ -9,7 +9,7 @@ export class AccountResource extends ResourceBase  {
 
   constructor(config: SysConfig, http: HttpServiceWrapper) {
     super(config, http, {
-      'getUserInfo': 'manage/getUserInfo'
+      'getUserInfo': 'account/getUserInfo'
     });
   }
 

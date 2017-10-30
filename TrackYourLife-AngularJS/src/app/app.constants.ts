@@ -24,9 +24,26 @@ export let AppEnums = {
   roles: {},
 
   claims: {
-    MyDashboard: 10,
-    Scheduling: 20,
-    ScheduledTests: 30
+    viewDonorRequestList: 100,
+    viewDonorRequest: 200,
+    editDonorRequest: 300,
+    changeDonorRequestStatus: 400,
+
+    viewOrganRequestList: 500,
+    viewOrganRequest: 600,
+    editOrganRequest: 700,
+    createOrganRequest: 800,
+
+    connectDonorAndOrganRequests: 1000,
+
+    addNewOrgan: 1500,
+    addNewMedicalEmployee: 1600,
+
+    addOrganInfo: 2000,
+    registerNewPatient: 2100,
+    addClinic: 2200,
+
+    viewOrganTransportData: 2500
   },
 
   examStatuses: {

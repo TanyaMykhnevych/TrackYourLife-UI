@@ -37,6 +37,7 @@ export class AuthService {
       AuthDataHolder.accessToken = '';
       AuthDataHolder.tokenType = '';
       AuthDataHolder.expiresIn = 0;
+      console.error(err);
       return Promise.reject(err);
     });
   }

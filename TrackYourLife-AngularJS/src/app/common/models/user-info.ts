@@ -1,13 +1,7 @@
-export interface IClaimModel {
-  id: number;
-  name: string;
-  description: string;
-  type: number;
-}
-
 
 export interface IUserInfo {
-  objectId: string;
+  id: string;
+  username: string;
   roleName: string;
-  claims: Array<IClaimModel>;
+  claims: Array<number>;
 }
