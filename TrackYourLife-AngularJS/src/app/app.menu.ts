@@ -41,7 +41,7 @@ export const MENU = [
                 title: 'Scheduling',
                 icon: 'fa fa-chevron-right',
                 notificationCount: 0,
-                claims: [AppEnums.claims.Scheduling]
+                claims: [AppEnums.claims.addClinic]
               }
             },
           },
@@ -52,7 +52,7 @@ export const MENU = [
                 title: 'Scheduled Tests',
                 icon: 'fa fa-chevron-right',
                 notificationCount: 0,
-                claims: [AppEnums.claims.ScheduledTests]
+                claims: [AppEnums.claims.addNewOrgan]
               }
             }
           }

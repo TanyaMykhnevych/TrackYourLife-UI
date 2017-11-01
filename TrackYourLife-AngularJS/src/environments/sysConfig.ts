@@ -10,7 +10,7 @@ export class SysConfig {
 
   public constructor() {
     this.url = 'localhost';
-    this.port = '56960';
+    this.port = '5000';
     this.protocol = 'http';
     this.fullUrl = `${this.protocol}://${this.url}:${this.port}/api`;
   }

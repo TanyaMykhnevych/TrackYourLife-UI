@@ -9,13 +9,13 @@ export class StorageService {
   private storageSupported: boolean;
   private type: string;
 
-  constructor() {
+  public constructor() {
     this.storage = {};
     this.type = AppEnums.storageTypes.sessionStorage;
     this.storageSupported = this._isStorageSupported(this.type);
   }
 
-  get(key) {
+  public get(key) {
     if (this.storage[key]) {
       return this.storage[key];
     }
@@ -27,9 +27,8 @@ export class StorageService {
     return this.storage[key];
   }
 
-  set(key, data) {
+  public set(key, data) {
     this.storage[key] = data;
-
 
     if (this.storageSupported) {
       window[this.type][key] = JSON.stringify(data);
@@ -40,7 +39,7 @@ export class StorageService {
    * Removes specified item from localStorage
    * @param key {string}
    */
-  remove(key) {
+  public remove(key) {
     if (this.storageSupported) {
       delete window[this.type][key];
     }

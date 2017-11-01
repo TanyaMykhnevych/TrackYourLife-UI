@@ -1,12 +1,19 @@
-<div class="user-profile clearfix">
-  <div class="dropdown al-user-profile">
-    <a class="profile-toggle-link dropdown-toggle" id="user-profile-dd" data-toggle="dropdown" aria-expanded="false">
-      <span>{{user?.userName}}</span>
-      <i class="fa fa-chevron-down" aria-hidden="true"></i>
-    </a>
-    <div class="dropdown-menu top-dropdown-menu profile-dropdown" aria-labelledby="user-profile-dd">
-      <li class="dropdown-item"><i class="dropdown-arr"></i></li>
-      <li class="dropdown-item"><a  class="signout" (click)="logout()" style="cursor: pointer"><i class="fa fa-power-off"></i>Sign out</a></li>
-    </div>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+
+    <ul class="nav navbar-nav navbar-right" *ngIf="isAuthenticated">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+           aria-expanded="false">{{user.username}}<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Profile</a></li>
+          <li><a (click)="logout()">Logout</a></li>
+        </ul>
+      </li>
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right" *ngIf="!isAuthenticated">
+      <li><a [routerLink]="['/', routes.login]">Login</a></li>
+    </ul>
   </div>
-</div>
+</nav>

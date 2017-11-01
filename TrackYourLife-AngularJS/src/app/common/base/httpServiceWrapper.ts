@@ -11,13 +11,15 @@ import {Router} from '@angular/router';
 import {SysConfig} from "../../../environments/sysConfig";
 import {AuthService} from "../services/authService";
 import {AuthDataHolder} from "../../models/authDataHolder";
+import {StorageService} from "../services/storageService";
 
 // Do not forget to register new @Injectable() in module 'Providers' section
 @Injectable()
 export class HttpServiceWrapper {
   constructor(private http: Http,
               private config: SysConfig,
-              private router: Router) {
+              private router: Router,
+              private storageService: StorageService) {
   }
 
   static createOptions(): RequestOptions {
@@ -33,6 +35,9 @@ export class HttpServiceWrapper {
    */
   post(url: string, body: any): Promise<Response> {
     return this.appendHeaders(url).then(requestOptions => {
+      // requestOptions.headers.delete('Content-Type');
+      // requestOptions.headers.append('Content-Type', 'application/x-www-form-urlencoded');
+      // requestOptions.headers.append('Authorization', 'Basic mvc:secreted');
       const requestBody = JSON.stringify(body);
       const result = this.http.post(this.config.fullUrl + '/' + url, requestBody, requestOptions).toPromise();
 
@@ -84,8 +89,9 @@ export class HttpServiceWrapper {
   protected appendHeaders(url: string): Promise<RequestOptions> {
     const requestOptions = HttpServiceWrapper.createOptions();
 
-    if (AuthDataHolder.isAuthenticated) {
-      requestOptions.headers.append('Authorization', 'Bearer ' + AuthDataHolder.accessToken);
+    const accessToken = this.storageService.get('accessToken');
+    if (accessToken) {
+      requestOptions.headers.append('Authorization', 'Bearer ' + accessToken);
     }
 
     return Promise.resolve(requestOptions);
@@ -94,6 +100,8 @@ export class HttpServiceWrapper {
   interceptAuthError(promise: Promise<Response>): Promise<Response> {
     return promise.catch(err => {
       if (err.status === 401) {
+        alert('Not authorized');
+        this.router.navigate(["/login"]);
         console.error(err);
         return;
       } else {
