@@ -6,6 +6,7 @@ export let AppEnums = {
     home: 'home',
     clinics: 'clinics',
     manage: 'manage',
+    createDonorRequest: 'createDonorRequest'
   },
 
   navigationParams: {

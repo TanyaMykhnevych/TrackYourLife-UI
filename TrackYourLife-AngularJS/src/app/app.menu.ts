@@ -31,6 +31,19 @@ export const MENU = [
             }
           }
         ]
+      },
+      {
+        path: r.createDonorRequest,
+        data: {
+          menu: {
+            title: 'Donor Request',
+            icon: null,
+            selected: true,
+            expanded: false,
+            order: 0,
+            roles: []
+          }
+        }
       }
     ]
   }
