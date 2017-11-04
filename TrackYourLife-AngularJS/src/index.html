@@ -7,167 +7,24 @@
 
   <title>Track Your Life</title>
 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+        integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+
   <meta name="description" content="TYL">
 
   <base href="/">
-
-  <!-- Preloader Style are here because we need in it before our App styles will be loaded -->
-  <style>
-    html, body {
-      min-height: 100%;
-      height: 100%;
-    }
-
-    body {
-      height: auto;
-      position: relative;
-      margin: 0;
-      padding: 0;
-      background: #3498db;
-    }
-
-    .cs-loader {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      background: #fff;
-      z-index: 9999;
-    }
-
-    .cs-loader.operation-loader {
-      background: rgba(255, 254, 254, 0.77);
-    }
-
-    .cs-loader.operation-loader .cs-loader-inner {
-      padding-left: 210px;
-    }
-
-    .cs-loader-inner {
-      transform: translateY(-50%);
-      top: 50%;
-      position: absolute;
-      width: 100%;
-      text-align: center;
-      color: #296baf;
-    }
-
-    .cs-loader-inner label {
-      font-size: 32px;
-      opacity: 0;
-      display: inline-block;
-    }
-
-    .disableLayer {
-      visibility: hidden;
-      pointer-events: none;
-    }
-
-    @
-    @keyframes lol {
-      0% {
-        opacity: 0;
-        transform: translateX(-300px);
-      }
-      33% {
-        opacity: 1;
-        transform: translateX(0px);
-      }
-      66% {
-        opacity: 1;
-        transform: translateX(0px);
-      }
-      100% {
-        opacity: 0;
-        transform: translateX(300px);
-      }
-    }
-
-    @
-    @-webkit-keyframes lol {
-      0% {
-        opacity: 0;
-        -webkit-transform: translateX(-300px);
-      }
-      33% {
-        opacity: 1;
-        -webkit-transform: translateX(0px);
-      }
-      66% {
-        opacity: 1;
-        -webkit-transform: translateX(0px);
-      }
-      100% {
-        opacity: 0;
-        -webkit-transform: translateX(300px);
-      }
-    }
-
-    .cs-loader-inner label:nth-child(6) {
-      -webkit-animation: lol 3s infinite ease-in-out;
-      animation: lol 3s infinite ease-in-out;
-    }
-
-    .cs-loader-inner label:nth-child(5) {
-      -webkit-animation: lol 3s 100ms infinite ease-in-out;
-      animation: lol 3s 100ms infinite ease-in-out;
-    }
-
-    .cs-loader-inner label:nth-child(4) {
-      -webkit-animation: lol 3s 200ms infinite ease-in-out;
-      animation: lol 3s 200ms infinite ease-in-out;
-    }
-
-    .cs-loader-inner label:nth-child(3) {
-      -webkit-animation: lol 3s 300ms infinite ease-in-out;
-      animation: lol 3s 300ms infinite ease-in-out;
-    }
-
-    .cs-loader-inner label:nth-child(2) {
-      -webkit-animation: lol 3s 400ms infinite ease-in-out;
-      animation: lol 3s 400ms infinite ease-in-out;
-    }
-
-    .cs-loader-inner label:nth-child(1) {
-      -webkit-animation: lol 3s 500ms infinite ease-in-out;
-      animation: lol 3s 500ms infinite ease-in-out;
-    }
-  </style>
-
 </head>
 
 <body>
 
 <app-root></app-root>
 
-<div id="preloader" class="cs-loader">
+<div id="preloader">
   <div class="cs-loader-inner">
-    <label> ●</label>
-    <label> ●</label>
-    <label> ●</label>
-    <label> ●</label>
-    <label> ●</label>
-    <label> ●</label>
   </div>
 </div>
-
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
-      integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-
-
-<link
-  href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900&subset=latin,greek,greek-ext,vietnamese,cyrillic-ext,latin-ext,cyrillic'
-  rel='stylesheet' type='text/css'>
-
-<link
-  href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css'
-  rel='stylesheet' type='text/css'>
-
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 </body>
 </html>

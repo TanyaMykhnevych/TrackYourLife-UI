@@ -25,12 +25,12 @@ export class SidebarComponent implements OnInit, OnDestroy {
   constructor(private userService: UserService) {
   }
 
-  public filterRoute(routes, claims: Array<number>) {
+  public filterRoute(routes, userRole: string) {
     const filteredRoutes = [];
 
     routes.forEach((item) => {
       if (item.children && item.children.length > 0) {
-        const subFiltered = this.filterRoute(item.children, claims);
+        const subFiltered = this.filterRoute(item.children, userRole);
 
         if (subFiltered.length > 0) {
           filteredRoutes.push({
@@ -40,13 +40,13 @@ export class SidebarComponent implements OnInit, OnDestroy {
           });
         }
       } else {
-        if (item.data.menu.claims && item.data.menu.claims.length > 0) {
-          const hasClaim = claims.filter(function (claim) {
-            return item.data.menu.claims.indexOf(claim) > -1;
-          })[0] !== undefined;
+        let allowed = true;
+        if (item.data.menu.roles && item.data.menu.roles.length > 0) {
+          allowed = item.data.menu.roles.indexOf(userRole) > -1;
         }
-
-        filteredRoutes.push(item);
+        if (allowed) {
+          filteredRoutes.push(item);
+        }
       }
     });
 
@@ -63,10 +63,10 @@ export class SidebarComponent implements OnInit, OnDestroy {
 
   private updateMenuItems(userInfo: IUserInfo) {
     const unfilteredRoutes = $.extend(true, [], MENU);
-    const userClaims = userInfo ? userInfo.claims : [];
+    const userRole = userInfo ? userInfo.roleName : '';
 
     this.routes = unfilteredRoutes;
-    const filtered = this.filterRoute(unfilteredRoutes, userClaims);
+    const filtered = this.filterRoute(unfilteredRoutes, userRole);
 
     this.menu.setMenu(filtered);
   }

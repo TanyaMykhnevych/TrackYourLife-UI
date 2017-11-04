@@ -1,0 +1,42 @@
+<div id="clinics-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2>Clinics</h2>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <h3>Clinics List</h3>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <td>Id</td>
+              <td>Name</td>
+              <td>Contact Phone</td>
+              <td>Country</td>
+              <td>City</td>
+              <td>Actions</td>
+            </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let clinic of clinics">
+            <td>{{clinic.id}}</td>
+            <td>{{clinic.name}}</td>
+            <td>{{clinic.contactPhone}}</td>
+            <td>{{clinic.country}}</td>
+            <td>{{clinic.city}}</td>
+            <td>
+              <button class="btn btn-warning" (click)="showEditClinicModal(clinic.id)">Edit</button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<app-edit-clinic-modal #editClinicModal></app-edit-clinic-modal>

@@ -58,8 +58,8 @@ import 'core-js/es7/reflect';
  * Zone JS is required by Angular itself.
  */
 import 'zone.js';
+import 'zone.js/dist/zone';  // Included with Angular CLI.
 import 'reflect-metadata';
-
 
 
 /***************************************************************************************************

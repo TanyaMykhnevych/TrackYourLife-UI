@@ -12,7 +12,7 @@ span.k {
 }
 
 /* Overrides */
-main, .al-main, .al-content {
+.app-container {
   height: 100%;
 }
 
@@ -51,10 +51,6 @@ button.btn.btn-default {
 }
 
 /* End Overrides */
-
-.cs-loader {
-  background: #fff;
-}
 
 .form-control-static {
   padding-top: 9px;
@@ -148,18 +144,6 @@ p.error {
     }
   }
 
-}
-
-.al-main {
-  margin-left: $sidebar-width;
-
-  @media print {
-    margin-left: 0 !important;
-  }
-}
-
-.al-content {
-  padding: 0;
 }
 
 .btn {

@@ -1,55 +1,42 @@
-import {ModalDirective} from "ng2-bootstrap";
-import * as $ from 'jquery';
 import {OnInit, ViewChild} from '@angular/core';
+import {NgbModal, NgbModalRef} from "@ng-bootstrap/ng-bootstrap";
+
+export enum ModalCloseStates {
+  Success,
+  Cancel
+}
 
 export class BaseModalComponent<T> implements OnInit {
-  @ViewChild('modal') public modal: ModalDirective;
+  @ViewChild('modalContent') modalContent: any;
 
-  resolveFunc: any;
-  rejectFunc: any;
+  protected currentModalRef: NgbModalRef;
+
   entity: T;
-  public modalDialogClass: string;
 
-  constructor() {
+  constructor(protected modalService: NgbModal) {
     this.entity = {} as T;
   }
 
-  ngOnInit() {
-    this.modal.config = {
-      backdrop: true,
-      ignoreBackdropClick: true
-    };
+  public showModalWithEntity(entity: T): Promise<any> {
+    this.entity = Object.assign({}, entity)
+
+    return this.showModal();
   }
 
-  getModalClass() {
-    return this.modalDialogClass;
+  public showModal(): Promise<any> {
+    this.currentModalRef = this.modalService.open(this.modalContent);
+    return this.currentModalRef.result;
   }
 
-  public showModal(entity: T): Promise<any> {
-    this.entity = $.extend(true, {}, entity);
-    this.modal.show();
-
-    return new Promise(function (resolve, reject) {
-      this.resolveFunc = resolve;
-      this.rejectFunc = reject;
-    }.bind(this));
+  public successClose() {
+    this.currentModalRef.close(ModalCloseStates.Success);
   }
 
-  public close() {
-    this.modal.hide();
-    this.resolveFunc({});
+  public cancelClose() {
+    this.currentModalRef.close(ModalCloseStates.Cancel);
   }
 
-  public cancel() {
-    this.modal.hide();
-    this.rejectFunc({});
-  }
-
-  public onModalHide($event) {
+  public ngOnInit(): void {
     this.entity = {} as T;
   }
-
-  public onModalHidden($event) {
-  }
-
 }

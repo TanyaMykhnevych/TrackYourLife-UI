@@ -35,9 +35,6 @@ export class HttpServiceWrapper {
    */
   post(url: string, body: any): Promise<Response> {
     return this.appendHeaders(url).then(requestOptions => {
-      // requestOptions.headers.delete('Content-Type');
-      // requestOptions.headers.append('Content-Type', 'application/x-www-form-urlencoded');
-      // requestOptions.headers.append('Authorization', 'Basic mvc:secreted');
       const requestBody = JSON.stringify(body);
       const result = this.http.post(this.config.fullUrl + '/' + url, requestBody, requestOptions).toPromise();
 
@@ -68,7 +65,7 @@ export class HttpServiceWrapper {
       const result = this.http.get(this.config.fullUrl + '/' + url, requestOptions).toPromise();
 
       return this.interceptAuthError(result).then((res) => {
-        return res.json();
+        return res.json ? res.json() : res;
       });
     });
   }

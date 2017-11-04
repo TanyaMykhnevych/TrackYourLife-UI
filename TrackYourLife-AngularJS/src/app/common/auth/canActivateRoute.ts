@@ -11,7 +11,7 @@ import {UserService} from "../services/userService";
 export class CanActivateRoute implements CanActivate {
   constructor(protected userService: UserService,
               protected router: Router,
-              protected claims: Array<number>) {
+              protected role: string) {
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {

@@ -26,15 +26,15 @@ export class ResourceBase {
     return this.http.get(url).catch(this.handleError.bind(this));
   }
 
-  public save(enity: any, options?: any): Promise<any> {
+  public save(entity: any, options?: any): Promise<any> {
     let obs;
     const params = (options && options.params) ? options.params : {};
-    if (enity.id) {
+    if (entity.id) {
       const url = this.buildUrl(this.urlOptions['put'], params);
-      obs = this.http.put(url, enity);
+      obs = this.http.put(url, entity);
     } else {
       const url = this.buildUrl(this.urlOptions['post'], params);
-      obs = this.http.post(url, enity);
+      obs = this.http.post(url, entity);
     }
 
     return obs.catch(this.handleError.bind(this));

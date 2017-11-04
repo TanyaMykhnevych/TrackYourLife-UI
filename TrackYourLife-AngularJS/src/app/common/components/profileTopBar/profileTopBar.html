@@ -1,19 +1,17 @@
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container">
+    <div class="shifted-right">
+      <div ngbDropdown class="d-inline-block" *ngIf="isAuthenticated">
+        <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{user.username}}</button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <button class="dropdown-item">Profile</button>
+          <button class="dropdown-item" (click)="logout()">Logout</button>
+        </div>
+      </div>
 
-    <ul class="nav navbar-nav navbar-right" *ngIf="isAuthenticated">
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-           aria-expanded="false">{{user.username}}<span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="#">Profile</a></li>
-          <li><a (click)="logout()">Logout</a></li>
-        </ul>
-      </li>
-    </ul>
-
-    <ul class="nav navbar-nav navbar-right" *ngIf="!isAuthenticated">
-      <li><a [routerLink]="['/', routes.login]">Login</a></li>
-    </ul>
+      <div *ngIf="!isAuthenticated">
+        <button class="btn btn-info" [routerLink]="['/', routes.login]">Login</button>
+      </div>
+    </div>
   </div>
 </nav>

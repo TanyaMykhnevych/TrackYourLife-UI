@@ -1,6 +1,6 @@
 import {AfterViewInit, Component, OnInit, ViewContainerRef} from '@angular/core';
 import {NavigationEnd, NavigationError, NavigationStart, Router} from '@angular/router';
-import * as $ from "jquery";
+import {PreloaderService} from "./common/services/preloaderService";
 
 @Component({
   selector: 'app-root',
@@ -10,7 +10,8 @@ import * as $ from "jquery";
 export class AppComponent implements AfterViewInit {
 
   constructor(private _router: Router,
-              private viewContainerRef: ViewContainerRef) {
+              private viewContainerRef: ViewContainerRef,
+              private preloaderService: PreloaderService) {
 
     this._router.events.subscribe(eventData => {
       this.onRouteChange(eventData);
@@ -20,7 +21,7 @@ export class AppComponent implements AfterViewInit {
   private onRouteChange(eventData: any) {
     if (eventData instanceof NavigationStart) {
       console.log('NavigationStart');
-      $('#preloader').addClass('operation-loader').show();
+      this.preloaderService.showGlobalPreloader();
     }
 
     if (eventData instanceof NavigationError) {
@@ -29,7 +30,7 @@ export class AppComponent implements AfterViewInit {
     }
 
     if (eventData instanceof NavigationEnd) {
-      $('#preloader').hide();
+      this.preloaderService.hideGlobalPreloader();
     }
   }
 

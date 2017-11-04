@@ -3,7 +3,9 @@ export let AppEnums = {
   routes: {
     pages: 'pages',
     login: 'login',
-    home: 'home'
+    home: 'home',
+    clinics: 'clinics',
+    manage: 'manage',
   },
 
   navigationParams: {
@@ -21,7 +23,12 @@ export let AppEnums = {
     localStorage: 'localStorage'
   },
 
-  roles: {},
+  roles: {
+    admin: 'Administrator',
+    donor: 'Donor',
+    patient: 'Patient',
+    medicalEmployee: 'MedicalEmployee'
+  },
 
   claims: {
     viewDonorRequestList: 100,
