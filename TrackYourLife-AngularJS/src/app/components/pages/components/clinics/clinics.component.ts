@@ -8,6 +8,7 @@ import {PreloaderService} from "../../../../common/services/preloaderService";
 import {ModalCloseStates} from "../../../../common/base/baseModal.component";
 import {NotificationService} from "../../../../common/services/notificationService";
 import {Lang} from "../../../../common/langs/langs";
+import {AddClinicModalComponent} from "./components/editClinicModal/add-clinic-modal.component";
 
 @Component({
   selector: 'app-clinics-page',
@@ -16,6 +17,7 @@ import {Lang} from "../../../../common/langs/langs";
 })
 export class ClinicsPageComponent implements OnInit {
   @ViewChild('editClinicModal') public editClinicModal: EditClinicModalComponent;
+  @ViewChild('addClinicModal') public addClinicModal: AddClinicModalComponent;
 
   public clinics: Array<IClinicListItem>;
 
@@ -39,7 +41,15 @@ export class ClinicsPageComponent implements OnInit {
       });
   }
 
-  // public editClinic(clinicId: number): Promise<any> {
+  public showAddClinicModal() {
+    return this.addClinicModal.show().then(closeStatus => {
+      if (closeStatus === ModalCloseStates.Success) {
+        this.notificationService.showSuccess(Lang.ADD_CLINIC_SUCCESS);
+        this.getAllClinics();
+      }
+    });
+  }
+
   public showEditClinicModal(clinicId: number) {
     return this.editClinicModal.show(clinicId).then(closeStatus => {
       if (closeStatus === ModalCloseStates.Success) {

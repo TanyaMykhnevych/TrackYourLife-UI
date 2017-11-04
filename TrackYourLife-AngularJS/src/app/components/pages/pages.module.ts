@@ -9,13 +9,17 @@ import {ClinicsPageComponent} from "./components/clinics/clinics.component";
 import {ClinicsResource} from "./components/clinics/clinics.resource";
 import {EditClinicModalComponent} from "./components/clinics/components/editClinicModal/edit-clinic-modal.component";
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {AddClinicModalComponent} from "./components/clinics/components/editClinicModal/add-clinic-modal.component";
 
 @NgModule({
   declarations: [
     PagesComponent,
 
     ClinicsPageComponent,
-    EditClinicModalComponent
+    EditClinicModalComponent,
+    AddClinicModalComponent
+
+
   ],
   imports: [
     CommonModule,

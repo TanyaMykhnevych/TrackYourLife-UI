@@ -7,30 +7,23 @@ import {IContentResponseWrapper} from "../../../../../../models/interfaces/apiRe
 import {NgForm} from "@angular/forms";
 
 @Component({
-  selector: 'app-edit-clinic-modal',
+  selector: 'app-add-clinic-modal',
   templateUrl: './edit-clinic-modal.html',
   styleUrls: ['./edit-clinic-modal.scss']
 })
 
-export class EditClinicModalComponent extends BaseModalComponent<IClinic> {
-  public headerText = 'Edit clinic';
+export class AddClinicModalComponent extends BaseModalComponent<IClinic> {
+  public headerText = 'Add new clinic';
   $submitted = false;
 
   constructor(modalService: NgbModal, private clinicsResource: ClinicsResource) {
     super(modalService);
   }
 
-  private loadClinicData(clinicId: number): Promise<IClinic> {
-    return this.clinicsResource.getClinicById(clinicId)
-      .then((result: IContentResponseWrapper<IClinic>) => {
-        this.entity = result.content;
-        return this.entity;
-      });
-  }
-
-  public show(clinicId: number) {
+  public show() {
     this.$submitted = false;
-    return this.loadClinicData(clinicId).then(() => this.showModalWithEntity(this.entity));
+
+    return this.showModal();
   }
 
   public setSubmitted(x: boolean): boolean {
