@@ -15,6 +15,6 @@ export class AuthResource extends ResourceBase {
 
   acquireToken(data): Promise<any> {
     const url = this.buildUrl(this.urlOptions['acquireToken'], {});
-    return this.http.post(url, data);
+    return this.http.post(url, data, {noIntercept: true});
   }
 }

@@ -32,13 +32,19 @@ export class HttpServiceWrapper {
   /**
    * Performs a request with `post` http method.
    */
-  post(url: string, body: any): Promise<Response> {
+  post(url: string, body: any, params?: any): Promise<Response> {
     return this.appendHeaders(url).then(requestOptions => {
       const requestBody = JSON.stringify(body);
-      const result = this.http.post(this.config.fullUrl + '/' + url, requestBody, requestOptions).toPromise();
+      const resultPromise = this.http.post(this.config.fullUrl + '/' + url, requestBody, requestOptions).toPromise();
 
-      return this.interceptAuthError(result).then(res => {
-        return res.text() ? res.json() : {};
+      if (params && params.noIntercept) {
+        return resultPromise.then((res) => {
+          return res.text && res.text() ? res.json() : {};
+        });
+      }
+
+      return this.interceptAuthError(resultPromise).then(res => {
+        return res.text && res.text() ? res.json() : {};
       });
     });
 
@@ -53,7 +59,7 @@ export class HttpServiceWrapper {
       const result = this.http.put(this.config.fullUrl + '/' + url, requestBody, requestOptions).toPromise();
 
       return this.interceptAuthError(result).then(res => {
-        return res.text() ? res.json() : {};
+        return res.text && res.text() ? res.json() : {};
       });
     });
   }
@@ -64,7 +70,7 @@ export class HttpServiceWrapper {
       const result = this.http.get(this.config.fullUrl + '/' + url, requestOptions).toPromise();
 
       return this.interceptAuthError(result).then((res) => {
-        return res.json ? res.json() : res;
+        return res.text && res.text() ? res.json() : res;
       });
     });
   }
