@@ -1,6 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {IContentResponseWrapper} from "../../../../models/interfaces/apiRespone/responseWrapper";
-import {BsModal} from "@mm2/bsmodal";
 import {PreloaderService} from "../../../../common/services/preloaderService";
 import {ModalCloseStates} from "../../../../common/base/baseModal.component";
 import {NotificationService} from "../../../../common/services/notificationService";

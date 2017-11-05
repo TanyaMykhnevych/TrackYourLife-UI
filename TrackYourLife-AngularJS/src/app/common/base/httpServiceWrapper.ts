@@ -10,7 +10,6 @@ import 'rxjs/add/operator/catch';
 import {Router} from '@angular/router';
 import {SysConfig} from "../../../environments/sysConfig";
 import {AuthService} from "../services/authService";
-import {AuthDataHolder} from "../../models/authDataHolder";
 import {StorageService} from "../services/storageService";
 
 // Do not forget to register new @Injectable() in module 'Providers' section

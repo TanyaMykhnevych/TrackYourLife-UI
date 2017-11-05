@@ -3,7 +3,6 @@ import {IClinicList, IClinicListItem} from "./clinic.models";
 import {ClinicsResource} from "./clinics.resource";
 import {IContentResponseWrapper} from "../../../../models/interfaces/apiRespone/responseWrapper";
 import {EditClinicModalComponent} from "./components/editClinicModal/edit-clinic-modal.component";
-import {BsModal} from "@mm2/bsmodal";
 import {PreloaderService} from "../../../../common/services/preloaderService";
 import {ModalCloseStates} from "../../../../common/base/baseModal.component";
 import {NotificationService} from "../../../../common/services/notificationService";

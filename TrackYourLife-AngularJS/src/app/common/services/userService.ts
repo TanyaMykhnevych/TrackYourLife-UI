@@ -1,15 +1,9 @@
 import {Injectable} from '@angular/core';
-import {EventEmitter} from "@angular/core"
+import {EventEmitter} from "@angular/core";
 import 'rxjs/add/operator/toPromise';
-import {Http, RequestOptions, Headers} from "@angular/http";
-import {AppEnums} from "../../app.constants";
-import {SysConfig} from "../../../environments/sysConfig";
 import {IUserInfo} from "../../models/interfaces/IUserInfo";
 import {StorageService} from "./storageService";
-import {AuthService} from "./authService";
 import {AccountResource} from "../resources/account.resource";
-import {AuthDataHolder} from "../../models/authDataHolder";
-import {Router} from "@angular/router";
 import {IContentResponseWrapper} from "../../models/interfaces/apiRespone/responseWrapper";
 
 // Do not forget to register new @Injectable() in module 'Providers' section

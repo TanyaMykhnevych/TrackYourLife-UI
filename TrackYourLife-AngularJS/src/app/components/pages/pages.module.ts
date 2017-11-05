@@ -12,6 +12,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {AddClinicModalComponent} from "./components/clinics/components/editClinicModal/add-clinic-modal.component";
 import {DonorRequestPageComponent} from "./components/donorRequest/donorRequest.component";
 import {DonorRequestResource} from "./components/donorRequest/donorRequest.resource";
+import {PatientRequestsPageComponent} from "./components/patientRequests/patientRequests.component";
+import {PatientRequestsResource} from "./components/patientRequests/patientRequests.resource";
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import {DonorRequestResource} from "./components/donorRequest/donorRequest.resou
     EditClinicModalComponent,
     AddClinicModalComponent,
 
-    DonorRequestPageComponent
+    DonorRequestPageComponent,
+
+    PatientRequestsPageComponent
   ],
   imports: [
     CommonModule,
@@ -34,7 +38,8 @@ import {DonorRequestResource} from "./components/donorRequest/donorRequest.resou
   ],
   providers: [
     ClinicsResource,
-    DonorRequestResource
+    DonorRequestResource,
+    PatientRequestsResource
   ]
 })
 export class PagesModule {

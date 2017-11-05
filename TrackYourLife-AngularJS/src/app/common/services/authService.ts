@@ -1,6 +1,5 @@
 import {EventEmitter, Injectable} from '@angular/core';
 import {AuthResource} from "../resources/auth.resource";
-import {AuthDataHolder} from "../../models/authDataHolder";
 import {Route, Router} from "@angular/router";
 import {AppEnums} from "../../app.constants";
 import {UserService} from "./userService";
