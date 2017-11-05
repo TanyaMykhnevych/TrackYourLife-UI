@@ -45,9 +45,11 @@
         </p>
         </div>
       </div>
-      <div class="draggable Image" id="elm_19"><img id="elm_19_image" style="width:100%;height:100%;"
-                                                    src="http://m1cdn.pagewiz.net/Media/2017-10-29-21-19-33-436uyqfcrzmdrgvnzqgojknxxuwc_UserMedia.png"
-                                                    title="" alt=""/></div>
+      <div class="draggable Image clickable" id="elm_19">
+        <img class="clickable" id="elm_19_image" style="width:100%;height:100%;"
+             src="http://m1cdn.pagewiz.net/Media/2017-10-29-21-19-33-436uyqfcrzmdrgvnzqgojknxxuwc_UserMedia.png"
+             title="" alt=""/>
+      </div>
       <div class="draggable Image" id="elm_21"><img id="elm_21_image" style="width:100%;height:100%;"
                                                     src="http://m1cdn.pagewiz.net/Media/2017-10-29-21-22-34-061aulnqdxacygzgjsqgjbhzzeqg_UserMedia.png"
                                                     title="" alt=""/></div>
@@ -100,9 +102,9 @@
       <div class="draggable Image" id="elm_44"><img id="elm_44_image" style="width:100%;height:100%;"
                                                     src="http://m1cdn.pagewiz.net/Media/2017-10-29-21-49-41-421markcmdifkfqfnhkxdnlgrgrl_UserMedia.png"
                                                     title="" alt=""/></div>
-      <div class="draggable section1 Headline" id="elm_45"><h2 id="elm_45_headline">Donor</h2></div>
+      <div (click)="goToCreateDonorRequestPage()" class="clickable draggable section1 Headline" id="elm_45"><h2 id="elm_45_headline">Donor</h2></div>
       <div class="draggable section1 Headline" id="elm_46"><h2 id="elm_46_headline">Recipient</h2></div>
-      <div class="draggable Text" id="elm_47">
+      <div (click)="goToCreateDonorRequestPage()" class="clickable draggable Text" id="elm_47">
         <div id="elm_47_text"><p><span
           style="font-size:18px">Become a donor and save lifes! Make world more happy and kind.</span></p>
         </div>

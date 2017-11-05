@@ -1,6 +1,11 @@
 #home-page {
   padding-top: 60px;
   #home-page-inner {
+
+    .clickable:hover {
+      cursor: pointer;
+    }
+
     #ElementsArea {
       position: absolute;
       left: 50%;
@@ -199,6 +204,10 @@
       background-color: transparent;
       top: 732px;
       left: 56px;
+    }
+
+    #elm_43_image:hover {
+      cursor: pointer;
     }
 
     #elm_21 {

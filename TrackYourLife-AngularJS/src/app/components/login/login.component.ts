@@ -18,6 +18,8 @@ export class LoginComponent {
   public loginErrorMessage: string;
   public $submitted = false;
 
+  public routes = AppEnums.routes;
+
   public entity = {
     rememberMe: false,
     username: '',

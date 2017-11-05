@@ -1,6 +1,10 @@
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container">
     <div class="shifted-right">
+      <div class="d-inline-block">
+        <button class="btn btn-info" [routerLink]="['/', routes.pages, routes.createDonorRequest]">Submit Donor Request</button>
+      </div>
+
       <div ngbDropdown class="d-inline-block" *ngIf="isAuthenticated">
         <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{user.username}}</button>
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
@@ -9,7 +13,7 @@
         </div>
       </div>
 
-      <div *ngIf="!isAuthenticated">
+      <div *ngIf="!isAuthenticated" class="d-inline-block">
         <button class="btn btn-info" [routerLink]="['/', routes.login]">Login</button>
       </div>
     </div>
