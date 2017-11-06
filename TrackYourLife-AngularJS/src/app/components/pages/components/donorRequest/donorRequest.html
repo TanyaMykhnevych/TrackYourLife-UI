@@ -1,3 +1,17 @@
 <div id="donor-request-page">
- CREATE DONOR REQUEST HERE
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Do you want to became a donor? You came to the right place.</h2>
+      <h3>Just follow a couple of steps. First you need to fill the form below and our medical consultant will contact
+        you.</h3>
+      <h3>Good luck, you are doing the really right thing.</h3>
+
+      <div class="form-container container">
+        <app-create-donor-request-form #createDonorForm
+                                       [organInfos]="organInfos"
+                                       (formSubmitted)="submitDonorRequestForm(event)">
+        </app-create-donor-request-form>
+      </div>
+    </div>
+  </div>
 </div>

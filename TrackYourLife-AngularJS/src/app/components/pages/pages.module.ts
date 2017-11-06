@@ -14,6 +14,7 @@ import {DonorRequestPageComponent} from "./components/donorRequest/donorRequest.
 import {DonorRequestResource} from "./components/donorRequest/donorRequest.resource";
 import {PatientRequestsPageComponent} from "./components/patientRequests/patientRequests.component";
 import {PatientRequestsResource} from "./components/patientRequests/patientRequests.resource";
+import {CreateDonorRequestFormComponent} from "./components/donorRequest/components/createDonorRequestForm/createDonorRequestForm.component";
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import {PatientRequestsResource} from "./components/patientRequests/patientReque
     AddClinicModalComponent,
 
     DonorRequestPageComponent,
+    CreateDonorRequestFormComponent,
 
     PatientRequestsPageComponent
   ],
