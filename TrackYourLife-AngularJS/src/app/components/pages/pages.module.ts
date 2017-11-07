@@ -10,13 +10,19 @@ import {ClinicsResource} from "./components/clinics/clinics.resource";
 import {EditClinicModalComponent} from "./components/clinics/components/editClinicModal/edit-clinic-modal.component";
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {AddClinicModalComponent} from "./components/clinics/components/editClinicModal/add-clinic-modal.component";
-import {DonorRequestPageComponent} from "./components/donorRequest/donorRequest.component";
 import {DonorRequestResource} from "./components/donorRequest/donorRequest.resource";
 import {PatientRequestsPageComponent} from "./components/patientRequests/patientRequests.component";
 import {PatientRequestsResource} from "./components/patientRequests/patientRequests.resource";
-import {CreateDonorRequestFormComponent} from "./components/donorRequest/components/createDonorRequestForm/createDonorRequestForm.component";
 import {OrganInfosResource} from "./organInfos.resource";
-import {RequestSentPageComponent} from "./components/donorRequest/components/requestSent/requestSent.component";
+import {CreateDonorRequestPageComponent} from "./components/donorRequest/components/createDonorRequest/createDonorRequest.component";
+import {
+  CreateDonorRequestFormComponent
+} from "./components/donorRequest/components/createDonorRequest/components/createDonorRequestForm/createDonorRequestForm.component";
+import {
+  RequestSentPageComponent
+} from "./components/donorRequest/components/createDonorRequest/components/requestSent/requestSent.component";
+import {ManageDonorRequestsPageComponent} from "./components/donorRequest/components/manageDonorRequests/manageDonorRequests.component";
+import {MyDonorRequestsPageComponent} from "./components/donorRequest/components/myDonorRequests/myDonorRequests.component";
 
 @NgModule({
   declarations: [
@@ -26,9 +32,11 @@ import {RequestSentPageComponent} from "./components/donorRequest/components/req
     EditClinicModalComponent,
     AddClinicModalComponent,
 
-    DonorRequestPageComponent,
+    CreateDonorRequestPageComponent,
     CreateDonorRequestFormComponent,
     RequestSentPageComponent,
+    ManageDonorRequestsPageComponent,
+    MyDonorRequestsPageComponent,
 
     PatientRequestsPageComponent
   ],

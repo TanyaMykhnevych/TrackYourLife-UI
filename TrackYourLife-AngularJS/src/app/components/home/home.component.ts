@@ -15,7 +15,7 @@ export class HomeComponent {
 
 
   public goToCreateDonorRequestPage() {
-    this.router.navigate(['/', AppEnums.routes.pages, AppEnums.routes.createDonorRequest]);
+    this.router.navigate(['/', AppEnums.routes.pages, AppEnums.routes.donorRequest, AppEnums.routes.create]);
   }
 
 }

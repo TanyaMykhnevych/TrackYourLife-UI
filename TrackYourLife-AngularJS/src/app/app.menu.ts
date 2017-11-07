@@ -33,7 +33,7 @@ export const MENU = [
         ]
       },
       {
-        path: r.createDonorRequest,
+        path: r.donorRequest,
         data: {
           menu: {
             title: 'Donor Request',
@@ -43,7 +43,48 @@ export const MENU = [
             order: 0,
             roles: []
           }
-        }
+        },
+        children: [
+          {
+            path: r.create,
+            data: {
+              menu: {
+                title: 'Create',
+                icon: null,
+                selected: true,
+                expanded: false,
+                order: 0,
+                roles: []
+              }
+            },
+          },
+          {
+            path: r.myDonorRequests,
+            data: {
+              menu: {
+                title: 'My Donor Requests',
+                icon: null,
+                selected: true,
+                expanded: false,
+                order: 0,
+                roles: [AppEnums.roles.donor]
+              }
+            },
+          },
+          {
+            path: r.manageDonorRequests,
+            data: {
+              menu: {
+                title: 'Manage Donor Requests',
+                icon: null,
+                selected: true,
+                expanded: false,
+                order: 0,
+                roles: [AppEnums.roles.medicalEmployee]
+              }
+            },
+          },
+        ]
       }
     ]
   }

@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
-import {ICreateDonorRequestViewModel} from "../../donorRequest.models";
+import {ICreateDonorRequestViewModel} from "../../../../donorRequest.models";
 import {NgForm} from "@angular/forms";
-import {IOrganInfo} from "../../../../../../models/interfaces/IOrganInfo";
+import {IOrganInfo} from "../../../../../../../../models/interfaces/IOrganInfo";
 
 @Component({
   selector: 'app-create-donor-request-form',

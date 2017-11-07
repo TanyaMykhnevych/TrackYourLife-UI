@@ -6,7 +6,10 @@ export let AppEnums = {
     home: 'home',
     clinics: 'clinics',
     manage: 'manage',
-    createDonorRequest: 'createDonorRequest',
+    myDonorRequests: 'myDonorRequests',
+    manageDonorRequests: 'manageDonorRequests',
+    donorRequest: 'donorRequest',
+    create: 'create',
     requestSent: 'requestSent',
     patientRequests: 'patientRequests'
   },
