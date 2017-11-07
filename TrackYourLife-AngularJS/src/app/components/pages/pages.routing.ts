@@ -4,6 +4,7 @@ import {AppEnums} from "../../app.constants";
 import {ClinicsPageComponent} from "./components/clinics/clinics.component";
 import {DonorRequestPageComponent} from "./components/donorRequest/donorRequest.component";
 import {PatientRequestsPageComponent} from "./components/patientRequests/patientRequests.component";
+import {RequestSentPageComponent} from "./components/donorRequest/components/requestSent/requestSent.component";
 
 const r = AppEnums.routes;
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
       {path: r.manage + '/' + r.clinics, component: ClinicsPageComponent},
 
       {path: r.createDonorRequest, component: DonorRequestPageComponent },
+      {path: r.requestSent, component: RequestSentPageComponent },
 
       {path: r.patientRequests, component: PatientRequestsPageComponent }
     ]

@@ -1,5 +1,6 @@
 export interface ICreateDonorRequestViewModel {
  email: string;
+ password: string;
  firstName: string;
  secondName: string;
  birthDate: Date;

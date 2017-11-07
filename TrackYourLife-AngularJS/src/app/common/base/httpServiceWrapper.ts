@@ -101,10 +101,9 @@ export class HttpServiceWrapper {
 
   interceptAuthError(promise: Promise<Response>): Promise<Response> {
     return promise.catch(err => {
+      console.error(err);
       if (err.status === 401) {
-        alert('Not authorized');
         this.router.navigate(["/login"]);
-        console.error(err);
         return;
       } else {
         return Promise.reject(err);

@@ -15,6 +15,8 @@ import {DonorRequestResource} from "./components/donorRequest/donorRequest.resou
 import {PatientRequestsPageComponent} from "./components/patientRequests/patientRequests.component";
 import {PatientRequestsResource} from "./components/patientRequests/patientRequests.resource";
 import {CreateDonorRequestFormComponent} from "./components/donorRequest/components/createDonorRequestForm/createDonorRequestForm.component";
+import {OrganInfosResource} from "./organInfos.resource";
+import {RequestSentPageComponent} from "./components/donorRequest/components/requestSent/requestSent.component";
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import {CreateDonorRequestFormComponent} from "./components/donorRequest/compone
 
     DonorRequestPageComponent,
     CreateDonorRequestFormComponent,
+    RequestSentPageComponent,
 
     PatientRequestsPageComponent
   ],
@@ -41,7 +44,8 @@ import {CreateDonorRequestFormComponent} from "./components/donorRequest/compone
   providers: [
     ClinicsResource,
     DonorRequestResource,
-    PatientRequestsResource
+    PatientRequestsResource,
+    OrganInfosResource
   ]
 })
 export class PagesModule {
