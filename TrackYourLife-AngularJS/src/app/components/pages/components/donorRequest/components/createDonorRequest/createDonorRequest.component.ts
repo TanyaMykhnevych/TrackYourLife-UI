@@ -20,7 +20,7 @@ import {AppEnums} from "../../../../../../app.constants";
 export class CreateDonorRequestPageComponent implements OnInit {
   @ViewChild('createDonorForm') private createDonorForm: CreateDonorRequestFormComponent;
 
-  private organInfos: Array<IOrganInfo>;
+  public organInfos: Array<IOrganInfo>;
 
   constructor(private donorRequestResource: DonorRequestResource,
               private organInfoResource: OrganInfosResource,
@@ -63,7 +63,7 @@ export class CreateDonorRequestPageComponent implements OnInit {
       .then((response: IResponseWrapper) => {
         this.preloaderService.hideGlobalPreloader();
         if (response.isValid) {
-          this.router.navigate([AppEnums.routes.pages, AppEnums.routes.requestSent]);
+          this.router.navigate([AppEnums.routes.pages, AppEnums.routes.donorRequest, AppEnums.routes.requestSent]);
           this.notificationService.showSuccess(Lang.DONOR_REQUEST_SEND);
         } else {
           console.error(response.errorMessage);

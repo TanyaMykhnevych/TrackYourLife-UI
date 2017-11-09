@@ -23,6 +23,9 @@ import {
 } from "./components/donorRequest/components/createDonorRequest/components/requestSent/requestSent.component";
 import {ManageDonorRequestsPageComponent} from "./components/donorRequest/components/manageDonorRequests/manageDonorRequests.component";
 import {MyDonorRequestsPageComponent} from "./components/donorRequest/components/myDonorRequests/myDonorRequests.component";
+import {ManageOrganInfosPageComponent} from "./components/manageOrganInfos/manageOrganInfos.component";
+import {AddOrganInfoModalComponent} from "./components/manageOrganInfos/components/editClinicModal/add-organ-info-modal.component";
+import {EditOrganInfoModalComponent} from "./components/manageOrganInfos/components/editClinicModal/edit-organ-info-modal.component";
 
 @NgModule({
   declarations: [
@@ -31,6 +34,9 @@ import {MyDonorRequestsPageComponent} from "./components/donorRequest/components
     ClinicsPageComponent,
     EditClinicModalComponent,
     AddClinicModalComponent,
+    ManageOrganInfosPageComponent,
+    AddOrganInfoModalComponent,
+    EditOrganInfoModalComponent,
 
     CreateDonorRequestPageComponent,
     CreateDonorRequestFormComponent,

@@ -9,5 +9,8 @@ export let Lang = {
   "DONOR_REQUEST_SEND": "Donor request has been submitted successfully!",
 
   "ADD_CLINIC_SUCCESS": "New clinic has been added successfully!",
-  "EDIT_CLINIC_SUCCESS": "Clinic has been modified successfully!"
+  "EDIT_CLINIC_SUCCESS": "Clinic has been modified successfully!",
+
+  "ADD_ORGAN_INFO_SUCCESS": "New organ info has been added successfully!",
+  "EDIT_ORGAN_INFO_SUCCESS": "Organ info has been modified successfully!"
 };

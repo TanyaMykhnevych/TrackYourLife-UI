@@ -7,6 +7,7 @@ import {RequestSentPageComponent} from "./components/donorRequest/components/cre
 import {CreateDonorRequestPageComponent} from "./components/donorRequest/components/createDonorRequest/createDonorRequest.component";
 import {ManageDonorRequestsPageComponent} from "./components/donorRequest/components/manageDonorRequests/manageDonorRequests.component";
 import {MyDonorRequestsPageComponent} from "./components/donorRequest/components/myDonorRequests/myDonorRequests.component";
+import {ManageOrganInfosPageComponent} from "./components/manageOrganInfos/manageOrganInfos.component";
 
 const r = AppEnums.routes;
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
       {path: '', redirectTo: r.donorRequest + '/' + r.create, pathMatch: 'full'},
 
       {path: r.manage + '/' + r.clinics, component: ClinicsPageComponent},
+      {path: r.manage + '/' + r.manageOrganInfos, component: ManageOrganInfosPageComponent},
 
       {path: r.donorRequest + '/' + r.create, component: CreateDonorRequestPageComponent },
       {path: r.donorRequest + '/' + r.requestSent, component: RequestSentPageComponent },

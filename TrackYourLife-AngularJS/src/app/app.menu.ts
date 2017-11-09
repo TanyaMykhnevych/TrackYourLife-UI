@@ -29,6 +29,18 @@ export const MENU = [
                 roles: [AppEnums.roles.admin]
               }
             }
+          },
+          {
+            path: [r.manageOrganInfos],
+            data: {
+              menu: {
+                title: 'Organ Infos',
+                selected: true,
+                expanded: false,
+                order: 0,
+                roles: [AppEnums.roles.admin]
+              }
+            }
           }
         ]
       },

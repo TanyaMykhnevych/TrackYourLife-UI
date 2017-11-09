@@ -5,6 +5,7 @@ export let AppEnums = {
     login: 'login',
     home: 'home',
     clinics: 'clinics',
+    manageOrganInfos: 'manageOrganInfos',
     manage: 'manage',
     myDonorRequests: 'myDonorRequests',
     manageDonorRequests: 'manageDonorRequests',
