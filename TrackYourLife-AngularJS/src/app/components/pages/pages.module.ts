@@ -11,8 +11,8 @@ import {EditClinicModalComponent} from "./components/clinics/components/editClin
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {AddClinicModalComponent} from "./components/clinics/components/editClinicModal/add-clinic-modal.component";
 import {DonorRequestResource} from "./components/donorRequest/donorRequest.resource";
-import {PatientRequestsPageComponent} from "./components/patientRequests/patientRequests.component";
-import {PatientRequestsResource} from "./components/patientRequests/patientRequests.resource";
+import {CreatePatientRequestPageComponent} from "./components/patientRequest/components/createPatientRequest/createPatientRequest.component";
+import {PatientRequestResource} from "./components/patientRequest/patientRequest.resource";
 import {OrganInfosResource} from "./organInfos.resource";
 import {CreateDonorRequestPageComponent} from "./components/donorRequest/components/createDonorRequest/createDonorRequest.component";
 import {
@@ -26,6 +26,8 @@ import {MyDonorRequestsPageComponent} from "./components/donorRequest/components
 import {ManageOrganInfosPageComponent} from "./components/manageOrganInfos/manageOrganInfos.component";
 import {AddOrganInfoModalComponent} from "./components/manageOrganInfos/components/editClinicModal/add-organ-info-modal.component";
 import {EditOrganInfoModalComponent} from "./components/manageOrganInfos/components/editClinicModal/edit-organ-info-modal.component";
+import {CreatePatientRequestFormComponent} from "./components/patientRequest/components/createPatientRequest/components/createPatientRequestForm/createPatientRequestForm.component";
+import {PatientRequestSentPageComponent} from "./components/patientRequest/components/createPatientRequest/components/patientRequestSent/patientRequestSent.component";
 
 @NgModule({
   declarations: [
@@ -44,7 +46,9 @@ import {EditOrganInfoModalComponent} from "./components/manageOrganInfos/compone
     ManageDonorRequestsPageComponent,
     MyDonorRequestsPageComponent,
 
-    PatientRequestsPageComponent
+    CreatePatientRequestPageComponent,
+    CreatePatientRequestFormComponent,
+    PatientRequestSentPageComponent
   ],
   imports: [
     CommonModule,
@@ -58,7 +62,7 @@ import {EditOrganInfoModalComponent} from "./components/manageOrganInfos/compone
   providers: [
     ClinicsResource,
     DonorRequestResource,
-    PatientRequestsResource,
+    PatientRequestResource,
     OrganInfosResource
   ]
 })

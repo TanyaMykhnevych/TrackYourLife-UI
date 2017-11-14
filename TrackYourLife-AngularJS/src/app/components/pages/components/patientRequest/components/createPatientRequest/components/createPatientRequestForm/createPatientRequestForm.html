@@ -1,14 +1,12 @@
 <div id="create-donor-request-form">
-  <form #createDonorRequestForm="ngForm">
-
+  <form #createPatientRequestForm="ngForm">
     <div class="row">
       <div class="col-md-6">
-      <div class="form-group">
-        <label for="emailInput">Your Email</label>
-        <input type="email" class="form-control" id="emailInput" placeholder="Enter email"
-               name="emailInputName" #emailInput="ngModel" [(ngModel)]="data.email" required email autofocus>
-
-        <div class="form-control-feedback">
+        <div class="form-group">
+          <label for="emailInput">Your Email</label>
+          <input type="email" class="form-control" id="emailInput" placeholder="Enter email"
+                 name="emailInputName" #emailInput="ngModel" [(ngModel)]="data.email" required email autofocus>
+          <div class="form-control-feedback">
           <span class="text-danger align-middle" *ngIf="emailInput.errors && $submitted">
             <p [hidden]="!emailInput.errors.required" class="validation-error">
               <i class="fa fa-close"></i> This field is required
@@ -17,29 +15,10 @@
               <i class="fa fa-close"></i> This field should contain valid email address
             </p>
           </span>
-        </div>
-      </div>
-    </div>
-      <div class="col-md-6">
-        <div class="form-group">
-          <label for="passwordInput">Your Password</label>
-          <input type="password" class="form-control" id="passwordInput" placeholder="Enter your password"
-                 name="passwordInputName" #passwordInput="ngModel" [(ngModel)]="data.password" required minlength="6">
-
-          <div class="form-control-feedback">
-          <span class="text-danger align-middle" *ngIf="passwordInput.errors && $submitted">
-            <p [hidden]="!passwordInput.errors.required" class="validation-error">
-              <i class="fa fa-close"></i> This field is required
-            </p>
-            <p [hidden]="!passwordInput.errors.minlength" class="validation-error">
-              <i class="fa fa-close"></i> Password must be not less than 6 symbols
-            </p>
-          </span>
           </div>
         </div>
       </div>
     </div>
-
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">
@@ -72,7 +51,6 @@
         </div>
       </div>
     </div>
-
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">
@@ -88,7 +66,6 @@
           </span>
           </div>
         </div>
-
       </div>
       <div class="col-md-6">
         <div class="form-group">
@@ -104,11 +81,8 @@
           </span>
           </div>
         </div>
-
-
       </div>
     </div>
-
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">
@@ -134,7 +108,6 @@
         </div>
       </div>
     </div>
-
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">
@@ -159,7 +132,6 @@
         </div>
       </div>
     </div>
-
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">
@@ -194,7 +166,6 @@
         </div>
       </div>
     </div>
-
     <div class="row">
       <div class="col-md-12">
         <div class="form-group">
@@ -204,7 +175,14 @@
         </div>
       </div>
     </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label>Documents</label>
+          <input class="form-control" type="file"/>
+        </div>
+      </div>
+    </div>
   </form>
-
   <button class="btn btn-success" (click)="sumbitForm()">Submit form</button>
 </div>

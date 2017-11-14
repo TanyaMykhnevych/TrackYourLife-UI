@@ -66,7 +66,7 @@ export const MENU = [
                 selected: true,
                 expanded: false,
                 order: 0,
-                roles: []
+                roles: [AppEnums.roles.donor]
               }
             },
           },
@@ -96,6 +96,60 @@ export const MENU = [
               }
             },
           },
+        ]
+      },
+      {
+        path: r.patientRequest,
+        data: {
+          menu: {
+            title: 'Recipient Request',
+            icon: null,
+            selected: false,
+            expanded: false,
+            order: 0,
+            roles: []
+          }
+        },
+        children: [
+          {
+            path: r.create,
+            data: {
+              menu: {
+                title: 'Create',
+                icon: null,
+                selected: true,
+                expanded: false,
+                order: 0,
+                roles: [AppEnums.roles.medicalEmployee]
+              }
+            },
+          },
+          {
+            path: r.managePatientRequests,
+            data: {
+              menu: {
+                title: 'Manage Recipient Requests',
+                icon: null,
+                selected: true,
+                expanded: false,
+                order: 0,
+                roles: [AppEnums.roles.medicalEmployee]
+              }
+            },
+          },
+          {
+            path: r.myPatientRequests,
+            data: {
+              menu: {
+                title: 'My Recipient Requests',
+                icon: null,
+                selected: true,
+                expanded: false,
+                order: 0,
+                roles: [AppEnums.roles.patient]
+              }
+            },
+          }
         ]
       }
     ]

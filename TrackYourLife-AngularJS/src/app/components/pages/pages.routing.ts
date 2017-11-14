@@ -2,7 +2,7 @@ import {Routes, RouterModule} from '@angular/router';
 import {PagesComponent} from "./pages.component";
 import {AppEnums} from "../../app.constants";
 import {ClinicsPageComponent} from "./components/clinics/clinics.component";
-import {PatientRequestsPageComponent} from "./components/patientRequests/patientRequests.component";
+import {CreatePatientRequestPageComponent} from "./components/patientRequest/components/createPatientRequest/createPatientRequest.component";
 import {RequestSentPageComponent} from "./components/donorRequest/components/createDonorRequest/components/requestSent/requestSent.component";
 import {CreateDonorRequestPageComponent} from "./components/donorRequest/components/createDonorRequest/createDonorRequest.component";
 import {ManageDonorRequestsPageComponent} from "./components/donorRequest/components/manageDonorRequests/manageDonorRequests.component";
@@ -25,7 +25,7 @@ const routes: Routes = [
       {path: r.donorRequest + '/' + r.myDonorRequests, component: MyDonorRequestsPageComponent },
       {path: r.donorRequest + '/' + r.manageDonorRequests, component: ManageDonorRequestsPageComponent },
 
-      {path: r.patientRequests, component: PatientRequestsPageComponent }
+      {path: r.patientRequest + '/' + r.create, component: CreatePatientRequestPageComponent }
     ]
   }
 ];

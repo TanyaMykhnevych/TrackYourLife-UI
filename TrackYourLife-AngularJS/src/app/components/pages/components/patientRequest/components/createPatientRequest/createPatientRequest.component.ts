@@ -2,8 +2,8 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {IContentResponseWrapper, IResponseWrapper} from "../../../../../../models/interfaces/apiRespone/responseWrapper";
 import {PreloaderService} from "../../../../../../common/services/preloaderService";
 import {NotificationService} from "../../../../../../common/services/notificationService";
-import {DonorRequestResource} from "../../donorRequest.resource";
-import {CreateDonorRequestFormComponent} from "./components/createDonorRequestForm/createDonorRequestForm.component";
+import {PatientRequestResource} from "../../patientRequest.resource";
+import {CreatePatientRequestFormComponent} from "./components/createPatientRequestForm/createPatientRequestForm.component";
 import {IOrganInfo} from "../../../../../../models/interfaces/IOrganInfo";
 import {OrganInfosResource} from "../../../../organInfos.resource";
 import {Lang} from "../../../../../../common/langs/langs";
@@ -11,16 +11,17 @@ import {Router} from "@angular/router";
 import {AppEnums} from "../../../../../../app.constants";
 
 @Component({
-  selector: 'app-clinics-page',
-  styleUrls: ['./createDonorRequest.scss'],
-  templateUrl: './createDonorRequest.html'
+  selector: 'app-patient-request-page',
+  styleUrls: ['./createPatientRequest.scss'],
+  templateUrl: './createPatientRequest.html'
 })
-export class CreateDonorRequestPageComponent implements OnInit {
-  @ViewChild('createDonorForm') private createDonorForm: CreateDonorRequestFormComponent;
+export class CreatePatientRequestPageComponent {
+
+  @ViewChild('createPatientForm') private createPatientForm: CreatePatientRequestFormComponent;
 
   public organInfos: Array<IOrganInfo>;
 
-  constructor(private donorRequestResource: DonorRequestResource,
+  constructor(private patientRequestResource: PatientRequestResource,
               private organInfoResource: OrganInfosResource,
               private preloaderService: PreloaderService,
               private router: Router,
@@ -50,10 +51,10 @@ export class CreateDonorRequestPageComponent implements OnInit {
     });
   }
 
-  public submitDonorRequestForm(): Promise<any> {
+  public submitPatientRequestForm(): Promise<any> {
     this.preloaderService.showGlobalPreloader();
-    const data = this.createDonorForm.data;
-    return this.donorRequestResource.submitDonorRequest(data)
+    const data = this.createPatientForm.data;
+    return this.patientRequestResource.submitPatientRequest(data)
       .catch((err) => {
         this.preloaderService.showGlobalPreloader();
         this.notificationService.showError(err);
@@ -61,8 +62,8 @@ export class CreateDonorRequestPageComponent implements OnInit {
       .then((response: IResponseWrapper) => {
         this.preloaderService.hideGlobalPreloader();
         if (response.isValid) {
-          this.router.navigate([AppEnums.routes.pages, AppEnums.routes.donorRequest, AppEnums.routes.requestSent]);
-          this.notificationService.showSuccess(Lang.DONOR_REQUEST_SEND);
+          this.router.navigate([AppEnums.routes.pages, AppEnums.routes.patientRequest, AppEnums.routes.requestSent]);
+          this.notificationService.showSuccess(Lang.PATIENT_REQUEST_SEND);
         } else {
           console.error(response.errorMessage);
           this.notificationService.showError(response.errorMessage);

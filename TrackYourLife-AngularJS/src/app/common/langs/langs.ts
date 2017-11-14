@@ -12,5 +12,7 @@ export let Lang = {
   "EDIT_CLINIC_SUCCESS": "Clinic has been modified successfully!",
 
   "ADD_ORGAN_INFO_SUCCESS": "New organ info has been added successfully!",
-  "EDIT_ORGAN_INFO_SUCCESS": "Organ info has been modified successfully!"
+  "EDIT_ORGAN_INFO_SUCCESS": "Organ info has been modified successfully!",
+
+  "PATIENT_REQUEST_SEND": "Paatient request has been submitted successfully!"
 };

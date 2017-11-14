@@ -12,7 +12,9 @@ export let AppEnums = {
     donorRequest: 'donorRequest',
     create: 'create',
     requestSent: 'requestSent',
-    patientRequests: 'patientRequests'
+    patientRequest: 'patientRequest',
+    myPatientRequests: 'myPatientRequests',
+    managePatientRequests: 'managePatientRequests',
   },
 
   navigationParams: {
