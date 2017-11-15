@@ -11,6 +11,7 @@ import {Router} from '@angular/router';
 import {SysConfig} from "../../../environments/sysConfig";
 import {AuthService} from "../services/authService";
 import {StorageService} from "../services/storageService";
+import {forEach} from "@angular/router/src/utils/collection";
 
 // Do not forget to register new @Injectable() in module 'Providers' section
 @Injectable()
@@ -34,8 +35,12 @@ export class HttpServiceWrapper {
    */
   post(url: string, body: any, params?: any): Promise<Response> {
     return this.appendHeaders(url).then(requestOptions => {
-      const requestBody = JSON.stringify(body);
-      const resultPromise = this.http.post(this.config.fullUrl + '/' + url, requestBody, requestOptions).toPromise();
+      requestOptions.headers.delete('Content-Type');
+      requestOptions.headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+      const urlSearchParams = this.createUrlSearchParamsFromObj(body);
+      const urlSearchParamsString = urlSearchParams.toString();
+      const resultPromise = this.http.post(this.config.fullUrl + '/' + url, urlSearchParamsString, requestOptions).toPromise();
 
       if (params && params.noIntercept) {
         return resultPromise.then((res) => {
@@ -55,8 +60,12 @@ export class HttpServiceWrapper {
    */
   put(url: string, body: string): Promise<Response> {
     return this.appendHeaders(url).then(requestOptions => {
-      const requestBody = JSON.stringify(body);
-      const result = this.http.put(this.config.fullUrl + '/' + url, requestBody, requestOptions).toPromise();
+      requestOptions.headers.delete('Content-Type');
+      requestOptions.headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+      const urlSearchParams = this.createUrlSearchParamsFromObj(body);
+      const urlSearchParamsString = urlSearchParams.toString();
+      const result = this.http.put(this.config.fullUrl + '/' + url, urlSearchParamsString, requestOptions).toPromise();
 
       return this.interceptAuthError(result).then(res => {
         return res.text && res.text() ? res.json() : {};
@@ -87,16 +96,26 @@ export class HttpServiceWrapper {
     });
   }
 
-
   protected appendHeaders(url: string): Promise<RequestOptions> {
     const requestOptions = HttpServiceWrapper.createOptions();
 
     const accessToken = this.storageService.get('accessToken');
     if (accessToken) {
+      requestOptions.headers.delete('Authorization');
       requestOptions.headers.append('Authorization', 'Bearer ' + accessToken);
     }
 
     return Promise.resolve(requestOptions);
+  }
+
+  private createUrlSearchParamsFromObj(obj: any): URLSearchParams {
+    const urlSearchParams = new URLSearchParams();
+
+    Object.keys(obj).map((objectKey, index) => {
+      urlSearchParams.append(objectKey, obj[objectKey]);
+    });
+
+    return urlSearchParams;
   }
 
   interceptAuthError(promise: Promise<Response>): Promise<Response> {
