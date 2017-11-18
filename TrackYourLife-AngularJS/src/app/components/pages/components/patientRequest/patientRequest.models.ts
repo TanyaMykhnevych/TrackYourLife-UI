@@ -1,9 +1,9 @@
 export interface ICreatePatientRequestViewModel {
   email: string;
-  password: string;
   firstName: string;
   secondName: string;
   birthDate: Date;
+  phoneNumber: string;
 
   addressLine1: string;
   addressLine2: string;
@@ -11,9 +11,7 @@ export interface ICreatePatientRequestViewModel {
   country: string;
   city: string;
 
-  phoneNumber: string;
-
-  message: string;
-
   organInfoId: number;
+  queryPriority: number;
+  additionalInfo: string;
 }

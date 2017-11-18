@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">
-          <label for="emailInput">Your Email</label>
+          <label for="emailInput">Email</label>
           <input type="email" class="form-control" id="emailInput" placeholder="Enter email"
                  name="emailInputName" #emailInput="ngModel" [(ngModel)]="data.email" required email autofocus>
           <div class="form-control-feedback">
@@ -13,6 +13,23 @@
             </p>
             <p [hidden]="!emailInput.errors.email" class="validation-error">
               <i class="fa fa-close"></i> This field should contain valid email address
+            </p>
+          </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="priorityInput">Priority</label>
+          <select class="form-control" id="priorityInput" name="priorityInputName"
+                  #priorityInput="ngModel" [(ngModel)]="data.queryPriority" required>
+            <option *ngFor="let priority of queryPriorities" value="{{priority.id}}">{{priority.name}}</option>
+          </select>
+
+          <div class="form-control-feedback">
+          <span class="text-danger align-middle" *ngIf="priorityInput.errors && $submitted">
+            <p [hidden]="!priorityInput.errors.required" class="validation-error">
+              <i class="fa fa-close"></i> This field is required
             </p>
           </span>
           </div>
@@ -169,9 +186,9 @@
     <div class="row">
       <div class="col-md-12">
         <div class="form-group">
-          <label for="messageTextarea">Additional Message</label>
+          <label for="messageTextarea">Additional Information</label>
           <textarea class="form-control" id="messageTextarea" placeholder="Enter message"
-                    name="messageTextareaName" #messageTextarea="ngModel" [(ngModel)]="data.message"></textarea>
+                    name="messageTextareaName" #messageTextarea="ngModel" [(ngModel)]="data.additionalInfo"></textarea>
         </div>
       </div>
     </div>

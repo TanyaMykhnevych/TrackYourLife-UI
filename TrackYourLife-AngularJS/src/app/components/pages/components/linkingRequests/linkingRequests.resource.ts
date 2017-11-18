@@ -6,16 +6,16 @@ import {HttpServiceWrapper} from "../../../../common/base/httpServiceWrapper";
 
 // Do not forget to register new @Injectable() in module 'Providers' section
 @Injectable()
-export class PatientRequestResource extends ResourceBase {
+export class LinkingRequestsResource extends ResourceBase {
 
   constructor(config: SysConfig, http: HttpServiceWrapper) {
     super(config, http, {
-      'submitPatientRequest': 'patientRequest/createPatientRequest'
+      'submitLinkingRequests': 'linkingRequests/linkRequests'
     });
   }
 
-  public submitPatientRequest(entity): Promise<any> {
-    const url = this.buildUrl(this.urlOptions['submitPatientRequest'], {});
-    return this.http.post(url, entity);
+  public submitDonorRequest(entity): Promise<any> {
+      const url = this.buildUrl(this.urlOptions['submitLinkingRequests'], {});
+      return this.http.post(url, entity);
   }
 }

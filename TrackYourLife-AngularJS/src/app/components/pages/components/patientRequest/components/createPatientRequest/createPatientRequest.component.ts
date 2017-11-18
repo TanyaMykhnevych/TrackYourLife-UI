@@ -62,8 +62,12 @@ export class CreatePatientRequestPageComponent {
       .then((response: IResponseWrapper) => {
         this.preloaderService.hideGlobalPreloader();
         if (response.isValid) {
-          this.router.navigate([AppEnums.routes.pages, AppEnums.routes.patientRequest, AppEnums.routes.requestSent]);
           this.notificationService.showSuccess(Lang.PATIENT_REQUEST_SEND);
+          this.createPatientForm.clearData();
+          this.router.navigate([
+            AppEnums.routes.pages,
+            AppEnums.routes.patientRequest,
+            AppEnums.routes.managePatientRequests]);
         } else {
           console.error(response.errorMessage);
           this.notificationService.showError(response.errorMessage);

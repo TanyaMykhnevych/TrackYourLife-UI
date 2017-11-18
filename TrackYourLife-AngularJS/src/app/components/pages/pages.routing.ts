@@ -8,6 +8,8 @@ import {CreateDonorRequestPageComponent} from "./components/donorRequest/compone
 import {ManageDonorRequestsPageComponent} from "./components/donorRequest/components/manageDonorRequests/manageDonorRequests.component";
 import {MyDonorRequestsPageComponent} from "./components/donorRequest/components/myDonorRequests/myDonorRequests.component";
 import {ManageOrganInfosPageComponent} from "./components/manageOrganInfos/manageOrganInfos.component";
+import {ManagePatientRequestsPageComponent} from "./components/patientRequest/components/managePatientRequests/managePatientRequests.component";
+import {MyPatientRequestsPageComponent} from "./components/patientRequest/components/myPatientRequests/myPatientRequests.component";
 
 const r = AppEnums.routes;
 const routes: Routes = [
@@ -25,7 +27,9 @@ const routes: Routes = [
       {path: r.donorRequest + '/' + r.myDonorRequests, component: MyDonorRequestsPageComponent },
       {path: r.donorRequest + '/' + r.manageDonorRequests, component: ManageDonorRequestsPageComponent },
 
-      {path: r.patientRequest + '/' + r.create, component: CreatePatientRequestPageComponent }
+      {path: r.patientRequest + '/' + r.create, component: CreatePatientRequestPageComponent },
+      {path: r.patientRequest + '/' + r.managePatientRequests, component: ManagePatientRequestsPageComponent },
+      {path: r.patientRequest + '/' + r.myPatientRequests, component: MyPatientRequestsPageComponent },
     ]
   }
 ];

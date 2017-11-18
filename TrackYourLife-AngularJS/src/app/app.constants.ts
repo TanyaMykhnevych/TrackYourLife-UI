@@ -74,6 +74,20 @@ export let AppEnums = {
     HoldPendingEmployeeEmailing: 11
   },
 
+  patientQueryPriority: {
+    low: 100,
+    normal: 200,
+    high: 300,
+    urgent: 400
+  },
+
+  patientQueryPriorityStrings: {
+    '100': "Low",
+    '200': "Normal",
+    '300': "High",
+    '400': "Urgent"
+  },
+
   cancellationOrderStatuses: {
     unknown: 'Unknown',
     noCurrentIterations: 'NoCurrentIterations',
