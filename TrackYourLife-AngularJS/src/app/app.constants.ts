@@ -7,7 +7,7 @@ export let AppEnums = {
     clinics: 'clinics',
     manageOrganInfos: 'manageOrganInfos',
     manage: 'manage',
-    myDonorRequests: 'myDonorRequests',
+    list: 'list',
     manageDonorRequests: 'manageDonorRequests',
     donorRequest: 'donorRequest',
     create: 'create',
@@ -107,5 +107,20 @@ export let AppEnums = {
   showMode: {
     edit: 'detail',
     create: 'create'
+  },
+
+  donorRequestStatusesStrings: {
+    '100': "Pending Medical Examination",
+    '200': "Scheduled Medical Examination",
+    '300': "Failed Medical Examination",
+    '400': "Need To Schedule Time For Organ Retrieving",
+    '500': "Awaiting Organ Retrieving",
+    '600': "Finished Successfully"
+  },
+
+  medicalExamStatusesStrings: {
+    '1000': "Scheduled",
+    '2000': "Pass",
+    '3000': "Fail"
   }
 };

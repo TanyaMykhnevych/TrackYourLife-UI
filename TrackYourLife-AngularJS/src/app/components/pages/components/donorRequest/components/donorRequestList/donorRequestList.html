@@ -1,0 +1,39 @@
+<div id="donor-request-list-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h3>{{pageTitle}}</h3>
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <td>Organ</td>
+            <td>Message</td>
+            <td>Status</td>
+            <td>Exams tries</td>
+            <td>Last exam status</td>
+            <td>Patient founded</td>
+            <td>Actions</td>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let donorRequest of donorRequestList">
+            <td>{{donorRequest.organInfoName}}</td>
+            <td>{{donorRequest.message}}</td>
+            <td>{{getDonorRequestStatusString(donorRequest.status)}}</td>
+            <td>{{donorRequest.medicalExamsCount}}</td>
+            <td>{{donorRequest.lastMedicalExam != null ? donorRequest.lastMedicalExam.status : 'No exams'}}</td>
+            <td align="center">
+              <i *ngIf="donorRequest.hasLinkedPatientRequest" class="fa fa-check" style="font-size:30px;color:green"></i>
+              <i *ngIf="!donorRequest.hasLinkedPatientRequest" class="fa fa-times" style="font-size:30px;color:red"></i>
+            </td>
+            <td>{{donorRequest.hasLinkedPatientRequest ? 'Yes' : 'No'}}</td>
+            <td>
+              <button class="btn btn-info" (click)="goToDonorRequestDetails(donorRequest.id)">Details</button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

@@ -10,12 +10,18 @@ export class DonorRequestResource extends ResourceBase {
 
   constructor(config: SysConfig, http: HttpServiceWrapper) {
     super(config, http, {
-      'submitDonorRequest': 'donorRequests/createDonorRequest'
+      'submitDonorRequest': 'donorRequests/createDonorRequest',
+      'getDonorRequestList': 'donorRequests/getDonorRequestList'
     });
   }
 
   public submitDonorRequest(entity): Promise<any> {
-      const url = this.buildUrl(this.urlOptions['submitDonorRequest'], {});
-      return this.http.post(url, entity);
+    const url = this.buildUrl(this.urlOptions['submitDonorRequest'], {});
+    return this.http.post(url, entity);
+  }
+
+  public getDonorRequestList(): Promise<any> {
+    const url = this.buildUrl(this.urlOptions['getDonorRequestList'], {});
+    return this.http.get(url);
   }
 }

@@ -22,7 +22,7 @@ import {
   RequestSentPageComponent
 } from "./components/donorRequest/components/createDonorRequest/components/requestSent/requestSent.component";
 import {ManageDonorRequestsPageComponent} from "./components/donorRequest/components/manageDonorRequests/manageDonorRequests.component";
-import {MyDonorRequestsPageComponent} from "./components/donorRequest/components/myDonorRequests/myDonorRequests.component";
+import {DonorRequestListPageComponent} from "./components/donorRequest/components/donorRequestList/donorRequestList.component";
 import {ManageOrganInfosPageComponent} from "./components/manageOrganInfos/manageOrganInfos.component";
 import {AddOrganInfoModalComponent} from "./components/manageOrganInfos/components/editClinicModal/add-organ-info-modal.component";
 import {EditOrganInfoModalComponent} from "./components/manageOrganInfos/components/editClinicModal/edit-organ-info-modal.component";
@@ -47,7 +47,7 @@ import {LinkingRequestsPageComponent} from "./components/linkingRequests/linking
     CreateDonorRequestFormComponent,
     RequestSentPageComponent,
     ManageDonorRequestsPageComponent,
-    MyDonorRequestsPageComponent,
+    DonorRequestListPageComponent,
 
     CreatePatientRequestPageComponent,
     CreatePatientRequestFormComponent,

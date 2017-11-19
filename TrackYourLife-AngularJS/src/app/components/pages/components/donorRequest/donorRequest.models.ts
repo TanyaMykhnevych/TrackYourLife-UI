@@ -17,3 +17,21 @@ export interface ICreateDonorRequestViewModel {
 
  organInfoId: number;
 }
+
+export interface IDonorRequestListItem {
+  id: number;
+  organInfoName: string;
+  message: string;
+  status: number; // DonorRequestStatuses
+  donorInfoId: number;
+
+  organInfoId: number;
+  hasLinkedPatientRequest: boolean;
+  medicalExamsCount: number;
+
+  lastMedicalExam: any; // DonorMedicalExam
+}
+
+export interface IDonorRequestList {
+  donorRequestList: Array<IDonorRequestListItem>;
+}

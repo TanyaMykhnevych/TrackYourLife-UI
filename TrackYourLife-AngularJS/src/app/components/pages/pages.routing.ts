@@ -6,7 +6,7 @@ import {CreatePatientRequestPageComponent} from "./components/patientRequest/com
 import {RequestSentPageComponent} from "./components/donorRequest/components/createDonorRequest/components/requestSent/requestSent.component";
 import {CreateDonorRequestPageComponent} from "./components/donorRequest/components/createDonorRequest/createDonorRequest.component";
 import {ManageDonorRequestsPageComponent} from "./components/donorRequest/components/manageDonorRequests/manageDonorRequests.component";
-import {MyDonorRequestsPageComponent} from "./components/donorRequest/components/myDonorRequests/myDonorRequests.component";
+import {DonorRequestListPageComponent} from "./components/donorRequest/components/donorRequestList/donorRequestList.component";
 import {ManageOrganInfosPageComponent} from "./components/manageOrganInfos/manageOrganInfos.component";
 import {ManagePatientRequestsPageComponent} from "./components/patientRequest/components/managePatientRequests/managePatientRequests.component";
 import {MyPatientRequestsPageComponent} from "./components/patientRequest/components/myPatientRequests/myPatientRequests.component";
@@ -24,7 +24,7 @@ const routes: Routes = [
 
       {path: r.donorRequest + '/' + r.create, component: CreateDonorRequestPageComponent },
       {path: r.donorRequest + '/' + r.requestSent, component: RequestSentPageComponent },
-      {path: r.donorRequest + '/' + r.myDonorRequests, component: MyDonorRequestsPageComponent },
+      {path: r.donorRequest + '/' + r.list, component: DonorRequestListPageComponent },
       {path: r.donorRequest + '/' + r.manageDonorRequests, component: ManageDonorRequestsPageComponent },
 
       {path: r.patientRequest + '/' + r.create, component: CreatePatientRequestPageComponent },

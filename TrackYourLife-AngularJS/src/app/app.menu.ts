@@ -71,15 +71,15 @@ export const MENU = [
             },
           },
           {
-            path: r.myDonorRequests,
+            path: r.list,
             data: {
               menu: {
-                title: 'My Donor Requests',
+                title: 'List',
                 icon: null,
                 selected: true,
                 expanded: false,
                 order: 0,
-                roles: [AppEnums.roles.donor]
+                roles: [AppEnums.roles.donor, AppEnums.roles.medicalEmployee]
               }
             },
           },
@@ -87,7 +87,7 @@ export const MENU = [
             path: r.manageDonorRequests,
             data: {
               menu: {
-                title: 'Manage Donor Requests',
+                title: 'Manage',
                 icon: null,
                 selected: true,
                 expanded: false,
@@ -128,7 +128,7 @@ export const MENU = [
             path: r.managePatientRequests,
             data: {
               menu: {
-                title: 'Manage Recipient Requests',
+                title: 'Manage',
                 icon: null,
                 selected: true,
                 expanded: false,
