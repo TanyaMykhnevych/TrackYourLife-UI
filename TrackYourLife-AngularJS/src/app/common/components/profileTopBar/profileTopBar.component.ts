@@ -19,7 +19,7 @@ export class ProfileTopBarComponent implements OnDestroy, OnInit {
   }
 
   public get isAuthenticated(): boolean {
-    return !!this.user;
+    return !!this.user && !!this.user.id;
   }
 
   public get user(): IUserInfo {

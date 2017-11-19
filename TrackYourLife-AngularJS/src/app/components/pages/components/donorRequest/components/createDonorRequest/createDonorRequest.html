@@ -6,11 +6,18 @@
         you.</h4>
       <h4>Good luck, you are doing the really right thing.</h4>
 
-      <div class="form-container container">
+      <div class="form-container container" *ngIf="!isAuthorizedDonor">
         <app-create-donor-request-form #createDonorForm
                                        [organInfos]="organInfos"
                                        (formSubmitted)="submitDonorRequestForm()">
         </app-create-donor-request-form>
+      </div>
+
+      <div class="form-container container" *ngIf="isAuthorizedDonor">
+        <app-create-registered-donor-request-form #createRegisteredDonorForm
+                                       [organInfos]="organInfos"
+                                       (formSubmitted)="submitDonorRequestForm()">
+        </app-create-registered-donor-request-form>
       </div>
     </div>
   </div>

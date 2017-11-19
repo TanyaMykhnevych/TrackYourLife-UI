@@ -1,5 +1,8 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {IContentResponseWrapper, IResponseWrapper} from "../../../../../../models/interfaces/apiRespone/responseWrapper";
+import {
+  IContentResponseWrapper,
+  IResponseWrapper
+} from "../../../../../../models/interfaces/apiRespone/responseWrapper";
 import {PreloaderService} from "../../../../../../common/services/preloaderService";
 import {NotificationService} from "../../../../../../common/services/notificationService";
 import {DonorRequestResource} from "../../donorRequest.resource";
@@ -9,6 +12,8 @@ import {OrganInfosResource} from "../../../../organInfos.resource";
 import {Lang} from "../../../../../../common/langs/langs";
 import {Router} from "@angular/router";
 import {AppEnums} from "../../../../../../app.constants";
+import {CreateRegisteredDonorRequestFormComponent} from "./components/createRegisteredDonorRequestForm/createRegisteredDonorRequestForm.component";
+import {UserService} from "../../../../../../common/services/userService";
 
 @Component({
   selector: 'app-clinics-page',
@@ -17,6 +22,7 @@ import {AppEnums} from "../../../../../../app.constants";
 })
 export class CreateDonorRequestPageComponent implements OnInit {
   @ViewChild('createDonorForm') private createDonorForm: CreateDonorRequestFormComponent;
+  @ViewChild('createRegisteredDonorForm') private createRegisteredDonorForm: CreateRegisteredDonorRequestFormComponent;
 
   public organInfos: Array<IOrganInfo>;
 
@@ -24,8 +30,8 @@ export class CreateDonorRequestPageComponent implements OnInit {
               private organInfoResource: OrganInfosResource,
               private preloaderService: PreloaderService,
               private router: Router,
+              private userService: UserService,
               private notificationService: NotificationService) {
-
   }
 
   public ngOnInit() {
@@ -36,6 +42,11 @@ export class CreateDonorRequestPageComponent implements OnInit {
       .then(() => {
         this.preloaderService.hideGlobalPreloader();
       });
+  }
+
+  public get isAuthorizedDonor() {
+    const currentUser = this.userService.getUserInfo();
+    return currentUser && currentUser.roleName != null && currentUser.roleName === AppEnums.roles.donor;
   }
 
   private updateOrganInfos() {
@@ -52,7 +63,9 @@ export class CreateDonorRequestPageComponent implements OnInit {
 
   public submitDonorRequestForm(): Promise<any> {
     this.preloaderService.showGlobalPreloader();
-    const data = this.createDonorForm.data;
+    const data = this.isAuthorizedDonor
+      ? this.createRegisteredDonorForm.data
+      : this.createDonorForm.data;
     return this.donorRequestResource.submitDonorRequest(data)
       .catch((err) => {
         this.preloaderService.showGlobalPreloader();

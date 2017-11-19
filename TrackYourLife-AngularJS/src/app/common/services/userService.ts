@@ -21,7 +21,7 @@ export class UserService {
     return !!this.storageService.get('userInfo');
   }
 
-  public getUserInfo(): IUserInfo {
+  public  getUserInfo(): IUserInfo {
     return this.userInfo;
   }
 
@@ -47,5 +47,6 @@ export class UserService {
 
   public clearUserInfo() {
     this.storageService.remove('userInfo');
+    this.userInfo = null;
   }
 }

@@ -31,6 +31,7 @@ import {PatientRequestSentPageComponent} from "./components/patientRequest/compo
 import {ManagePatientRequestsPageComponent} from "./components/patientRequest/components/managePatientRequests/managePatientRequests.component";
 import {LinkingRequestsPageComponent} from "./components/linkingRequests/linkingRequests.component";
 import {PatientRequestListPageComponent} from "./components/patientRequest/components/patientRequestList/patientRequestList.component";
+import {CreateRegisteredDonorRequestFormComponent} from "./components/donorRequest/components/createDonorRequest/components/createRegisteredDonorRequestForm/createRegisteredDonorRequestForm.component";
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import {PatientRequestListPageComponent} from "./components/patientRequest/compo
 
     CreateDonorRequestPageComponent,
     CreateDonorRequestFormComponent,
+    CreateRegisteredDonorRequestFormComponent,
     RequestSentPageComponent,
     ManageDonorRequestsPageComponent,
     DonorRequestListPageComponent,
