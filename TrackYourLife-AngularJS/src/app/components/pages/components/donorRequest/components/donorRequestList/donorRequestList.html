@@ -26,7 +26,6 @@
               <i *ngIf="donorRequest.hasLinkedPatientRequest" class="fa fa-check" style="font-size:30px;color:green"></i>
               <i *ngIf="!donorRequest.hasLinkedPatientRequest" class="fa fa-times" style="font-size:30px;color:red"></i>
             </td>
-            <td>{{donorRequest.hasLinkedPatientRequest ? 'Yes' : 'No'}}</td>
             <td>
               <button class="btn btn-info" (click)="goToDonorRequestDetails(donorRequest.id)">Details</button>
             </td>

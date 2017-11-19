@@ -138,10 +138,10 @@ export const MENU = [
             },
           },
           {
-            path: r.myPatientRequests,
+            path: r.list,
             data: {
               menu: {
-                title: 'My Recipient Requests',
+                title: 'List',
                 icon: null,
                 selected: true,
                 expanded: false,

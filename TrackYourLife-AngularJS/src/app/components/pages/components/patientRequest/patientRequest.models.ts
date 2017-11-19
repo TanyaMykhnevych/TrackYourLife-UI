@@ -15,3 +15,20 @@ export interface ICreatePatientRequestViewModel {
   queryPriority: number;
   additionalInfo: string;
 }
+
+
+export interface IPatientRequestListItem {
+  id: number;
+  organInfoName: string;
+  message: string;
+  status: number; // PatientRequestStatuses
+  patientInfoId: number;
+
+  organInfoId: number;
+  hasLinkedDonorRequest: boolean;
+
+}
+
+export interface IPatientRequestList {
+  patientRequestList: Array<IPatientRequestListItem>;
+}

@@ -9,7 +9,7 @@ import {ManageDonorRequestsPageComponent} from "./components/donorRequest/compon
 import {DonorRequestListPageComponent} from "./components/donorRequest/components/donorRequestList/donorRequestList.component";
 import {ManageOrganInfosPageComponent} from "./components/manageOrganInfos/manageOrganInfos.component";
 import {ManagePatientRequestsPageComponent} from "./components/patientRequest/components/managePatientRequests/managePatientRequests.component";
-import {MyPatientRequestsPageComponent} from "./components/patientRequest/components/myPatientRequests/myPatientRequests.component";
+import {PatientRequestListPageComponent} from "./components/patientRequest/components/patientRequestList/patientRequestList.component";
 
 const r = AppEnums.routes;
 const routes: Routes = [
@@ -29,7 +29,7 @@ const routes: Routes = [
 
       {path: r.patientRequest + '/' + r.create, component: CreatePatientRequestPageComponent },
       {path: r.patientRequest + '/' + r.managePatientRequests, component: ManagePatientRequestsPageComponent },
-      {path: r.patientRequest + '/' + r.myPatientRequests, component: MyPatientRequestsPageComponent },
+      {path: r.patientRequest + '/' + r.list, component: PatientRequestListPageComponent },
     ]
   }
 ];

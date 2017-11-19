@@ -13,7 +13,6 @@ export let AppEnums = {
     create: 'create',
     requestSent: 'requestSent',
     patientRequest: 'patientRequest',
-    myPatientRequests: 'myPatientRequests',
     managePatientRequests: 'managePatientRequests',
   },
 
@@ -122,5 +121,12 @@ export let AppEnums = {
     '1000': "Scheduled",
     '2000': "Pass",
     '3000': "Fail"
+  },
+
+  patientRequestStatusesStrings: {
+    '100': "Awaiting For Donor",
+    '200': "Awaiting For Transplanting",
+    '300': "Finished Successfully"
   }
+
 };

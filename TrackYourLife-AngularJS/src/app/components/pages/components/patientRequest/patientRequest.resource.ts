@@ -10,12 +10,18 @@ export class PatientRequestResource extends ResourceBase {
 
   constructor(config: SysConfig, http: HttpServiceWrapper) {
     super(config, http, {
-      'submitPatientRequest': 'patientRequest/createPatientRequest'
+      'submitPatientRequest': 'patientRequest/createPatientRequest',
+      'getPatientRequestList': 'patientRequest/getPatientRequestList'
     });
   }
 
   public submitPatientRequest(entity): Promise<any> {
     const url = this.buildUrl(this.urlOptions['submitPatientRequest'], {});
     return this.http.post(url, entity);
+  }
+
+  public getPatientRequestList(): Promise<any> {
+    const url = this.buildUrl(this.urlOptions['getPatientRequestList'], {});
+    return this.http.get(url);
   }
 }

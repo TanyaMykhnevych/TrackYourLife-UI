@@ -28,9 +28,9 @@ import {AddOrganInfoModalComponent} from "./components/manageOrganInfos/componen
 import {EditOrganInfoModalComponent} from "./components/manageOrganInfos/components/editClinicModal/edit-organ-info-modal.component";
 import {CreatePatientRequestFormComponent} from "./components/patientRequest/components/createPatientRequest/components/createPatientRequestForm/createPatientRequestForm.component";
 import {PatientRequestSentPageComponent} from "./components/patientRequest/components/createPatientRequest/components/patientRequestSent/patientRequestSent.component";
-import {MyPatientRequestsPageComponent} from "./components/patientRequest/components/myPatientRequests/myPatientRequests.component";
 import {ManagePatientRequestsPageComponent} from "./components/patientRequest/components/managePatientRequests/managePatientRequests.component";
 import {LinkingRequestsPageComponent} from "./components/linkingRequests/linkingRequests.component";
+import {PatientRequestListPageComponent} from "./components/patientRequest/components/patientRequestList/patientRequestList.component";
 
 @NgModule({
   declarations: [
@@ -52,7 +52,7 @@ import {LinkingRequestsPageComponent} from "./components/linkingRequests/linking
     CreatePatientRequestPageComponent,
     CreatePatientRequestFormComponent,
     PatientRequestSentPageComponent,
-    MyPatientRequestsPageComponent,
+    PatientRequestListPageComponent,
     ManagePatientRequestsPageComponent,
     LinkingRequestsPageComponent
   ],
