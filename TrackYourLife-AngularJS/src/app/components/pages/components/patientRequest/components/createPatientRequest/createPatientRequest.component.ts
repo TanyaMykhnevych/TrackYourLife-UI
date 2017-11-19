@@ -67,7 +67,7 @@ export class CreatePatientRequestPageComponent {
           this.router.navigate([
             AppEnums.routes.pages,
             AppEnums.routes.patientRequest,
-            AppEnums.routes.managePatientRequests]);
+            AppEnums.routes.manage]);
         } else {
           console.error(response.errorMessage);
           this.notificationService.showError(response.errorMessage);

@@ -29,9 +29,9 @@ export class CreatePatientRequestFormComponent implements OnInit {
   }
 
   private buildQueryPriorities() {
-    var arr = new Array<any>();
-    var priorityValues = AppEnums.patientQueryPriority;
-    var priorityNames = AppEnums.patientQueryPriorityStrings;
+    const arr = new Array<any>();
+    const priorityValues = AppEnums.patientQueryPriority;
+    const priorityNames = AppEnums.patientQueryPriorityStrings;
 
     Object.keys(priorityValues).map((objectKey, index) => {
       const value = priorityValues[objectKey];

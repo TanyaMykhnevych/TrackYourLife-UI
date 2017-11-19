@@ -8,12 +8,10 @@ export let AppEnums = {
     manageOrganInfos: 'manageOrganInfos',
     manage: 'manage',
     list: 'list',
-    manageDonorRequests: 'manageDonorRequests',
     donorRequest: 'donorRequest',
     create: 'create',
     requestSent: 'requestSent',
-    patientRequest: 'patientRequest',
-    managePatientRequests: 'managePatientRequests',
+    patientRequest: 'patientRequest'
   },
 
   navigationParams: {
