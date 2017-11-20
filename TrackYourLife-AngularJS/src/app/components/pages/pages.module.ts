@@ -33,6 +33,10 @@ import {PatientRequestListPageComponent} from "./components/patientRequest/compo
 import {CreateRegisteredDonorRequestFormComponent} from "./components/donorRequest/components/createDonorRequest/components/createRegisteredDonorRequestForm/createRegisteredDonorRequestForm.component";
 import {DonorRequestDetailsPageComponent} from "./components/donorRequest/components/details/donorRequestDetails.component";
 import {ScheduleExamModalComponent} from "./components/donorRequest/components/details/components/scheduleExamModal/scheduleExamModal.component";
+import {EnterMedicalExamResultModalComponent} from "./components/donorRequest/components/details/components/enterMedicalExamResultModal/enterMedicalExamResultModal.component";
+import {LinkPatientRequestModalComponent} from "./components/donorRequest/components/details/components/linkPatientRequestModal/linkPatientRequestModal.component";
+import {ScheduleOrganRetrievingModalComponent} from "./components/donorRequest/components/details/components/scheduleOrganRetrievingModal/scheduleOrganRetrievingModal.component";
+import {SetRequestFinalStatusModalComponent} from "./components/donorRequest/components/details/components/setRequestFinalStatusModal/setRequestFinalStatusModal.component";
 
 @NgModule({
   declarations: [
@@ -52,6 +56,10 @@ import {ScheduleExamModalComponent} from "./components/donorRequest/components/d
     DonorRequestListPageComponent,
     DonorRequestDetailsPageComponent,
     ScheduleExamModalComponent,
+    EnterMedicalExamResultModalComponent,
+    SetRequestFinalStatusModalComponent,
+    LinkPatientRequestModalComponent,
+    ScheduleOrganRetrievingModalComponent,
 
     CreatePatientRequestPageComponent,
     CreatePatientRequestFormComponent,

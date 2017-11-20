@@ -11,6 +11,10 @@ import {NotificationService} from "../../../../../../common/services/notificatio
 import {ClinicsResource} from "../../../clinics/clinics.resource";
 import {IClinicList, IClinicListItem} from "../../../clinics/clinic.models";
 import {ScheduleExamModalComponent} from "./components/scheduleExamModal/scheduleExamModal.component";
+import {EnterMedicalExamResultModalComponent} from "./components/enterMedicalExamResultModal/enterMedicalExamResultModal.component";
+import {LinkPatientRequestModalComponent} from "./components/linkPatientRequestModal/linkPatientRequestModal.component";
+import {ScheduleOrganRetrievingModalComponent} from "./components/scheduleOrganRetrievingModal/scheduleOrganRetrievingModal.component";
+import {SetRequestFinalStatusModalComponent} from "./components/setRequestFinalStatusModal/setRequestFinalStatusModal.component";
 
 @Component({
   selector: 'app-donor-request-details-page',
@@ -19,6 +23,10 @@ import {ScheduleExamModalComponent} from "./components/scheduleExamModal/schedul
 })
 export class DonorRequestDetailsPageComponent implements OnInit, OnDestroy {
   @ViewChild('scheduleExamModal') private scheduleExamModal: ScheduleExamModalComponent;
+  @ViewChild('enterMedicalExamResultModal') private enterMedicalExamResultModal: EnterMedicalExamResultModalComponent;
+  @ViewChild('linkPatientRequestModal') private linkPatientRequestModal: LinkPatientRequestModalComponent;
+  @ViewChild('scheduleOrganRetrievingModal') private scheduleOrganRetrievingModal: ScheduleOrganRetrievingModalComponent;
+  @ViewChild('setRequestFinalStatusModal') private setRequestFinalStatusModal: SetRequestFinalStatusModalComponent;
 
   public donorRequestDetails: IDonorRequestDetailsViewModel;
   public clinics: Array<IClinicListItem>;
@@ -121,16 +129,22 @@ export class DonorRequestDetailsPageComponent implements OnInit, OnDestroy {
     });
   }
 
-  public enterMedicalExamResults() {
-
+  public enterMedicalExamResult() {
+    this.enterMedicalExamResultModal.show().then(() => {
+      return this.getDonorRequestDetails();
+    });
   }
 
   public linkPatientRequest() {
-
+    this.linkPatientRequestModal.show().then(() => {
+      return this.getDonorRequestDetails();
+    });
   }
 
   public scheduleOrganRetrievingTime() {
-
+    this.scheduleOrganRetrievingModal.show().then(() => {
+      return this.getDonorRequestDetails();
+    });
   }
 
   public setRequestAsSucceded() {

@@ -69,3 +69,19 @@ export interface IDonorMedicalExamListItemViewModel {
   results: string;
   donorOrganQueryId: number;
 }
+
+export interface IEnterMedicalExamResultViewModel {
+  donorRequestId: number;
+}
+
+export interface ILinkPatientRequestViewModel {
+  donorRequestId: number;
+}
+
+export interface IScheduleOrganRetrievingViewModel {
+  donorRequestId: number;
+}
+
+export  interface  ISetRequestFinalStatusViewModel {
+  donorRequestId: number;
+}

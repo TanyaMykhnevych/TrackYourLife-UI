@@ -2,7 +2,7 @@ import {Injectable} from "@angular/core";
 import {ResourceBase} from "../../../../common/base/resourceBase";
 import {SysConfig} from "../../../../../environments/sysConfig";
 import {HttpServiceWrapper} from "../../../../common/base/httpServiceWrapper";
-import {IScheduleMedicalExamViewModel} from "./donorRequest.models";
+import {IEnterMedicalExamResultViewModel, IScheduleMedicalExamViewModel, ISetRequestFinalStatusViewModel} from "./donorRequest.models";
 
 
 // Do not forget to register new @Injectable() in module 'Providers' section
@@ -14,7 +14,11 @@ export class DonorRequestResource extends ResourceBase {
       'submitDonorRequest': 'donorRequests/createDonorRequest',
       'getDonorRequestList': 'donorRequests/getDonorRequestList',
       'getDonorRequestDetails': 'donorRequests/getDonorRequestDetails/{id}',
-      'scheduleMedicalExam': 'donorRequests/scheduleMedicalExam'
+      'scheduleMedicalExam': 'donorRequests/scheduleMedicalExam',
+      'submitMedicalExamResult': 'donorRequests/submitMedicalExamResult',
+      'linkPatientRequest': 'donorRequests/linkPatientRequest',
+      'scheduleOrganRetrieving': 'donorRequests/scheduleOrganRetrieving',
+      'setRequestFinalStatus': 'donorRequests/setRequestFinalStatus',
     });
   }
 
@@ -35,6 +39,26 @@ export class DonorRequestResource extends ResourceBase {
 
   public scheduleMedicalExam(entity: IScheduleMedicalExamViewModel): Promise<any> {
     const url = this.buildUrl(this.urlOptions['scheduleMedicalExam'], {});
+    return this.http.post(url, entity);
+  }
+
+  public submitMedicalExamResult(entity: IEnterMedicalExamResultViewModel): Promise<any> {
+    const url = this.buildUrl(this.urlOptions['submitMedicalExamResult'], {});
+    return this.http.post(url, entity);
+  }
+
+  public linkPatientRequest(entity: IEnterMedicalExamResultViewModel): Promise<any> {
+    const url = this.buildUrl(this.urlOptions['linkPatientRequest'], {});
+    return this.http.post(url, entity);
+  }
+
+  public scheduleOrganRetrievingTime(entity: IEnterMedicalExamResultViewModel): Promise<any> {
+    const url = this.buildUrl(this.urlOptions['scheduleOrganRetrieving'], {});
+    return this.http.post(url, entity);
+  }
+
+  public setRequestFinalStatus(entity: ISetRequestFinalStatusViewModel) : Promise<any> {
+    const url = this.buildUrl(this.urlOptions['setRequestFinalStatus'], {});
     return this.http.post(url, entity);
   }
 }
