@@ -21,9 +21,13 @@
             <td>{{donorRequest.message}}</td>
             <td>{{getDonorRequestStatusString(donorRequest.status)}}</td>
             <td>{{donorRequest.medicalExamsCount}}</td>
-            <td>{{donorRequest.lastMedicalExam != null ? donorRequest.lastMedicalExam.status : 'No exams'}}</td>
+            <td>{{donorRequest.lastMedicalExam != null
+              ? getMedicalExamStatusString(donorRequest.lastMedicalExam.status)
+              : 'No exams'}}
+            </td>
             <td align="center">
-              <i *ngIf="donorRequest.hasLinkedPatientRequest" class="fa fa-check" style="font-size:30px;color:green"></i>
+              <i *ngIf="donorRequest.hasLinkedPatientRequest" class="fa fa-check"
+                 style="font-size:30px;color:green"></i>
               <i *ngIf="!donorRequest.hasLinkedPatientRequest" class="fa fa-times" style="font-size:30px;color:red"></i>
             </td>
             <td>

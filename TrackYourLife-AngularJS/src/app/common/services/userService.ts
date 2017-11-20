@@ -5,6 +5,7 @@ import {IUserInfo} from "../../models/interfaces/IUserInfo";
 import {StorageService} from "./storageService";
 import {AccountResource} from "../resources/account.resource";
 import {IContentResponseWrapper} from "../../models/interfaces/apiRespone/responseWrapper";
+import {AppEnums} from "../../app.constants";
 
 // Do not forget to register new @Injectable() in module 'Providers' section
 @Injectable()
@@ -17,12 +18,28 @@ export class UserService {
     this.userInfo = this.storageService.get('userInfo');
   }
 
-  isAuthenticated() {
-    return !!this.storageService.get('userInfo');
+  isAuthenticated(): boolean {
+    return this.userInfo && this.storageService.get('userInfo');
   }
 
   public  getUserInfo(): IUserInfo {
     return this.userInfo;
+  }
+
+  public get isInMedEmployeeRole() {
+    return this.isAuthenticated && this.userInfo.roleName === AppEnums.roles.medicalEmployee;
+  }
+
+  public get isInPatientRole() {
+    return this.isAuthenticated && this.userInfo.roleName === AppEnums.roles.patient;
+  }
+
+  public get isInDonorRole() {
+    return this.isAuthenticated && this.userInfo.roleName === AppEnums.roles.donor;
+  }
+
+  public get isInAdminRole() {
+    return this.isAuthenticated && this.userInfo.roleName === AppEnums.roles.admin;
   }
 
   public updateUserInfo(): Promise<any> {

@@ -1,0 +1,46 @@
+<div id="donor-request-details-page">
+  <div class="container">
+    <h3>Donor Request Details</h3>
+    <h5>Person: {{donorRequestDetails.donorInfo?.firstName}} {{donorRequestDetails.donorInfo?.secondName}}</h5>
+    <h5>Email: {{donorRequestDetails.donorInfo?.email}}</h5>
+
+    <br/>
+
+    <p>Id: {{donorRequestDetails.id}}</p>
+    <p>Message: {{donorRequestDetails.message}}</p>
+    <p>Organ Name: {{donorRequestDetails.organInfo?.name}}</p>
+    <p>Status: {{getDonorRequestStatusString(donorRequestDetails.status)}}</p>
+    <p>Transplant Organ Id: {{donorRequestDetails.transplantOrganId}}</p>
+
+    <p>Has Linked Patient: {{donorRequestDetails?.patientOrganQuery != null}}</p>
+    <p>Donor Medical Exam Count: {{donorRequestDetails?.donorMedicalExams?.length}}</p>
+
+
+    <div *ngIf="getScheduleMedicalExamButtonVisibility()">
+      <button class="btn btn-success" (click)="scheduleMedicalExam()">Schedule Medical Exam</button>
+    </div>
+
+    <div *ngIf="getEnterMedicalExamResultsButtonVisibility()">
+      <button class="btn btn-success" (click)="enterMedicalExamResults()">Enter Medical Exam Results</button>
+    </div>
+
+    <div *ngIf="getLinkingPatientRequestButtonVisibility()">
+      <button class="btn btn-success" (click)="linkPatientRequest()">Link Patient Request</button>
+    </div>
+
+    <div *ngIf="getScheduleOrganRetrievingTimeButtonVisibility()">
+      <button class="btn btn-success" (click)="scheduleOrganRetrievingTime()">Schedule Organ Retrieving</button>
+    </div>
+
+    <div *ngIf="getFinalRequestStatusButtonsVisibility()">
+      Organ retrieving was:
+      <button class="btn btn-success" (click)="setRequestAsSucceded()">Successful</button>
+      <button class="btn btn-danger" (click)="setRequestAsFailed()">Failed</button>
+    </div>
+  </div>
+
+  <app-schedule-exam-modal #scheduleExamModal
+                           [clinics]="clinics"
+                           [donorRequestId]="donorRequestId">
+  </app-schedule-exam-modal>
+</div>

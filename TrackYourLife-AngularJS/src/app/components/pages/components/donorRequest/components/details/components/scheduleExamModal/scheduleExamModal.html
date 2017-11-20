@@ -1,0 +1,49 @@
+<ng-template #modalContent let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Schedule Medical Exam</h4>
+    <button type="button" class="close" aria-label="Close" (click)="cancelClose()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <form #scheduleMedExamForm="ngForm">
+      <div class="form-group">
+        <label for="clinicInput">Clinic</label>
+        <select class="form-control" id="clinicInput" placeholder="Select clinic"
+               name="clinicInputName" #clinicInput="ngModel" [(ngModel)]="entity.clinicId" required autofocus>
+          <option *ngFor="let clinic of clinics" value="{{clinic.id}}">{{clinic.name}}</option>
+        </select>
+
+        <div class="form-control-feedback">
+          <span class="text-danger align-middle" *ngIf="clinicInput.errors && $submitted">
+            <p [hidden]="!clinicInput.errors.required" class="validation-error">
+              <i class="fa fa-close"></i> This field is required
+            </p>
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="scheduledAtInput">Scheduled At</label>
+        <input type="date" class="form-control" id="scheduledAtInput" placeholder="Select time scheduled at"
+               name="scheduledAtInputName" #scheduledAtInput="ngModel" [(ngModel)]="entity.scheduledDateTime" required>
+
+        <div class="form-control-feedback">
+          <span class="text-danger align-middle" *ngIf="scheduledAtInput.errors && $submitted">
+            <p [hidden]="!scheduledAtInput.errors.required" class="validation-error">
+              <i class="fa fa-close"></i> This field is required
+            </p>
+          </span>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-success" (click)="setSubmitted(true) && scheduleMedExamForm.valid && save()">
+      Save
+    </button>
+    <button type="button" class="btn btn-outline-dark" (click)="cancelClose()">Cancel</button>
+  </div>
+</ng-template>

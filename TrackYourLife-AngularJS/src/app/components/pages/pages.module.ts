@@ -31,6 +31,8 @@ import {ManagePatientRequestsPageComponent} from "./components/patientRequest/co
 import {LinkingRequestsPageComponent} from "./components/linkingRequests/linkingRequests.component";
 import {PatientRequestListPageComponent} from "./components/patientRequest/components/patientRequestList/patientRequestList.component";
 import {CreateRegisteredDonorRequestFormComponent} from "./components/donorRequest/components/createDonorRequest/components/createRegisteredDonorRequestForm/createRegisteredDonorRequestForm.component";
+import {DonorRequestDetailsPageComponent} from "./components/donorRequest/components/details/donorRequestDetails.component";
+import {ScheduleExamModalComponent} from "./components/donorRequest/components/details/components/scheduleExamModal/scheduleExamModal.component";
 
 @NgModule({
   declarations: [
@@ -48,6 +50,8 @@ import {CreateRegisteredDonorRequestFormComponent} from "./components/donorReque
     CreateRegisteredDonorRequestFormComponent,
     RequestSentPageComponent,
     DonorRequestListPageComponent,
+    DonorRequestDetailsPageComponent,
+    ScheduleExamModalComponent,
 
     CreatePatientRequestPageComponent,
     CreatePatientRequestFormComponent,

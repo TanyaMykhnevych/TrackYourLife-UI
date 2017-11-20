@@ -15,6 +15,7 @@ import {
 import {
   ManagePatientRequestsPageComponent
 } from "./components/patientRequest/components/managePatientRequests/managePatientRequests.component";
+import {DonorRequestDetailsPageComponent} from "./components/donorRequest/components/details/donorRequestDetails.component";
 
 const r = AppEnums.routes;
 const routes: Routes = [
@@ -29,6 +30,7 @@ const routes: Routes = [
 
       {path: r.donorRequest + '/' + r.create, component: CreateDonorRequestPageComponent},
       {path: r.donorRequest + '/' + r.list, component: DonorRequestListPageComponent},
+      {path: r.donorRequest + '/' + r.details + '/:donorRequestId', component: DonorRequestDetailsPageComponent},
       {path: r.donorRequest + '/' + r.requestSent, component: RequestSentPageComponent},
 
       {path: r.patientRequest + '/' + r.create, component: CreatePatientRequestPageComponent},

@@ -8,6 +8,7 @@ export let AppEnums = {
     manageOrganInfos: 'manageOrganInfos',
     manage: 'manage',
     list: 'list',
+    details: 'details',
     donorRequest: 'donorRequest',
     create: 'create',
     requestSent: 'requestSent',
@@ -104,6 +105,16 @@ export let AppEnums = {
   showMode: {
     edit: 'detail',
     create: 'create'
+  },
+
+  donorRequestStatuses: {
+    pendingMedicalExamination: 100,
+    scheduledMedicalExamination: 200,
+    failedMedicalExamination: 300,
+    awaitingForPatientRequest: 350,
+    needToScheduleTimeForOrganRetrieving: 400,
+    awaitingOrganRetrieving: 500,
+    finishedSuccessfully: 600
   },
 
   donorRequestStatusesStrings: {

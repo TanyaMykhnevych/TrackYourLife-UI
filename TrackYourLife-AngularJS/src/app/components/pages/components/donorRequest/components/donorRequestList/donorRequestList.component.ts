@@ -33,7 +33,12 @@ export class DonorRequestListPageComponent implements OnInit {
   }
 
   public goToDonorRequestDetails(donorRequestId: number): void {
-
+    this.router.navigate([
+      AppEnums.routes.pages,
+      AppEnums.routes.donorRequest,
+      AppEnums.routes.details,
+      donorRequestId
+    ]);
   }
 
   public ngOnInit() {
