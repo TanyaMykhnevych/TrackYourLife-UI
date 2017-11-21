@@ -28,11 +28,15 @@ import {EditOrganInfoModalComponent} from "./components/manageOrganInfos/compone
 import {CreatePatientRequestFormComponent} from "./components/patientRequest/components/createPatientRequest/components/createPatientRequestForm/createPatientRequestForm.component";
 import {PatientRequestSentPageComponent} from "./components/patientRequest/components/createPatientRequest/components/patientRequestSent/patientRequestSent.component";
 import {ManagePatientRequestsPageComponent} from "./components/patientRequest/components/managePatientRequests/managePatientRequests.component";
-import {LinkingRequestsPageComponent} from "./components/linkingRequests/linkingRequests.component";
 import {PatientRequestListPageComponent} from "./components/patientRequest/components/patientRequestList/patientRequestList.component";
 import {CreateRegisteredDonorRequestFormComponent} from "./components/donorRequest/components/createDonorRequest/components/createRegisteredDonorRequestForm/createRegisteredDonorRequestForm.component";
 import {DonorRequestDetailsPageComponent} from "./components/donorRequest/components/details/donorRequestDetails.component";
 import {ScheduleExamModalComponent} from "./components/donorRequest/components/details/components/scheduleExamModal/scheduleExamModal.component";
+import {EnterMedicalExamResultModalComponent} from "./components/donorRequest/components/details/components/enterMedicalExamResultModal/enterMedicalExamResultModal.component";
+import {LinkPatientRequestModalComponent} from "./components/donorRequest/components/details/components/linkPatientRequestModal/linkPatientRequestModal.component";
+import {ScheduleOrganRetrievingModalComponent} from "./components/donorRequest/components/details/components/scheduleOrganRetrievingModal/scheduleOrganRetrievingModal.component";
+import {SetRequestFinalStatusModalComponent} from "./components/donorRequest/components/details/components/setRequestFinalStatusModal/setRequestFinalStatusModal.component";
+import {PatientsQueueResource} from "./patientsQueue.resource";
 
 @NgModule({
   declarations: [
@@ -52,13 +56,16 @@ import {ScheduleExamModalComponent} from "./components/donorRequest/components/d
     DonorRequestListPageComponent,
     DonorRequestDetailsPageComponent,
     ScheduleExamModalComponent,
+    EnterMedicalExamResultModalComponent,
+    SetRequestFinalStatusModalComponent,
+    LinkPatientRequestModalComponent,
+    ScheduleOrganRetrievingModalComponent,
 
     CreatePatientRequestPageComponent,
     CreatePatientRequestFormComponent,
     PatientRequestSentPageComponent,
     PatientRequestListPageComponent,
-    ManagePatientRequestsPageComponent,
-    LinkingRequestsPageComponent
+    ManagePatientRequestsPageComponent
   ],
   imports: [
     CommonModule,
@@ -73,7 +80,8 @@ import {ScheduleExamModalComponent} from "./components/donorRequest/components/d
     ClinicsResource,
     DonorRequestResource,
     PatientRequestResource,
-    OrganInfosResource
+    OrganInfosResource,
+    PatientsQueueResource
   ]
 })
 export class PagesModule {

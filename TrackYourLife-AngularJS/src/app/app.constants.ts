@@ -114,7 +114,8 @@ export let AppEnums = {
     awaitingForPatientRequest: 350,
     needToScheduleTimeForOrganRetrieving: 400,
     awaitingOrganRetrieving: 500,
-    finishedSuccessfully: 600
+    finishedSuccessfully: 600,
+    finishedFailed: 700
   },
 
   donorRequestStatusesStrings: {
@@ -123,7 +124,14 @@ export let AppEnums = {
     '300': "Failed Medical Examination",
     '400': "Need To Schedule Time For Organ Retrieving",
     '500': "Awaiting Organ Retrieving",
-    '600': "Finished Successfully"
+    '600': "Finished Successfully",
+    '700': "Finished Failed"
+  },
+
+  medicalExamStatuses: {
+    scheduled: 1000,
+    pass: 2000,
+    fail: 3000
   },
 
   medicalExamStatusesStrings: {

@@ -29,7 +29,6 @@ export interface IDonorRequestDetailsViewModel {
   organInfo: any; // OrganInfo
 
   transplantOrganId: number;
-  transplantOrgan: any; // TransplantOrgan
 
   patientOrganQuery: any; // PatientOrganQuery
 
@@ -68,4 +67,24 @@ export interface IDonorMedicalExamListItemViewModel {
   status: number; // MedicalExamStatuses
   results: string;
   donorOrganQueryId: number;
+}
+
+export interface IEnterMedicalExamResultViewModel {
+  donorRequestId: number;
+  medicalExamStatus: number; // MedicalExamStatuses
+  medicalExamResults: string;
+}
+
+export interface ILinkPatientRequestViewModel {
+  donorRequestId: number;
+  patientRequestId: number;
+}
+
+export interface IScheduleOrganRetrievingViewModel {
+  donorRequestId: number;
+}
+
+export  interface  ISetRequestFinalStatusViewModel {
+  donorRequestId: number;
+  donorRequestStatus: number;
 }

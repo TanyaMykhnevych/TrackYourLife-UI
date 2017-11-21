@@ -1,27 +1,51 @@
 <div id="donor-request-details-page">
   <div class="container">
     <h3>Donor Request Details</h3>
+    <hr/>
     <h5>Person: {{donorRequestDetails.donorInfo?.firstName}} {{donorRequestDetails.donorInfo?.secondName}}</h5>
     <h5>Email: {{donorRequestDetails.donorInfo?.email}}</h5>
-
-    <br/>
-
-    <p>Id: {{donorRequestDetails.id}}</p>
-    <p>Message: {{donorRequestDetails.message}}</p>
-    <p>Organ Name: {{donorRequestDetails.organInfo?.name}}</p>
-    <p>Status: {{getDonorRequestStatusString(donorRequestDetails.status)}}</p>
-    <p>Transplant Organ Id: {{donorRequestDetails.transplantOrganId}}</p>
-
-    <p>Has Linked Patient: {{donorRequestDetails?.patientOrganQuery != null}}</p>
-    <p>Donor Medical Exam Count: {{donorRequestDetails?.donorMedicalExams?.length}}</p>
-
+    <hr/>
+    <div class="donorRequestDetailsInfo">
+      <!--<p>Id: {{donorRequestDetails.id}}</p>-->
+      <p><b>Message:</b> {{donorRequestDetails.message != null ? donorRequestDetails.message : "no message"}}</p>
+      <p><b>Organ:</b> {{donorRequestDetails.organInfo?.name}}</p>
+      <p><b>Status:</b> {{getDonorRequestStatusString(donorRequestDetails.status)}}</p>
+      <!--<p>Transplant Organ Id: {{donorRequestDetails.transplantOrganId}}</p>-->
+      <p>
+        <b>Patient found:</b>
+        <i *ngIf="donorRequestDetails?.patientOrganQuery != null" class="fa fa-check"
+           style="font-size:30px;color:green"></i>
+        <i *ngIf="!donorRequestDetails?.patientOrganQuery != null" class="fa fa-times"
+           style="font-size:30px;color:red"></i>
+      </p>
+      <p><b>Exams tries:</b> {{donorRequestDetails?.donorMedicalExams?.length}}</p>
+      <p>
+        <details>
+          <summary><b>Clinic:</b> clinic name</summary>
+      <p>
+        <small><b>Country:</b> country</small>
+      </p>
+      <p>
+        <small><b>City:</b> city</small>
+      </p>
+      <p>
+        <small><b>Address:</b> address</small>
+      </p>
+      <p>
+        <small><b>Contact Phone:</b> phone</small>
+      </p>
+      </details>
+      </p>
+      <br>
+    </div>
+    <hr/>
 
     <div *ngIf="getScheduleMedicalExamButtonVisibility()">
       <button class="btn btn-success" (click)="scheduleMedicalExam()">Schedule Medical Exam</button>
     </div>
 
     <div *ngIf="getEnterMedicalExamResultsButtonVisibility()">
-      <button class="btn btn-success" (click)="enterMedicalExamResults()">Enter Medical Exam Results</button>
+      <button class="btn btn-success" (click)="enterMedicalExamResult()">Enter Medical Exam Results</button>
     </div>
 
     <div *ngIf="getLinkingPatientRequestButtonVisibility()">
@@ -43,4 +67,17 @@
                            [clinics]="clinics"
                            [donorRequestId]="donorRequestId">
   </app-schedule-exam-modal>
+  <app-enter-medical-exam-result-modal #enterMedicalExamResultModal
+                                       [donorRequestId]="donorRequestId">
+  </app-enter-medical-exam-result-modal>
+  <app-link-patient-request-modal #linkPatientRequestModal
+                                  [organInfoId]="donorRequestDetails?.organInfoId"
+                                  [donorRequestId]="donorRequestId">
+  </app-link-patient-request-modal>
+  <app-schedule-organ-retrieving-modal #scheduleOrganRetrievingModal
+                                       [donorRequestId]="donorRequestId">
+  </app-schedule-organ-retrieving-modal>
+  <app-set-request-final-status-modal #setRequestFinalStatusModal
+                                      [donorRequestId]="donorRequestId">
+  </app-set-request-final-status-modal>
 </div>
