@@ -13,9 +13,9 @@
       <!--<p>Transplant Organ Id: {{donorRequestDetails.transplantOrganId}}</p>-->
       <p>
         <b>Patient found:</b>
-        <i *ngIf="donorRequestDetails?.patientOrganQuery != null" class="fa fa-check"
+        <i *ngIf="donorRequestDetails?.patientRequest != null" class="fa fa-check"
            style="font-size:30px;color:green"></i>
-        <i *ngIf="!donorRequestDetails?.patientOrganQuery != null" class="fa fa-times"
+        <i *ngIf="!donorRequestDetails?.patientRequest != null" class="fa fa-times"
            style="font-size:30px;color:red"></i>
       </p>
       <p><b>Exams tries:</b> {{donorRequestDetails?.donorMedicalExams?.length}}</p>

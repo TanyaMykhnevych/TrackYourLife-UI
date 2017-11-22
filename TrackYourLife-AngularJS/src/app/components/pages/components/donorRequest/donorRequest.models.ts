@@ -1,3 +1,5 @@
+import {Span} from "@angular/compiler-cli";
+
 export interface ICreateDonorRequestViewModel {
   email: string;
   password: string;
@@ -18,24 +20,6 @@ export interface ICreateDonorRequestViewModel {
   organInfoId: number;
 }
 
-export interface IDonorRequestDetailsViewModel {
-  id: number;
-  message: string;
-  status: number; // DonorRequestStatuses
-  donorInfoId: number;
-  donorInfo: any;
-
-  organInfoId: number;
-  organInfo: any; // OrganInfo
-
-  transplantOrganId: number;
-
-  patientOrganQuery: any; // PatientOrganQuery
-
-  donorMedicalExams: Array<IDonorMedicalExamListItemViewModel>; // ICollection<DonorMedicalExam>
-}
-
-
 export interface IDonorRequestListItem {
   id: number;
   organInfoName: string;
@@ -54,6 +38,69 @@ export interface IDonorRequestList {
   donorRequestList: Array<IDonorRequestListItem>;
 }
 
+export interface IDonorRequestDetailsViewModel {
+  id: number;
+  message: string;
+  status: number; // DonorRequestStatuses
+
+  donorInfoId: number;
+  donorInfo: IUserInfoDetailedViewModel;
+
+  organInfoId: number;
+  organInfo: IOrganInfoDetailedViewModel; // OrganInfo
+
+  transplantOrganId: number;
+
+  patientRequest: IPatientRequestDetailsViewModel;
+
+  donorMedicalExams: Array<IDonorMedicalExamListItemViewModel>; // ICollection<DonorMedicalExam>
+}
+
+export interface IPatientRequestDetailsViewModel {
+  id: number;
+  message: string;
+  status: number; // PatientRequestStatuses
+
+  patientInfoId: number;
+
+  organInfoId: number;
+  organInfo: IOrganInfoDetailedViewModel; // OrganInfo
+
+  donorRequest: IDonorRequestDetailsViewModel;
+
+  donorMedicalExams: Array<IDonorMedicalExamListItemViewModel>; // ICollection<DonorMedicalExam>
+}
+
+export interface IUserInfoDetailedViewModel {
+  id: number;
+  appUserId: string;
+  email: string;
+
+  firstName: string;
+  secondName: string;
+  birthDate: Date;
+
+  notes: string;
+
+  addressLine1: string;
+  addressLine2: string;
+  zipCode: string;
+  country: string;
+  city: string;
+
+  phoneNumber: string;
+}
+
+export interface IOrganInfoDetailedViewModel {
+  id: number;
+  name: string;
+  description: string;
+  outsideHumanPossibleTime: Date;
+}
+
+
+// Modals models
+
 export interface IScheduleMedicalExamViewModel {
   donorRequestId: number;
   clinicId: number;
@@ -66,7 +113,7 @@ export interface IDonorMedicalExamListItemViewModel {
   clinicId: number;
   status: number; // MedicalExamStatuses
   results: string;
-  donorOrganQueryId: number;
+  donorRequestId: number;
 }
 
 export interface IEnterMedicalExamResultViewModel {
@@ -84,7 +131,7 @@ export interface IScheduleOrganRetrievingViewModel {
   donorRequestId: number;
 }
 
-export  interface  ISetRequestFinalStatusViewModel {
+export interface ISetRequestFinalStatusViewModel {
   donorRequestId: number;
   donorRequestStatus: number;
 }
