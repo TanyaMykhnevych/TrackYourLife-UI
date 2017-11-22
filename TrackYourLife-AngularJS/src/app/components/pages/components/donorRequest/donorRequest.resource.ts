@@ -20,7 +20,7 @@ export class DonorRequestResource extends ResourceBase {
       'scheduleMedicalExam': 'donorRequests/scheduleMedicalExam',
       'submitMedicalExamResult': 'donorRequests/setMedicalExamResults',
       'linkPatientRequest': 'donorRequests/linkPatientRequest',
-      'TimeForRetrievingHasBeenScheduled': 'donorRequests/timeForRetrievingHasBeenScheduled/{donorRequestId}',
+      'timeForRetrievingHasBeenScheduled': 'donorRequests/timeForRetrievingHasBeenScheduled/{donorRequestId}',
       'finishDonorRequest': 'donorRequests/finishDonorRequest'
     });
   }

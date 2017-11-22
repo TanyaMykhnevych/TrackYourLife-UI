@@ -122,6 +122,7 @@ export let AppEnums = {
     '100': "Pending Medical Examination",
     '200': "Scheduled Medical Examination",
     '300': "Failed Medical Examination",
+    '350': "Awaiting For Patient Request",
     '400': "Need To Schedule Time For Organ Retrieving",
     '500': "Awaiting Organ Retrieving",
     '600': "Finished Successfully",
@@ -140,10 +141,18 @@ export let AppEnums = {
     '3000': "Fail"
   },
 
+  patientRequestStatuses: {
+    awaitingForDonor: 100,
+    awaitingForTransplanting: 200,
+    finishedSuccessfully: 300,
+    finishedFailed: 400
+  },
+
   patientRequestStatusesStrings: {
     '100': "Awaiting For Donor",
     '200': "Awaiting For Transplanting",
-    '300': "Finished Successfully"
+    '300': "Finished Successfully",
+    '400': 'Finished Failed'
   }
 
 };

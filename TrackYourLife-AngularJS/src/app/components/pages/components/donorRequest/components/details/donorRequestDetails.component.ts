@@ -3,7 +3,7 @@ import {AppEnums} from "../../../../../../app.constants";
 import {DonorRequestResource} from "../../donorRequest.resource";
 import {PreloaderService} from "../../../../../../common/services/preloaderService";
 import {ActivatedRoute, Router} from "@angular/router";
-import {IDonorRequestDetailsViewModel} from "../../donorRequest.models";
+import {IDonorRequestDetailsViewModel, ISetRequestFinalStatusViewModel} from "../../donorRequest.models";
 import {IContentResponseWrapper} from "../../../../../../models/interfaces/apiRespone/responseWrapper";
 import {UserService} from "../../../../../../common/services/userService";
 import {Subscription} from "rxjs/Subscription";
@@ -31,7 +31,7 @@ export class DonorRequestDetailsPageComponent implements OnInit, OnDestroy {
   public donorRequestDetails: IDonorRequestDetailsViewModel;
   public clinics: Array<IClinicListItem>;
 
-  private _donorRequestId: number;
+  private donorRequestId: number;
   private subscription: Subscription;
 
   constructor(private donorRequestResource: DonorRequestResource,
@@ -47,7 +47,13 @@ export class DonorRequestDetailsPageComponent implements OnInit, OnDestroy {
 
     this.donorRequestDetails = {} as IDonorRequestDetailsViewModel;
     this.subscription = this.route.params.subscribe(params => {
-      this.donorRequestId = +params['donorRequestId']; // (+) converts string 'id' to a number
+      this.donorRequestId = +params['donorRequestId'];
+
+      Promise.all([
+        this.getClinics(),
+        this.getDonorRequestDetails()
+      ]);
+
     });
   }
 
@@ -63,6 +69,10 @@ export class DonorRequestDetailsPageComponent implements OnInit, OnDestroy {
         this.clinics = response.content.clinics;
         return this.clinics;
       });
+  }
+
+  public getPatientRequestStatusString(value: number): string {
+    return AppEnums.patientRequestStatusesStrings[value];
   }
 
   private getDonorRequestDetails(): Promise<IDonorRequestDetailsViewModel> {
@@ -83,15 +93,6 @@ export class DonorRequestDetailsPageComponent implements OnInit, OnDestroy {
           }
         }
       );
-  }
-
-  public get donorRequestId(): number {
-    return this._donorRequestId;
-  }
-
-  public set donorRequestId(newId: number) {
-    this._donorRequestId = newId;
-    this.getDonorRequestDetails();
   }
 
   public getDonorRequestStatusString(value: number): string {
@@ -148,10 +149,24 @@ export class DonorRequestDetailsPageComponent implements OnInit, OnDestroy {
   }
 
   public setRequestAsSucceded() {
-
+    const entity = {
+      donorRequestId: this.donorRequestId,
+      donorRequestStatus: AppEnums.donorRequestStatuses.finishedSuccessfully
+    } as ISetRequestFinalStatusViewModel;
+    return this.finishRequest(entity);
   }
 
   public setRequestAsFailed() {
+    const entity = {
+      donorRequestId: this.donorRequestId,
+      donorRequestStatus: AppEnums.donorRequestStatuses.finishedFailed
+    } as ISetRequestFinalStatusViewModel;
+    return this.finishRequest(entity);
+  }
 
+  private finishRequest(entity: ISetRequestFinalStatusViewModel): Promise<any> {
+    return this.donorRequestResource.finishDonorRequest(entity).then(result => {
+      return this.getDonorRequestDetails();
+    });
   }
 }

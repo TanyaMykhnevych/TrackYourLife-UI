@@ -2,6 +2,7 @@ export interface IClinicListItem {
   id: number;
   name: string;
   contactPhone: string;
+  addressLine1: string;
   country: string;
   city: string;
 }

@@ -6,7 +6,15 @@
     </button>
   </div>
 
-  <div class="modal-body">
+  <div class="modal-body"  id="link-patient-request-modal">
+    <div class="command-bar">
+      <input class="form-control" type="text" id="searchPatientInput" name="searchPatientInputName" placeholder="Enter patient name">
+    </div>
+
+    <p class="validation-error" *ngIf="$submitted && !selectedPatientRequest">
+      You have to chose patient request first
+    </p>
+
     <table class="table table-striped">
       <thead>
       <tr>
@@ -18,13 +26,13 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let patientRequest of patientQueue" [ngClass]="{'selected': selectedPatientRequest === patientRequest}">
+      <tr *ngFor="let patientRequest of patientQueue" [ngClass]="{'selected': entity.patientRequestId === patientRequest.id}">
         <td>{{patientRequest.patientInfoId}}</td>
         <td>{{patientRequest.id}}</td>
-        <td>{{patientRequest.patientInfo?.name}}</td>
+        <td>{{patientRequest.patientInfo?.firstName}} {{patientRequest.patientInfo?.secondName}}</td>
         <td>{{convertPriorityToString(patientRequest.priority)}}</td>
         <td>
-          <button class="btn btn-success" (click)="selectPatientRequest(patientRequest)">Select</button>
+          <button *ngIf="entity.patientRequestId != patientRequest.id" class="btn btn-success" (click)="selectPatientRequest(patientRequest)">Select</button>
         </td>
       </tr>
       </tbody>

@@ -27,8 +27,7 @@ export class LinkPatientRequestModalComponent
 
   public patientQueue: Array<any> = new Array();
   public selectedPatientRequest: any;
-
-  private patientPrioriries: Array<IEnumItemViewModel>;
+  public errorMessage: string;
 
   $submitted = false;
 
@@ -40,7 +39,6 @@ export class LinkPatientRequestModalComponent
   }
 
   public ngOnInit() {
-    this.createPatientPriorityArray();
   }
 
   private loadPatientQueue() {
@@ -54,34 +52,13 @@ export class LinkPatientRequestModalComponent
       });
   }
 
-  private createPatientPriorityArray() {
-    const priotities = AppEnums.patientQueryPriority;
-    const priotitiesStrings = AppEnums.patientQueryPriorityStrings;
-
-    const array = new Array<IEnumItemViewModel>();
-    Object.keys(priotities).forEach(key => {
-      array.push({
-        id: Number(key),
-        name: priotitiesStrings[key]
-      } as IEnumItemViewModel);
-    });
-
-    this.patientPrioriries = array;
-  }
-
   public convertPriorityToString(value: number) {
-    let result = '';
-    this.patientPrioriries.forEach(p => {
-      if (p.id === value) {
-        result = p.name;
-        return result;
-      }
-    });
-    return result;
+    return AppEnums.patientQueryPriorityStrings[value];
   }
 
   public selectPatientRequest(patientRequest: any) {
     this.selectedPatientRequest = patientRequest;
+    this.entity.patientRequestId = patientRequest.id;
   }
 
   public show() {
@@ -94,6 +71,10 @@ export class LinkPatientRequestModalComponent
   }
 
   public save(): Promise<any> {
+    if (!this.selectedPatientRequest) {
+      return;
+    }
+
     return this.donorRequestResource.linkPatientRequest(this.entity).then(() => {
       this.successClose();
     });

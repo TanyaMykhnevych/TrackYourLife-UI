@@ -11,30 +11,43 @@
       <p><b>Organ:</b> {{donorRequestDetails.organInfo?.name}}</p>
       <p><b>Status:</b> {{getDonorRequestStatusString(donorRequestDetails.status)}}</p>
       <!--<p>Transplant Organ Id: {{donorRequestDetails.transplantOrganId}}</p>-->
+
+      <p><b>Exams tries:</b> {{donorRequestDetails?.medicalExamsCount}}</p>
+
+      <p *ngIf="donorRequestDetails && donorRequestDetails.medicalExamClinic">
+        <details>
+          <summary><b>Clinic:</b>{{donorRequestDetails.medicalExamClinic.name}}</summary>
+          <p>
+            <small><b>Country:</b>{{donorRequestDetails.medicalExamClinic.country}}</small>
+          </p>
+          <p>
+            <small><b>City:</b>{{donorRequestDetails.medicalExamClinic.city}}</small>
+          </p>
+          <p>
+            <small><b>Address:</b>{{donorRequestDetails.medicalExamClinic.addressLine1}}</small>
+          </p>
+          <p>
+            <small><b>Contact Phone:</b>{{donorRequestDetails.medicalExamClinic.contactPhone}}</small>
+          </p>
+        </details>
+      </p>
+
       <p>
         <b>Patient found:</b>
-        <i *ngIf="donorRequestDetails?.patientRequest != null" class="fa fa-check"
+        <i *ngIf="donorRequestDetails && donorRequestDetails.patientRequest" class="fa fa-check"
            style="font-size:30px;color:green"></i>
-        <i *ngIf="!donorRequestDetails?.patientRequest != null" class="fa fa-times"
+        <i *ngIf="!donorRequestDetails || !donorRequestDetails.patientRequest" class="fa fa-times"
            style="font-size:30px;color:red"></i>
       </p>
-      <p><b>Exams tries:</b> {{donorRequestDetails?.donorMedicalExams?.length}}</p>
-      <p>
+
+      <p *ngIf="donorRequestDetails && donorRequestDetails.patientRequest">
         <details>
-          <summary><b>Clinic:</b> clinic name</summary>
-      <p>
-        <small><b>Country:</b> country</small>
-      </p>
-      <p>
-        <small><b>City:</b> city</small>
-      </p>
-      <p>
-        <small><b>Address:</b> address</small>
-      </p>
-      <p>
-        <small><b>Contact Phone:</b> phone</small>
-      </p>
-      </details>
+          <summary><b>Patient:</b>{{donorRequestDetails.patientRequest.patientInfo?.firstName}}
+            {{donorRequestDetails.patientRequest.patientInfo?.secondName}}</summary>
+          <p>
+            <small><b>Status:</b>{{getPatientRequestStatusString(donorRequestDetails.patientRequest.status)}}</small>
+          </p>
+        </details>
       </p>
       <br>
     </div>
