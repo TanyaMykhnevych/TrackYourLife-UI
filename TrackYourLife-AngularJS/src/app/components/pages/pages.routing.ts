@@ -12,9 +12,6 @@ import {
 import {
   CreatePatientRequestPageComponent
 } from "./components/patientRequest/components/createPatientRequest/createPatientRequest.component";
-import {
-  ManagePatientRequestsPageComponent
-} from "./components/patientRequest/components/managePatientRequests/managePatientRequests.component";
 import {DonorRequestDetailsPageComponent} from "./components/donorRequest/components/details/donorRequestDetails.component";
 
 const r = AppEnums.routes;
@@ -34,8 +31,7 @@ const routes: Routes = [
       {path: r.donorRequest + '/' + r.requestSent, component: RequestSentPageComponent},
 
       {path: r.patientRequest + '/' + r.create, component: CreatePatientRequestPageComponent},
-      {path: r.patientRequest + '/' + r.list, component: PatientRequestListPageComponent},
-      {path: r.patientRequest + '/' + r.manage, component: ManagePatientRequestsPageComponent}
+      {path: r.patientRequest + '/' + r.list, component: PatientRequestListPageComponent}
     ]
   }
 ];

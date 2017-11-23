@@ -27,7 +27,6 @@ import {AddOrganInfoModalComponent} from "./components/manageOrganInfos/componen
 import {EditOrganInfoModalComponent} from "./components/manageOrganInfos/components/editClinicModal/edit-organ-info-modal.component";
 import {CreatePatientRequestFormComponent} from "./components/patientRequest/components/createPatientRequest/components/createPatientRequestForm/createPatientRequestForm.component";
 import {PatientRequestSentPageComponent} from "./components/patientRequest/components/createPatientRequest/components/patientRequestSent/patientRequestSent.component";
-import {ManagePatientRequestsPageComponent} from "./components/patientRequest/components/managePatientRequests/managePatientRequests.component";
 import {PatientRequestListPageComponent} from "./components/patientRequest/components/patientRequestList/patientRequestList.component";
 import {CreateRegisteredDonorRequestFormComponent} from "./components/donorRequest/components/createDonorRequest/components/createRegisteredDonorRequestForm/createRegisteredDonorRequestForm.component";
 import {DonorRequestDetailsPageComponent} from "./components/donorRequest/components/details/donorRequestDetails.component";
@@ -64,8 +63,7 @@ import {PatientsQueueResource} from "./patientsQueue.resource";
     CreatePatientRequestPageComponent,
     CreatePatientRequestFormComponent,
     PatientRequestSentPageComponent,
-    PatientRequestListPageComponent,
-    ManagePatientRequestsPageComponent
+    PatientRequestListPageComponent
   ],
   imports: [
     CommonModule,

@@ -107,7 +107,7 @@ export const MENU = [
                 selected: true,
                 expanded: false,
                 order: 0,
-                roles: [AppEnums.roles.patient]
+                roles: [AppEnums.roles.patient, AppEnums.roles.medicalEmployee]
               }
             },
           },
@@ -116,19 +116,6 @@ export const MENU = [
             data: {
               menu: {
                 title: 'Create',
-                icon: null,
-                selected: true,
-                expanded: false,
-                order: 0,
-                roles: [AppEnums.roles.medicalEmployee]
-              }
-            },
-          },
-          {
-            path: r.manage,
-            data: {
-              menu: {
-                title: 'Manage',
                 icon: null,
                 selected: true,
                 expanded: false,
