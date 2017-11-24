@@ -1,3 +1,8 @@
+import {
+  IDonorMedicalExamListItemViewModel, IDonorRequestDetailsViewModel, IOrganInfoDetailedViewModel,
+  IUserInfoDetailedViewModel
+} from "../donorRequest/donorRequest.models";
+
 export interface ICreatePatientRequestViewModel {
   email: string;
   firstName: string;
@@ -31,4 +36,21 @@ export interface IPatientRequestListItem {
 
 export interface IPatientRequestList {
   patientRequestList: Array<IPatientRequestListItem>;
+}
+
+
+export interface IPatientRequestDetailsViewModel {
+  id: number;
+  message: string;
+  status: number; // PatientRequestStatuses
+
+  patientInfoId: number;
+  patientInfo: IUserInfoDetailedViewModel;
+
+  organInfoId: number;
+  organInfo: IOrganInfoDetailedViewModel; // OrganInfo
+
+  donorRequest: IDonorRequestDetailsViewModel;
+
+  donorMedicalExams: Array<IDonorMedicalExamListItemViewModel>; // ICollection<DonorMedicalExam>
 }

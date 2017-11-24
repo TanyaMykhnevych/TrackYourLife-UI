@@ -61,7 +61,7 @@ export const MENU = [
             path: r.create,
             data: {
               menu: {
-                title: 'Create',
+                title: 'Create Request',
                 icon: null,
                 selected: true,
                 expanded: false,
@@ -74,7 +74,7 @@ export const MENU = [
             path: r.list,
             data: {
               menu: {
-                title: 'List',
+                title: 'Request List',
                 icon: null,
                 selected: true,
                 expanded: false,
@@ -102,7 +102,7 @@ export const MENU = [
             path: r.list,
             data: {
               menu: {
-                title: 'List',
+                title: 'Request List',
                 icon: null,
                 selected: true,
                 expanded: false,
@@ -115,7 +115,7 @@ export const MENU = [
             path: r.create,
             data: {
               menu: {
-                title: 'Create',
+                title: 'Create Request',
                 icon: null,
                 selected: true,
                 expanded: false,

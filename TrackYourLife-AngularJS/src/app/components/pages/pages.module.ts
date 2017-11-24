@@ -36,6 +36,8 @@ import {LinkPatientRequestModalComponent} from "./components/donorRequest/compon
 import {ScheduleOrganRetrievingModalComponent} from "./components/donorRequest/components/details/components/scheduleOrganRetrievingModal/scheduleOrganRetrievingModal.component";
 import {SetRequestFinalStatusModalComponent} from "./components/donorRequest/components/details/components/setRequestFinalStatusModal/setRequestFinalStatusModal.component";
 import {PatientsQueueResource} from "./patientsQueue.resource";
+import {PatientRequestDetailsPageComponent} from "./components/patientRequest/details/patientRequestDetails.component";
+
 
 @NgModule({
   declarations: [
@@ -63,7 +65,8 @@ import {PatientsQueueResource} from "./patientsQueue.resource";
     CreatePatientRequestPageComponent,
     CreatePatientRequestFormComponent,
     PatientRequestSentPageComponent,
-    PatientRequestListPageComponent
+    PatientRequestListPageComponent,
+    PatientRequestDetailsPageComponent
   ],
   imports: [
     CommonModule,

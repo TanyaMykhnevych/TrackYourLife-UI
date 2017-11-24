@@ -24,4 +24,9 @@ export class PatientRequestResource extends ResourceBase {
     const url = this.buildUrl(this.urlOptions['getPatientRequestList'], {});
     return this.http.get(url);
   }
+
+  public getPatientRequestDetails(patientRequestId: number): Promise<any> {
+    const url = this.buildUrl(this.urlOptions['getPatientRequestDetails'], {id: patientRequestId});
+    return this.http.get(url);
+  }
 }

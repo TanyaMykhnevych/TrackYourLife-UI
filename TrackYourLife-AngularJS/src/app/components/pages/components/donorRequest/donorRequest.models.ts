@@ -1,5 +1,6 @@
 import {Span} from "@angular/compiler-cli";
 import {IClinicListItem} from "../clinics/clinic.models";
+import {IPatientRequestDetailsViewModel} from "../patientRequest/patientRequest.models";
 
 export interface ICreateDonorRequestViewModel {
   email: string;
@@ -58,22 +59,6 @@ export interface IDonorRequestDetailsViewModel {
 
   lastDonorMedicalExam: IDonorMedicalExamListItemViewModel; // ICollection<DonorMedicalExam>
   medicalExamClinic: IClinicListItem; // ICollection<DonorMedicalExam>
-}
-
-export interface IPatientRequestDetailsViewModel {
-  id: number;
-  message: string;
-  status: number; // PatientRequestStatuses
-
-  patientInfoId: number;
-  patientInfo: IUserInfoDetailedViewModel;
-
-  organInfoId: number;
-  organInfo: IOrganInfoDetailedViewModel; // OrganInfo
-
-  donorRequest: IDonorRequestDetailsViewModel;
-
-  donorMedicalExams: Array<IDonorMedicalExamListItemViewModel>; // ICollection<DonorMedicalExam>
 }
 
 export interface IUserInfoDetailedViewModel {
