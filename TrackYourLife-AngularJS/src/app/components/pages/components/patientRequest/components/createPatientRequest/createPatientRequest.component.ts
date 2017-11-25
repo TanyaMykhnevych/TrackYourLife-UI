@@ -56,7 +56,7 @@ export class CreatePatientRequestPageComponent {
     const data = this.createPatientForm.data;
     return this.patientRequestResource.submitPatientRequest(data)
       .catch((err) => {
-        this.preloaderService.showGlobalPreloader();
+        this.preloaderService.hideGlobalPreloader();
         this.notificationService.showError(err);
       })
       .then((response: IResponseWrapper) => {
@@ -64,10 +64,12 @@ export class CreatePatientRequestPageComponent {
         if (response.isValid) {
           this.notificationService.showSuccess(Lang.PATIENT_REQUEST_SEND);
           this.createPatientForm.clearData();
-          this.router.navigate([
-            AppEnums.routes.pages,
-            AppEnums.routes.patientRequest,
-            AppEnums.routes.manage]);
+          // this.router.navigate([
+          //   AppEnums.routes.pages,
+          //   AppEnums.routes.patientRequest,
+          //   AppEnums.routes.details,
+          //   // тут будет patient request ID
+          // ]);
         } else {
           console.error(response.errorMessage);
           this.notificationService.showError(response.errorMessage);

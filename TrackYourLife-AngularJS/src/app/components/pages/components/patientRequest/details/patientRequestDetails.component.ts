@@ -9,6 +9,7 @@ import {UserService} from "../../../../../common/services/userService";
 import {IClinicListItem} from "../../clinics/clinic.models";
 import {IPatientRequestDetailsViewModel} from "../patientRequest.models";
 import {IContentResponseWrapper} from "../../../../../models/interfaces/apiRespone/responseWrapper";
+import {AppEnums} from "../../../../../app.constants";
 
 @Component({
   selector: 'app-patient-request-details-page',
@@ -45,11 +46,15 @@ export class PatientRequestDetailsPageComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
+  public getDonorPatientStatusString(value: number): string {
+    return AppEnums.patientRequestStatusesStrings[value];
+  }
+
   private getPatientRequestDetails(): Promise<IPatientRequestDetailsViewModel> {
     this.preloaderService.showGlobalPreloader();
     return this.patientRequestResource.getPatientRequestDetails(this.patientRequestId)
       .catch((err) => {
-        this.preloaderService.showGlobalPreloader();
+        this.preloaderService.hideGlobalPreloader();
         this.notificationService.showError(err);
       })
       .then((response: IContentResponseWrapper<IPatientRequestDetailsViewModel>) => {

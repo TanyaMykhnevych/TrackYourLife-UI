@@ -28,7 +28,7 @@ export interface IPatientRequestListItem {
   message: string;
   status: number; // PatientRequestStatuses
   patientInfoId: number;
-
+  priority: number;
   organInfoId: number;
   hasLinkedDonorRequest: boolean;
 

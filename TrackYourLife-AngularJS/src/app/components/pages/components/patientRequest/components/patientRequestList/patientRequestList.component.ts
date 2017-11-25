@@ -28,8 +28,17 @@ export class PatientRequestListPageComponent implements OnInit {
     return AppEnums.patientRequestStatusesStrings[value];
   }
 
-  public goToPatientRequestDetails(patientRequestId: number): void {
+  public  getPatientRequestPriorityString(value: number): string {
+    return AppEnums.patientQueryPriorityStrings[value];
+  }
 
+  public goToPatientRequestDetails(patientRequestId: number): void {
+    this.router.navigate([
+      AppEnums.routes.pages,
+      AppEnums.routes.patientRequest,
+      AppEnums.routes.details,
+      patientRequestId
+    ]);
   }
 
   public ngOnInit() {

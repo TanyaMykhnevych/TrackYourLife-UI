@@ -1,6 +1,6 @@
 <ng-template #modalContent let-c="close" let-d="dismiss">
   <div class="modal-header">
-    <h4 class="modal-title">Schedule Organ Retrieving Time</h4>
+    <h4 class="modal-title">Confirm Organ Retrieving</h4>
     <button type="button" class="close" aria-label="Close" (click)="cancelClose()">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -14,7 +14,7 @@
 
   <div class="modal-footer">
     <button type="button" class="btn btn-success" (click)="setSubmitted(true) && scheduleOrganRetrievingForm.valid && save()">
-      Save
+      Confirm
     </button>
     <button type="button" class="btn btn-outline-dark" (click)="cancelClose()">Cancel</button>
   </div>

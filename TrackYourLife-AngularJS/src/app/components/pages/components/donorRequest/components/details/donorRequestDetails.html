@@ -73,13 +73,11 @@
     </div>
 
     <div *ngIf="getScheduleOrganRetrievingTimeButtonVisibility()">
-      <button class="btn btn-success" (click)="scheduleOrganRetrievingTime()">Schedule Organ Retrieving</button>
+      <button class="btn btn-success" (click)="scheduleOrganRetrievingTime()">Confirm Organ Retrieving</button>
     </div>
 
     <div *ngIf="getFinalRequestStatusButtonsVisibility()">
-      Organ retrieving was:
-      <button class="btn btn-success" (click)="setRequestAsSucceded()">Successful</button>
-      <button class="btn btn-danger" (click)="setRequestAsFailed()">Failed</button>
+      <button class="btn btn-success" (click)="setFinalRequestStatus()">Set Final Results</button>
     </div>
   </div>
 

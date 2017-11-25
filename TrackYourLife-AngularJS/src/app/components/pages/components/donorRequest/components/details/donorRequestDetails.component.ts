@@ -148,25 +148,10 @@ export class DonorRequestDetailsPageComponent implements OnInit, OnDestroy {
     });
   }
 
-  public setRequestAsSucceded() {
-    const entity = {
-      donorRequestId: this.donorRequestId,
-      donorRequestStatus: AppEnums.donorRequestStatuses.finishedSuccessfully
-    } as ISetRequestFinalStatusViewModel;
-    return this.finishRequest(entity);
-  }
-
-  public setRequestAsFailed() {
-    const entity = {
-      donorRequestId: this.donorRequestId,
-      donorRequestStatus: AppEnums.donorRequestStatuses.finishedFailed
-    } as ISetRequestFinalStatusViewModel;
-    return this.finishRequest(entity);
-  }
-
-  private finishRequest(entity: ISetRequestFinalStatusViewModel): Promise<any> {
-    return this.donorRequestResource.finishDonorRequest(entity).then(result => {
+  public setFinalRequestStatus() {
+    this.setRequestFinalStatusModal.show().then(() => {
       return this.getDonorRequestDetails();
     });
   }
+
 }

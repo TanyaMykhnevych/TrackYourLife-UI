@@ -51,8 +51,24 @@ export class SetRequestFinalStatusModalComponent extends BaseModalComponent<ISet
     return this.showModal();
   }
 
-  public save(): Promise<any> {
-    return this.donorRequestResource.finishDonorRequest(this.entity).then(() => {
+  public setRequestAsSucceded() {
+    const entity = {
+      donorRequestId: this.donorRequestId,
+      donorRequestStatus: AppEnums.donorRequestStatuses.finishedSuccessfully
+    } as ISetRequestFinalStatusViewModel;
+    return this.save(entity);
+  }
+
+  public setRequestAsFailed() {
+    const entity = {
+      donorRequestId: this.donorRequestId,
+      donorRequestStatus: AppEnums.donorRequestStatuses.finishedFailed
+    } as ISetRequestFinalStatusViewModel;
+    return this.save(entity);
+  }
+
+  public save(entity: ISetRequestFinalStatusViewModel): Promise<any> {
+    return this.donorRequestResource.finishDonorRequest(entity).then(() => {
       this.successClose();
     });
   }

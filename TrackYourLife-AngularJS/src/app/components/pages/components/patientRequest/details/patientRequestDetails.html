@@ -14,9 +14,9 @@
     <hr/>
     <div class="patientRequestDetailsInfo">
 
-      <p><b>Message:</b> {{patientRequestDetails.message != null ? donorRequestDetails.message : "no message"}}</p>
+      <p><b>Message:</b> {{patientRequestDetails.message != null ? patientRequestDetails.message : "no message"}}</p>
       <p><b>Organ:</b> {{patientRequestDetails.organInfo?.name}}</p>
-      <p><b>Status:</b> {{getDonorRequestStatusString(donorRequestDetails.status)}}</p>
+      <p><b>Status:</b> {{getDonorPatientStatusString(patientRequestDetails.status)}}</p>
       <!--<p>Transplant Organ Id: {{donorRequestDetails.transplantOrganId}}</p>-->
 
 

@@ -7,14 +7,22 @@
       </div>
     </div>
 
+    <h3>{{pageTitle}}</h3>
+    <br/>
     <div class="row">
       <div class="col-md-12">
-        <h3>{{pageTitle}}</h3>
+        <img src="../../../../../assets/img/app/search.ico" width="45" height="45"/>
+        <input type="text" name="search" placeholder="Search.."/>
+      </div>
+    </div>
+    <br/>
+    <div class="row">
+      <div class="col-md-12">
         <table class="table table-striped">
           <thead>
           <tr>
             <td>Organ</td>
-            <td>Message</td>
+            <td>Priority</td>
             <td>Status</td>
             <td>Donor founded</td>
             <td>Actions</td>
@@ -23,7 +31,7 @@
           <tbody>
           <tr *ngFor="let patientRequest of patientRequestList">
             <td>{{patientRequest.organInfoName}}</td>
-            <td>{{patientRequest.message}}</td>
+            <td>{{getPatientRequestPriorityString(patientRequest.priority)}}</td>
             <td>{{getPatientRequestStatusString(patientRequest.status)}}</td>
             <td align="center">
               <i *ngIf="patientRequest.hasLinkedDonorRequest" class="fa fa-check" style="font-size:30px;color:green"></i>
