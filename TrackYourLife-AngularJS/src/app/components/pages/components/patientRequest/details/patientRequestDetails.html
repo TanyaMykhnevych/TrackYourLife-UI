@@ -11,34 +11,67 @@
     <hr/>
     <h5>Person: {{patientRequestDetails.patientInfo?.firstName}} {{patientRequestDetails.patientInfo?.secondName}}</h5>
     <h5>Email: {{patientRequestDetails.patientInfo?.email}}</h5>
+    <h5>Phone: {{patientRequestDetails.patientInfo?.phoneNumber}}</h5>
+    <h5 *ngIf="patientRequestDetails.patientInfo?.birthDate">Birth date:
+      {{getBirthDate(patientRequestDetails.patientInfo?.birthDate)}}</h5>
+    <h5>Country: {{patientRequestDetails.patientInfo?.country}}</h5>
+    <h5>City: {{patientRequestDetails.patientInfo?.city}}</h5>
+    <h5>Address: {{patientRequestDetails.patientInfo?.addressLine1}}</h5>
+    <h5 *ngIf="patientRequestDetails.patientInfo?.zipCode">Zip: {{patientRequestDetails.patientInfo?.zipCode}}</h5>
     <hr/>
     <div class="patientRequestDetailsInfo">
 
-      <p><b>Message:</b> {{patientRequestDetails.message != null ? patientRequestDetails.message : "no message"}}</p>
-      <p><b>Organ:</b> {{patientRequestDetails.organInfo?.name}}</p>
-      <p><b>Status:</b> {{getDonorPatientStatusString(patientRequestDetails.status)}}</p>
-      <!--<p>Transplant Organ Id: {{donorRequestDetails.transplantOrganId}}</p>-->
-
+      <p><b>Message: </b> {{patientRequestDetails.message != null ? patientRequestDetails.message : "no message"}}</p>
+      <p><b>Organ: </b> {{patientRequestDetails.organInfo?.name}}</p>
+      <p><b>Status: </b> {{getDonorPatientStatusString(patientRequestDetails.status)}}</p>
 
       <p>
-        <b>Donor found:</b>
+        <b>Donor found: </b>
         <i *ngIf="patientRequestDetails && patientRequestDetails.donorRequest" class="fa fa-check"
            style="font-size:30px;color:green"></i>
         <i *ngIf="!patientRequestDetails || !patientRequestDetails.donorRequest" class="fa fa-times"
            style="font-size:30px;color:red"></i>
       </p>
 
-      <p *ngIf="donorRequestDetails && donorRequestDetails.donorRequest">
+      <p *ngIf="patientRequestDetails && patientRequestDetails.donorRequest">
         <details>
-          <summary><b>Donor:</b>{{patientRequestDetails.donorRequest.donorInfo?.firstName}}
-            {{patientRequestDetails.donorRequest.donorInfo?.secondName}}</summary>
+          <summary><b>Donor: </b>{{patientRequestDetails.donorRequest.donorInfo?.firstName}}
+            {{patientRequestDetails.donorRequest.donorInfo?.secondName}}
+          </summary>
           <p>
-            <small><b>Status:</b>{{getPatientRequestStatusString(patientRequestDetails.donorRequest.status)}}</small>
+            <small><b>Status: </b>{{getDonorRequestStatusString(patientRequestDetails.donorRequest.status)}}</small>
           </p>
+          <p>
+            <small><b>Email: </b>{{patientRequestDetails.donorRequest.donorInfo?.email}}</small>
+          </p>
+          <p>
+            <small><b>Phone: </b>{{patientRequestDetails.donorRequest.donorInfo?.phoneNumber}}</small>
+          </p>
+          <p>
+            <small *ngIf="patientRequestDetails.donorRequest.donorInfo?.birthDate"><b>Birth date: </b>
+              {{getBirthDate(patientRequestDetails.donorRequest.donorInfo?.birthDate)}}
+            </small>
+          </p>
+          <p>
+            <small><b>Country: </b>{{patientRequestDetails.donorRequest.donorInfo?.country}}</small>
+          </p>
+          <p>
+            <small><b>City: </b>{{patientRequestDetails.donorRequest.donorInfo?.city}}</small>
+          </p>
+          <p>
+            <small><b>Address: </b>{{patientRequestDetails.donorRequest.donorInfo?.addressLine1}}</small>
+          </p>
+          <p>
+            <small *ngIf="patientRequestDetails.donorRequest.donorInfo?.zipCode"><b>Zip: </b>{{patientRequestDetails.patientInfo?.zipCode}}
+            </small>
+          </p>
+
         </details>
       </p>
       <br>
     </div>
     <hr/>
+    <img *ngIf="patientRequestDetails && patientRequestDetails.donorRequest" src="../../../../../assets/img/app/map.png"/>
+    <br/><hr/>
   </div>
 </div>

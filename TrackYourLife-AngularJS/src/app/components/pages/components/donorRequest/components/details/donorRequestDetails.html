@@ -11,30 +11,35 @@
     <hr/>
     <h5>Person: {{donorRequestDetails.donorInfo?.firstName}} {{donorRequestDetails.donorInfo?.secondName}}</h5>
     <h5>Email: {{donorRequestDetails.donorInfo?.email}}</h5>
+    <h5>Phone: {{donorRequestDetails.donorInfo?.phoneNumber}}</h5>
+    <h5 *ngIf="donorRequestDetails.donorInfo?.birthDate">Birth date:
+      {{getBirthDate(donorRequestDetails.donorInfo?.birthDate)}}</h5>
+    <h5>Country: {{donorRequestDetails.donorInfo?.country}}</h5>
+    <h5>City: {{donorRequestDetails.donorInfo?.city}}</h5>
+    <h5>Address: {{donorRequestDetails.donorInfo?.addressLine1}}</h5>
+    <h5 *ngIf="donorRequestDetails.donorInfo?.zipCode">Zip: {{donorRequestDetails.donorInfo?.zipCode}}</h5>
     <hr/>
     <div class="donorRequestDetailsInfo">
-      <!--<p>Id: {{donorRequestDetails.id}}</p>-->
       <p><b>Message:</b> {{donorRequestDetails.message != null ? donorRequestDetails.message : "no message"}}</p>
       <p><b>Organ:</b> {{donorRequestDetails.organInfo?.name}}</p>
       <p><b>Status:</b> {{getDonorRequestStatusString(donorRequestDetails.status)}}</p>
-      <!--<p>Transplant Organ Id: {{donorRequestDetails.transplantOrganId}}</p>-->
 
       <p><b>Exams tries:</b> {{donorRequestDetails?.medicalExamsCount}}</p>
 
       <p *ngIf="donorRequestDetails && donorRequestDetails.medicalExamClinic">
         <details>
-          <summary><b>Clinic:</b>{{donorRequestDetails.medicalExamClinic.name}}</summary>
+          <summary><b>Clinic: </b>{{donorRequestDetails.medicalExamClinic.name}}</summary>
           <p>
-            <small><b>Country:</b>{{donorRequestDetails.medicalExamClinic.country}}</small>
+            <small><b>Country: </b>{{donorRequestDetails.medicalExamClinic.country}}</small>
           </p>
           <p>
-            <small><b>City:</b>{{donorRequestDetails.medicalExamClinic.city}}</small>
+            <small><b>City: </b>{{donorRequestDetails.medicalExamClinic.city}}</small>
           </p>
           <p>
-            <small><b>Address:</b>{{donorRequestDetails.medicalExamClinic.addressLine1}}</small>
+            <small><b>Address: </b>{{donorRequestDetails.medicalExamClinic.addressLine1}}</small>
           </p>
           <p>
-            <small><b>Contact Phone:</b>{{donorRequestDetails.medicalExamClinic.contactPhone}}</small>
+            <small><b>Contact Phone: </b>{{donorRequestDetails.medicalExamClinic.contactPhone}}</small>
           </p>
         </details>
       </p>
@@ -49,17 +54,43 @@
 
       <p *ngIf="donorRequestDetails && donorRequestDetails.patientRequest">
         <details>
-          <summary><b>Patient:</b>{{donorRequestDetails.patientRequest.patientInfo?.firstName}}
-            {{donorRequestDetails.patientRequest.patientInfo?.secondName}}</summary>
+          <summary><b>Patient: </b>{{donorRequestDetails.patientRequest.patientInfo?.firstName}}
+            {{donorRequestDetails.patientRequest.patientInfo?.secondName}}
+          </summary>
           <p>
-            <small><b>Status:</b>{{getPatientRequestStatusString(donorRequestDetails.patientRequest.status)}}</small>
+            <small><b>Status: </b>{{getPatientRequestStatusString(donorRequestDetails.patientRequest.status)}}</small>
+          </p>
+          <p>
+            <small><b>Email: </b>{{donorRequestDetails.patientRequest.patientInfo?.email}}</small>
+          </p>
+          <p>
+            <small><b>Phone: </b>{{donorRequestDetails.patientRequest.patientInfo?.phoneNumber}}</small>
+          </p>
+          <p>
+            <small *ngIf="donorRequestDetails.patientRequest.patientInfo?.birthDate"><b>Birth date: </b>
+              {{getBirthDate(donorRequestDetails.patientRequest.patientInfo?.birthDate)}}
+            </small>
+          </p>
+          <p>
+            <small><b>Country: </b>{{donorRequestDetails.patientRequest.patientInfo?.country}}</small>
+          </p>
+          <p>
+            <small><b>City: </b>{{donorRequestDetails.patientRequest.patientInfo?.city}}</small>
+          </p>
+          <p>
+            <small><b>Address: </b>{{donorRequestDetails.patientRequest.patientInfo?.addressLine1}}</small>
+          </p>
+          <p>
+            <small *ngIf="donorRequestDetails.patientRequest.patientInfo?.zipCode"><b>Zip: </b>{{donorRequestDetails.patientRequest.patientInfo?.zipCode}}
+            </small>
           </p>
         </details>
       </p>
       <br>
     </div>
-    <hr/>
-
+    <br/><hr/>
+    <img *ngIf="donorRequestDetails && donorRequestDetails.patientRequest" src="../../../../../assets/img/app/map.png"/>
+    <br/><hr/>
     <div *ngIf="getScheduleMedicalExamButtonVisibility()">
       <button class="btn btn-success" (click)="scheduleMedicalExam()">Schedule Medical Exam</button>
     </div>

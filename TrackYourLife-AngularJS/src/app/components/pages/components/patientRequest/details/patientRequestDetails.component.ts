@@ -50,6 +50,14 @@ export class PatientRequestDetailsPageComponent implements OnInit, OnDestroy {
     return AppEnums.patientRequestStatusesStrings[value];
   }
 
+  public getDonorRequestStatusString(value: number): string {
+    return AppEnums.donorRequestStatusesStrings[value];
+  }
+
+  public getBirthDate(date) {
+    return new Date(Date.parse(date)).toLocaleDateString("en-US");
+  }
+
   private getPatientRequestDetails(): Promise<IPatientRequestDetailsViewModel> {
     this.preloaderService.showGlobalPreloader();
     return this.patientRequestResource.getPatientRequestDetails(this.patientRequestId)

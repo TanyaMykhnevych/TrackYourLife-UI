@@ -11,7 +11,8 @@ export class PatientRequestResource extends ResourceBase {
   constructor(config: SysConfig, http: HttpServiceWrapper) {
     super(config, http, {
       'submitPatientRequest': 'patientRequest/createPatientRequest',
-      'getPatientRequestList': 'patientRequest/getPatientRequestList'
+      'getPatientRequestList': 'patientRequest/getPatientRequestList',
+      'getPatientRequestDetails': 'patientRequest/getPatientRequestDetails/{id}'
     });
   }
 
