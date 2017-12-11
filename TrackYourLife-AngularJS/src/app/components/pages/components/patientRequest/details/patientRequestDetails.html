@@ -11,17 +11,22 @@
     <hr/>
     <h5>Person: {{patientRequestDetailsModel.patientInfo?.firstName}} {{patientRequestDetailsModel.patientInfo?.secondName}}</h5>
     <h5>Email: {{patientRequestDetailsModel.patientInfo?.email}}</h5>
+    <h5>Phone: {{patientRequestDetailsModel.patientInfo?.phoneNumber}}</h5>
+    <h5 *ngIf="patientRequestDetailsModel.patientInfo?.birthDate">Birth date:
+      {{getBirthDate(patientRequestDetailsModel.patientInfo?.birthDate)}}</h5>
+    <h5>Country: {{patientRequestDetailsModel.patientInfo?.country}}</h5>
+    <h5>City: {{patientRequestDetailsModel.patientInfo?.city}}</h5>
+    <h5>Address: {{patientRequestDetailsModel.patientInfo?.addressLine1}}</h5>
+    <h5 *ngIf="patientRequestDetailsModel.patientInfo?.zipCode">Zip: {{patientRequestDetailsModel.patientInfo?.zipCode}}</h5>
     <hr/>
-    <div class="patientRequestDetailsInfo">
+    <div class="patientRequestDetailsModelInfo">
 
-      <p><b>Message:</b> {{patientRequestDetailsModel.message != null ? patientRequestDetailsModel.message : "no message"}}</p>
-      <p><b>Organ:</b> {{patientRequestDetailsModel.organInfo?.name}}</p>
-      <p><b>Status:</b> {{getDonorPatientStatusString(patientRequestDetailsModel.status)}}</p>
-      <!--<p>Transplant Organ Id: {{donorRequestDetails.transplantOrganId}}</p>-->
-
+      <p><b>Message: </b> {{patientRequestDetailsModel.message != null ? patientRequestDetailsModel.message : "no message"}}</p>
+      <p><b>Organ: </b> {{patientRequestDetailsModel.organInfo?.name}}</p>
+      <p><b>Status: </b> {{getDonorPatientStatusString(patientRequestDetailsModel.status)}}</p>
 
       <p>
-        <b>Donor found:</b>
+        <b>Donor found: </b>
         <i *ngIf="patientRequestDetailsModel && patientRequestDetailsModel.donorRequest" class="fa fa-check"
            style="font-size:30px;color:green"></i>
         <i *ngIf="!patientRequestDetailsModel || !patientRequestDetailsModel.donorRequest" class="fa fa-times"
@@ -30,15 +35,44 @@
 
       <p *ngIf="patientRequestDetailsModel && patientRequestDetailsModel.donorRequest">
         <details>
-          <summary><b>Donor:</b>{{patientRequestDetailsModel.donorRequest.donorInfo?.firstName}}
-            {{patientRequestDetailsModel.donorRequest.donorInfo?.secondName}}</summary>
-          <p>
-            <small><b>Status:</b>{{getPatientRequestStatusString(patientRequestDetailsModel.donorRequest.status)}}</small>
-          </p>
-        </details>
+          <summary><b>Donor: </b>{{patientRequestDetailsModel.donorRequest.donorInfo?.firstName}}
+            {{patientRequestDetailsModel.donorRequest.donorInfo?.secondName}}
+          </summary>
+      <p>
+        <small><b>Status: </b>{{getDonorRequestStatusString(patientRequestDetailsModel.donorRequest.status)}}</small>
+      </p>
+      <p>
+        <small><b>Email: </b>{{patientRequestDetailsModel.donorRequest.donorInfo?.email}}</small>
+      </p>
+      <p>
+        <small><b>Phone: </b>{{patientRequestDetailsModel.donorRequest.donorInfo?.phoneNumber}}</small>
+      </p>
+      <p>
+        <small *ngIf="patientRequestDetailsModel.donorRequest.donorInfo?.birthDate"><b>Birth date: </b>
+          {{getBirthDate(patientRequestDetailsModel.donorRequest.donorInfo?.birthDate)}}
+        </small>
+      </p>
+      <p>
+        <small><b>Country: </b>{{patientRequestDetailsModel.donorRequest.donorInfo?.country}}</small>
+      </p>
+      <p>
+        <small><b>City: </b>{{patientRequestDetailsModel.donorRequest.donorInfo?.city}}</small>
+      </p>
+      <p>
+        <small><b>Address: </b>{{patientRequestDetailsModel.donorRequest.donorInfo?.addressLine1}}</small>
+      </p>
+      <p>
+        <small *ngIf="patientRequestDetailsModel.donorRequest.donorInfo?.zipCode"><b>Zip: </b>{{patientRequestDetailsModel.patientInfo?.zipCode}}
+        </small>
+      </p>
+      </details>
       </p>
       <br>
     </div>
+    <hr/>
+    <img *ngIf="patientRequestDetailsModel && patientRequestDetailsModel.donorRequest"
+         src="../../../../../assets/img/app/map.png"/>
+    <br/>
     <hr/>
   </div>
 </div>

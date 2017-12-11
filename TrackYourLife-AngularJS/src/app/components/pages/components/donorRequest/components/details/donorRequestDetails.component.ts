@@ -99,6 +99,10 @@ export class DonorRequestDetailsPageComponent implements OnInit, OnDestroy {
     return AppEnums.donorRequestStatusesStrings[value];
   }
 
+  public getBirthDate(date) {
+    return new Date(Date.parse(date)).toLocaleDateString("en-US");
+  }
+
   public getScheduleMedicalExamButtonVisibility() {
     return this.userService.isInMedEmployeeRole
       && this.donorRequestDetails.status === AppEnums.donorRequestStatuses.pendingMedicalExamination;

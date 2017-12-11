@@ -34,6 +34,6 @@ export class CreateRegisteredDonorRequestFormComponent implements OnInit {
 
     this.data.email = this.userService.getUserInfo().username;
 
-      this.formSubmitted.emit(true);
+    this.formSubmitted.emit(true);
   }
 }

@@ -4,7 +4,7 @@ import {Injectable} from '@angular/core';
 export class SysConfig {
   public url;
   public port;
-  public protocol = 'http';
+  public protocol = 'https';
   public fullUrl: string;
 
 
