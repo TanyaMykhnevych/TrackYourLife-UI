@@ -1,0 +1,44 @@
+<div id="patient-request-details-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <img src="../../../../../assets/img/app/recipientDetails.png" width="150" height="150"/>
+        <br/><br/><br/>
+      </div>
+    </div>
+
+    <h3>Recipient Request Details</h3>
+    <hr/>
+    <h5>Person: {{patientRequestDetailsModel.patientInfo?.firstName}} {{patientRequestDetailsModel.patientInfo?.secondName}}</h5>
+    <h5>Email: {{patientRequestDetailsModel.patientInfo?.email}}</h5>
+    <hr/>
+    <div class="patientRequestDetailsInfo">
+
+      <p><b>Message:</b> {{patientRequestDetailsModel.message != null ? patientRequestDetailsModel.message : "no message"}}</p>
+      <p><b>Organ:</b> {{patientRequestDetailsModel.organInfo?.name}}</p>
+      <p><b>Status:</b> {{getDonorPatientStatusString(patientRequestDetailsModel.status)}}</p>
+      <!--<p>Transplant Organ Id: {{donorRequestDetails.transplantOrganId}}</p>-->
+
+
+      <p>
+        <b>Donor found:</b>
+        <i *ngIf="patientRequestDetailsModel && patientRequestDetailsModel.donorRequest" class="fa fa-check"
+           style="font-size:30px;color:green"></i>
+        <i *ngIf="!patientRequestDetailsModel || !patientRequestDetailsModel.donorRequest" class="fa fa-times"
+           style="font-size:30px;color:red"></i>
+      </p>
+
+      <p *ngIf="patientRequestDetailsModel && patientRequestDetailsModel.donorRequest">
+        <details>
+          <summary><b>Donor:</b>{{patientRequestDetailsModel.donorRequest.donorInfo?.firstName}}
+            {{patientRequestDetailsModel.donorRequest.donorInfo?.secondName}}</summary>
+          <p>
+            <small><b>Status:</b>{{getPatientRequestStatusString(patientRequestDetailsModel.donorRequest.status)}}</small>
+          </p>
+        </details>
+      </p>
+      <br>
+    </div>
+    <hr/>
+  </div>
+</div>

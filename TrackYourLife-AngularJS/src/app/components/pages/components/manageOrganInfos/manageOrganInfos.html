@@ -1,0 +1,43 @@
+<div id="manage-organ-infos-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+          <img src="../../../../../assets/img/app/heart.png" width="150" height="150"/>
+        <br/><br/><br/>
+        <h2>Organ Infos Actions</h2>
+        <hr/>
+        <button class="btn btn-success" (click)="showAddOrganInfoModal()">Add New Organ Info</button>
+      </div>
+    </div>
+    <br/>
+    <hr/>
+    <div class="row">
+      <div class="col-md-12">
+        <h3>Organ Info List</h3>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <td>Id</td>
+              <td>Name</td>
+              <td>Description</td>
+              <td>Actions</td>
+            </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let organInfo of organInfos">
+            <td>{{organInfo.id}}</td>
+            <td>{{organInfo.name}}</td>
+            <td>{{organInfo.description}}</td>
+            <td>
+              <button class="btn btn-warning" (click)="showEditOrganInfoModal(organInfo.id)">Edit</button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <app-edit-organ-info-modal #editOrganInfoModal></app-edit-organ-info-modal>
+  <app-add-organ-info-modal #addOrganInfoModal></app-add-organ-info-modal>
+</div>

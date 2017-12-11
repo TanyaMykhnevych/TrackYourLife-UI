@@ -1,0 +1,47 @@
+<ng-template #modalContent let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">{{headerText}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="cancelClose()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <form #clinicForm="ngForm">
+      <div class="form-group">
+        <label for="nameInput">Name</label>
+        <input type="text" class="form-control" id="nameInput" placeholder="Enter organ info name"
+               name="nameInputName" #nameInput="ngModel" [(ngModel)]="entity.name" required autofocus>
+
+        <div class="form-control-feedback">
+          <span class="text-danger align-middle" *ngIf="nameInput.errors && $submitted">
+            <p [hidden]="!nameInput.errors.required" class="validation-error">
+              <i class="fa fa-close"></i> This field is required
+            </p>
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="descriptionInput">Description</label>
+        <input type="text" class="form-control" id="descriptionInput" placeholder="Enter description"
+               name="descriptionInputName" #descriptionInput="ngModel" [(ngModel)]="entity.description" required autofocus>
+
+        <div class="form-control-feedback">
+          <span class="text-danger align-middle" *ngIf="descriptionInput.errors && $submitted">
+            <p [hidden]="!descriptionInput.errors.required" class="validation-error">
+              <i class="fa fa-close"></i> This field is required
+            </p>
+          </span>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-success" (click)="setSubmitted(true) && clinicForm.valid && save()">
+      Save
+    </button>
+    <button type="button" class="btn btn-outline-dark" (click)="cancelClose()">Cancel</button>
+  </div>
+</ng-template>

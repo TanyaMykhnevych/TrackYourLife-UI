@@ -1,0 +1,101 @@
+<div id="donor-request-details-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <img src="../../../../../assets/img/app/donorDetails.png" width="150" height="150"/>
+        <br/><br/><br/>
+      </div>
+    </div>
+
+    <h3>Donor Request Details</h3>
+    <hr/>
+    <h5>Person: {{donorRequestDetails.donorInfo?.firstName}} {{donorRequestDetails.donorInfo?.secondName}}</h5>
+    <h5>Email: {{donorRequestDetails.donorInfo?.email}}</h5>
+    <hr/>
+    <div class="donorRequestDetailsInfo">
+      <!--<p>Id: {{donorRequestDetails.id}}</p>-->
+      <p><b>Message:</b> {{donorRequestDetails.message != null ? donorRequestDetails.message : "no message"}}</p>
+      <p><b>Organ:</b> {{donorRequestDetails.organInfo?.name}}</p>
+      <p><b>Status:</b> {{getDonorRequestStatusString(donorRequestDetails.status)}}</p>
+      <!--<p>Transplant Organ Id: {{donorRequestDetails.transplantOrganId}}</p>-->
+
+      <p><b>Exams tries:</b> {{donorRequestDetails?.medicalExamsCount}}</p>
+
+      <p *ngIf="donorRequestDetails && donorRequestDetails.medicalExamClinic">
+        <details>
+          <summary><b>Clinic:</b>{{donorRequestDetails.medicalExamClinic.name}}</summary>
+          <p>
+            <small><b>Country:</b>{{donorRequestDetails.medicalExamClinic.country}}</small>
+          </p>
+          <p>
+            <small><b>City:</b>{{donorRequestDetails.medicalExamClinic.city}}</small>
+          </p>
+          <p>
+            <small><b>Address:</b>{{donorRequestDetails.medicalExamClinic.addressLine1}}</small>
+          </p>
+          <p>
+            <small><b>Contact Phone:</b>{{donorRequestDetails.medicalExamClinic.contactPhone}}</small>
+          </p>
+        </details>
+      </p>
+
+      <p>
+        <b>Patient found:</b>
+        <i *ngIf="donorRequestDetails && donorRequestDetails.patientRequest" class="fa fa-check"
+           style="font-size:30px;color:green"></i>
+        <i *ngIf="!donorRequestDetails || !donorRequestDetails.patientRequest" class="fa fa-times"
+           style="font-size:30px;color:red"></i>
+      </p>
+
+      <p *ngIf="donorRequestDetails && donorRequestDetails.patientRequest">
+        <details>
+          <summary><b>Patient:</b>{{donorRequestDetails.patientRequest.patientInfo?.firstName}}
+            {{donorRequestDetails.patientRequest.patientInfo?.secondName}}</summary>
+          <p>
+            <small><b>Status:</b>{{getPatientRequestStatusString(donorRequestDetails.patientRequest.status)}}</small>
+          </p>
+        </details>
+      </p>
+      <br>
+    </div>
+    <hr/>
+
+    <div *ngIf="getScheduleMedicalExamButtonVisibility()">
+      <button class="btn btn-success" (click)="scheduleMedicalExam()">Schedule Medical Exam</button>
+    </div>
+
+    <div *ngIf="getEnterMedicalExamResultsButtonVisibility()">
+      <button class="btn btn-success" (click)="enterMedicalExamResult()">Enter Medical Exam Results</button>
+    </div>
+
+    <div *ngIf="getLinkingPatientRequestButtonVisibility()">
+      <button class="btn btn-success" (click)="linkPatientRequest()">Link Patient Request</button>
+    </div>
+
+    <div *ngIf="getScheduleOrganRetrievingTimeButtonVisibility()">
+      <button class="btn btn-success" (click)="scheduleOrganRetrievingTime()">Confirm Organ Retrieving</button>
+    </div>
+
+    <div *ngIf="getFinalRequestStatusButtonsVisibility()">
+      <button class="btn btn-success" (click)="setFinalRequestStatus()">Set Final Results</button>
+    </div>
+  </div>
+
+  <app-schedule-exam-modal #scheduleExamModal
+                           [clinics]="clinics"
+                           [donorRequestId]="donorRequestId">
+  </app-schedule-exam-modal>
+  <app-enter-medical-exam-result-modal #enterMedicalExamResultModal
+                                       [donorRequestId]="donorRequestId">
+  </app-enter-medical-exam-result-modal>
+  <app-link-patient-request-modal #linkPatientRequestModal
+                                  [organInfoId]="donorRequestDetails?.organInfoId"
+                                  [donorRequestId]="donorRequestId">
+  </app-link-patient-request-modal>
+  <app-schedule-organ-retrieving-modal #scheduleOrganRetrievingModal
+                                       [donorRequestId]="donorRequestId">
+  </app-schedule-organ-retrieving-modal>
+  <app-set-request-final-status-modal #setRequestFinalStatusModal
+                                      [donorRequestId]="donorRequestId">
+  </app-set-request-final-status-modal>
+</div>

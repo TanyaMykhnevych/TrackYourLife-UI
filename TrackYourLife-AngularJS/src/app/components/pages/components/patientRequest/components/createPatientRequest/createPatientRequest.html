@@ -1,0 +1,20 @@
+<div id="patient-request-page">
+  <div class="row" align="center">
+    <div class="col-md-12">
+      <img src="../../../../../assets/img/app/addPatient.jpg" width="150" height="150" class="add-patient"/>
+      <br/><br/><br/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h2 align="center">Create recipient request</h2>
+      <hr/>
+      <div class="form-container container">
+        <app-create-patient-request-form #createPatientForm
+                                       [organInfos]="organInfos"
+                                       (formSubmitted)="submitPatientRequestForm()">
+        </app-create-patient-request-form>
+      </div>
+    </div>
+  </div>
+</div>

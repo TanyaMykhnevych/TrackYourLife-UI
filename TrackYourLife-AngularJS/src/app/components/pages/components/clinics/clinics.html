@@ -1,0 +1,49 @@
+<div id="clinics-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <img src="../../../../../assets/img/app/clinic.png" width="150" height="150"/>
+        <br/><br/><br/>
+        <h2>Clinics Actions</h2>
+        <hr/>
+        <button class="btn btn-success" (click)="showAddClinicModal()">Add New Clinic</button>
+      </div>
+    </div>
+
+    <br/>
+    <hr/>
+
+    <div class="row">
+      <div class="col-md-12">
+        <h3>Clinics List</h3>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <td>Id</td>
+              <td>Name</td>
+              <td>Contact Phone</td>
+              <td>Country</td>
+              <td>City</td>
+              <td>Actions</td>
+            </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let clinic of clinics">
+            <td>{{clinic.id}}</td>
+            <td>{{clinic.name}}</td>
+            <td>{{clinic.contactPhone}}</td>
+            <td>{{clinic.country}}</td>
+            <td>{{clinic.city}}</td>
+            <td>
+              <button class="btn btn-warning" (click)="showEditClinicModal(clinic.id)">Edit</button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <app-edit-clinic-modal #editClinicModal></app-edit-clinic-modal>
+  <app-add-clinic-modal #addClinicModal></app-add-clinic-modal>
+</div>

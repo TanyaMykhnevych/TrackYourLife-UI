@@ -1,0 +1,49 @@
+<div id="patient-request-list-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <img src="../../../../../assets/img/app/patient.ico" width="150" height="150"/>
+        <br/><br/><br/>
+      </div>
+    </div>
+
+    <h3>{{pageTitle}}</h3>
+    <br/>
+    <div class="row">
+      <div class="col-md-12">
+        <img src="../../../../../assets/img/app/search.ico" width="45" height="45"/>
+        <input type="text" name="search" placeholder="Search.."/>
+      </div>
+    </div>
+    <br/>
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <td>Organ</td>
+            <td>Priority</td>
+            <td>Status</td>
+            <td>Donor founded</td>
+            <td>Actions</td>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let patientRequest of patientRequestList">
+            <td>{{patientRequest.organInfoName}}</td>
+            <td>{{getPatientRequestPriorityString(patientRequest.priority)}}</td>
+            <td>{{getPatientRequestStatusString(patientRequest.status)}}</td>
+            <td align="center">
+              <i *ngIf="patientRequest.hasLinkedDonorRequest" class="fa fa-check" style="font-size:30px;color:green"></i>
+              <i *ngIf="!patientRequest.hasLinkedDonorRequest" class="fa fa-times" style="font-size:30px;color:red"></i>
+            </td>
+            <td>
+              <button class="btn btn-info" (click)="goToPatientRequestDetails(patientRequest.id)">Details</button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

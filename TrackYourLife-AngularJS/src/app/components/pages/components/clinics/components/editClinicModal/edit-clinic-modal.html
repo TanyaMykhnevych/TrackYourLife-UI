@@ -1,0 +1,143 @@
+<ng-template #modalContent let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">{{headerText}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="cancelClose()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <form #clinicForm="ngForm">
+      <div class="form-group">
+        <label for="clinicNameInput">Clinic Name</label>
+        <input type="text" class="form-control" id="clinicNameInput" placeholder="Enter clinic name"
+               name="clinicNameInputName" #clinicNameInput="ngModel" [(ngModel)]="entity.name" required autofocus>
+
+        <div class="form-control-feedback">
+          <span class="text-danger align-middle" *ngIf="clinicNameInput.errors && $submitted">
+            <p [hidden]="!clinicNameInput.errors.required" class="validation-error">
+              <i class="fa fa-close"></i> This field is required
+            </p>
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="contactEmailInput">Contact Email</label>
+        <input type="email" class="form-control" id="contactEmailInput" placeholder="Enter contact email"
+               name="contactEmailInputName" #contactEmailInput="ngModel" [(ngModel)]="entity.contactEmail">
+
+        <div class="form-control-feedback">
+          <span class="text-danger align-middle" *ngIf="contactEmailInput.errors && $submitted">
+            <p [hidden]="!contactEmailInput.errors.required" class="validation-error">
+              <i class="fa fa-close"></i> This field is required
+            </p>
+            <p [hidden]="!contactEmailInput.errors.email" class="validation-error">
+              <i class="fa fa-close"></i> This field should contain valid email
+            </p>
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="contactPhoneInput">Contact Phone</label>
+        <input type="text" class="form-control" id="contactPhoneInput" placeholder="Enter contact phone"
+               name="contactPhoneInputName" #contactPhoneInput="ngModel" [(ngModel)]="entity.contactPhone">
+
+        <div class="form-control-feedback">
+          <span class="text-danger align-middle" *ngIf="contactPhoneInput.errors && $submitted">
+            <p [hidden]="!contactPhoneInput.errors.required" class="validation-error">
+              <i class="fa fa-close"></i> This field is required
+            </p>
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="countryInput">Country</label>
+        <input type="text" class="form-control" id="countryInput" placeholder="Enter country"
+               name="countryInputName" #countryInput="ngModel" [(ngModel)]="entity.country" required>
+
+        <div class="form-control-feedback">
+          <span class="text-danger align-middle" *ngIf="countryInput.errors && $submitted">
+            <p [hidden]="!countryInput.errors.required" class="validation-error">
+              <i class="fa fa-close"></i> This field is required
+            </p>
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="cityInput">City</label>
+        <input type="text" class="form-control" id="cityInput" placeholder="Enter city"
+               name="cityInputName" #cityInput="ngModel" [(ngModel)]="entity.city" required>
+
+        <div class="form-control-feedback">
+          <span class="text-danger align-middle" *ngIf="cityInput.errors && $submitted">
+            <p [hidden]="!cityInput.errors.required" class="validation-error">
+              <i class="fa fa-close"></i> This field is required
+            </p>
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="addressLine1Input">Address Line 1</label>
+        <input type="text" class="form-control" id="addressLine1Input" placeholder="Enter address line 1"
+               name="addressLine1InputName" #addressLine1Input="ngModel" [(ngModel)]="entity.addressLine1" required>
+
+        <div class="form-control-feedback">
+          <span class="text-danger align-middle" *ngIf="addressLine1Input.errors && $submitted">
+            <p [hidden]="!addressLine1Input.errors.required" class="validation-error">
+              <i class="fa fa-close"></i> This field is required
+            </p>
+          </span>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label for="altitudeInput">Altitude</label>
+        <input type="text" class="form-control" id="altitudeInput" placeholder="Enter altitude"
+               name="altitudeInputName" #altitudeInput="ngModel" [(ngModel)]="entity.altitude" required>
+
+        <div class="form-control-feedback">
+          <span class="text-danger align-middle" *ngIf="altitudeInput.errors && $submitted">
+            <p [hidden]="!altitudeInput.errors.required" class="validation-error">
+              <i class="fa fa-close"></i> This field is required
+            </p>
+          </span>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label for="longitudeInputName">Longitude</label>
+        <input type="text" class="form-control" id="longitudeInputName" placeholder="Enter longitude"
+               name="longitudeInputName" #longitudeInput="ngModel" [(ngModel)]="entity.longitude" required>
+
+        <div class="form-control-feedback">
+          <span class="text-danger align-middle" *ngIf="longitudeInput.errors && $submitted">
+            <p [hidden]="!longitudeInput.errors.required" class="validation-error">
+              <i class="fa fa-close"></i> This field is required
+            </p>
+          </span>
+        </div>
+      </div>
+
+
+      <!--<div class="form-group">-->
+      <!--<label for="exampleInputFile">Example File Input</label>-->
+      <!--<input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">-->
+      <!--<small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>-->
+      <!--</div>-->
+    </form>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-success" (click)="setSubmitted(true) && clinicForm.valid && save()">
+      Save
+    </button>
+    <button type="button" class="btn btn-outline-dark" (click)="cancelClose()">Cancel</button>
+  </div>
+</ng-template>
