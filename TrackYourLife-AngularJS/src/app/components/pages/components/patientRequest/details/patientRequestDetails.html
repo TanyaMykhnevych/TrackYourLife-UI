@@ -40,6 +40,29 @@
           </summary>
       <p>
         <small><b>Status: </b>{{getDonorRequestStatusString(patientRequestDetailsModel.donorRequest.status)}}</small>
+
+
+      <p *ngIf="organDeliverySnapshots && organDeliverySnapshots.length && patientRequestDetails && patientRequestDetails.donorRequest">
+        <details *ngFor="let organDeliverySnapshot of organDeliverySnapshots">
+          <summary><b>Organ tracking information </b>
+          </summary>
+          <p>
+            <small><b>Altitude: </b>{{organDeliverySnapshot.altitude}}</small>
+          </p>
+          <p>
+            <small><b>Longitude: </b>{{organDeliverySnapshot.longitude}}</small>
+          </p>
+          <p>
+            <small><b>Time: </b>{{organDeliverySnapshot.time | date:'HH:mm:ss'}}</small>
+          </p>
+          <p>
+            <small><b>Temperature: </b>{{organDeliverySnapshot.temperature}}</small>
+          </p>
+          <p>
+            <small><b>Humidity: </b>{{organDeliverySnapshot.humidity}}</small>
+          </p>
+        </details>
+
       </p>
       <p>
         <small><b>Email: </b>{{patientRequestDetailsModel.donorRequest.donorInfo?.email}}</small>

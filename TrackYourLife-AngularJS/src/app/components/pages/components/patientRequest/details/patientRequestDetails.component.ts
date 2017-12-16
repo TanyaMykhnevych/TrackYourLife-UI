@@ -7,7 +7,7 @@ import {ActivatedRoute} from "@angular/router";
 import {NotificationService} from "../../../../../common/services/notificationService";
 import {UserService} from "../../../../../common/services/userService";
 import {IClinicListItem} from "../../clinics/clinic.models";
-import {IPatientRequestDetailsViewModel} from "../patientRequest.models";
+import {IOrganStateSnapshotViewModel, IPatientRequestDetailsViewModel} from "../patientRequest.models";
 import {IContentResponseWrapper} from "../../../../../models/interfaces/apiRespone/responseWrapper";
 import {AppEnums} from "../../../../../app.constants";
 
@@ -18,6 +18,7 @@ import {AppEnums} from "../../../../../app.constants";
 })
 export class PatientRequestDetailsPageComponent implements OnInit, OnDestroy {
   public patientRequestDetailsModel: IPatientRequestDetailsViewModel;
+  public organDeliverySnapshots: Array<IOrganStateSnapshotViewModel>;
 
   private patientRequestId: number;
   private subscription: Subscription;
@@ -32,11 +33,13 @@ export class PatientRequestDetailsPageComponent implements OnInit, OnDestroy {
 
   public ngOnInit() {
     this.patientRequestDetailsModel = {} as IPatientRequestDetailsViewModel;
+    this.organDeliverySnapshots = new Array<IOrganStateSnapshotViewModel>();
     this.subscription = this.route.params.subscribe(params => {
       this.patientRequestId = +params['patientRequestId'];
 
       Promise.all([
-        this.getPatientRequestDetails()
+        this.getPatientRequestDetails(),
+        this.getOrganDeliverySnapshot()
       ]);
 
     });
@@ -74,6 +77,26 @@ export class PatientRequestDetailsPageComponent implements OnInit, OnDestroy {
           if (response.isValid) {
             this.patientRequestDetailsModel = response.content;
             return this.patientRequestDetailsModel;
+          } else {
+            console.error(response.errorMessage);
+            this.notificationService.showError(response.errorMessage);
+          }
+        }
+      );
+  }
+
+  private getOrganDeliverySnapshot(): Promise<Array<IOrganStateSnapshotViewModel>> {
+    this.preloaderService.showGlobalPreloader();
+    return this.patientRequestResource.getOrganDeliverySnapshot(this.patientRequestId)
+      .catch((err) => {
+        this.preloaderService.hideGlobalPreloader();
+        this.notificationService.showError(err);
+      })
+      .then((response: IContentResponseWrapper<Array<IOrganStateSnapshotViewModel>>) => {
+          this.preloaderService.hideGlobalPreloader();
+          if (response.isValid) {
+            this.organDeliverySnapshots = response.content;
+            return this.organDeliverySnapshots;
           } else {
             console.error(response.errorMessage);
             this.notificationService.showError(response.errorMessage);

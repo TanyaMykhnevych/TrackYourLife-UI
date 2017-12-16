@@ -54,3 +54,11 @@ export interface IPatientRequestDetailsViewModel {
 
   donorMedicalExams: Array<IDonorMedicalExamListItemViewModel>; // ICollection<DonorMedicalExam>
 }
+
+export interface IOrganStateSnapshotViewModel {
+  altitude: number;
+  longitude: number;
+  time: Date;
+  temperature: number;
+  humidity: number;
+}

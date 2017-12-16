@@ -12,7 +12,8 @@ export class PatientRequestResource extends ResourceBase {
     super(config, http, {
       'submitPatientRequest': 'patientRequest/createPatientRequest',
       'getPatientRequestList': 'patientRequest/getPatientRequestList',
-      'getPatientRequestDetails': 'patientRequest/getPatientRequestDetails/{id}'
+      'getPatientRequestDetails': 'patientRequest/getPatientRequestDetails/{id}',
+      'getOrganDeliverySnapshot': 'organDelivery/getOrganDeliverySnapshot/{id}'
     });
   }
 
@@ -28,6 +29,11 @@ export class PatientRequestResource extends ResourceBase {
 
   public getPatientRequestDetails(patientRequestId: number): Promise<any> {
     const url = this.buildUrl(this.urlOptions['getPatientRequestDetails'], {id: patientRequestId});
+    return this.http.get(url);
+  }
+
+  public  getOrganDeliverySnapshot(patientRequestId: number): Promise<any> {
+    const url = this.buildUrl(this.urlOptions['getOrganDeliverySnapshot'], {id: patientRequestId});
     return this.http.get(url);
   }
 }
