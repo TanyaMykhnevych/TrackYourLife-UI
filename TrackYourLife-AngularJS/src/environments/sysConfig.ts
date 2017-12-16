@@ -10,6 +10,7 @@ export class SysConfig {
 
   public constructor() {
     this.url = 'trackyourlife-api.azurewebsites.net';
+    // this.url = 'localhost:5000';
     this.protocol = 'https';
 
     if (this.port) {

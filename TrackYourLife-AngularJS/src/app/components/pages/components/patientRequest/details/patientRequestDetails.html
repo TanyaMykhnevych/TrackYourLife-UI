@@ -38,11 +38,35 @@
           <summary><b>Donor: </b>{{patientRequestDetailsModel.donorRequest.donorInfo?.firstName}}
             {{patientRequestDetailsModel.donorRequest.donorInfo?.secondName}}
           </summary>
-      <p>
-        <small><b>Status: </b>{{getDonorRequestStatusString(patientRequestDetailsModel.donorRequest.status)}}</small>
-
-
-      <p *ngIf="organDeliverySnapshots && organDeliverySnapshots.length && patientRequestDetails && patientRequestDetails.donorRequest">
+        <p><small><b>Status: </b>{{getDonorRequestStatusString(patientRequestDetailsModel.donorRequest.status)}}</small></p>
+        <p>
+          <small><b>Email: </b>{{patientRequestDetailsModel.donorRequest.donorInfo?.email}}</small>
+        </p>
+        <p>
+          <small><b>Phone: </b>{{patientRequestDetailsModel.donorRequest.donorInfo?.phoneNumber}}</small>
+        </p>
+        <p>
+          <small *ngIf="patientRequestDetailsModel.donorRequest.donorInfo?.birthDate"><b>Birth date: </b>
+            {{getBirthDate(patientRequestDetailsModel.donorRequest.donorInfo?.birthDate)}}
+          </small>
+        </p>
+        <p>
+          <small><b>Country: </b>{{patientRequestDetailsModel.donorRequest.donorInfo?.country}}</small>
+        </p>
+        <p>
+          <small><b>City: </b>{{patientRequestDetailsModel.donorRequest.donorInfo?.city}}</small>
+        </p>
+        <p>
+          <small><b>Address: </b>{{patientRequestDetailsModel.donorRequest.donorInfo?.addressLine1}}</small>
+        </p>
+        <p>
+          <small *ngIf="patientRequestDetailsModel.donorRequest.donorInfo?.zipCode"><b>Zip: </b>{{patientRequestDetailsModel.patientInfo?.zipCode}}
+          </small>
+        </p>
+      </details>
+      </p>
+      <p *ngIf="organDeliverySnapshots && organDeliverySnapshots.length
+      && patientRequestDetailsModel && patientRequestDetailsModel.donorRequest">
         <details *ngFor="let organDeliverySnapshot of organDeliverySnapshots">
           <summary><b>Organ tracking information </b>
           </summary>
@@ -63,32 +87,6 @@
           </p>
         </details>
 
-      </p>
-      <p>
-        <small><b>Email: </b>{{patientRequestDetailsModel.donorRequest.donorInfo?.email}}</small>
-      </p>
-      <p>
-        <small><b>Phone: </b>{{patientRequestDetailsModel.donorRequest.donorInfo?.phoneNumber}}</small>
-      </p>
-      <p>
-        <small *ngIf="patientRequestDetailsModel.donorRequest.donorInfo?.birthDate"><b>Birth date: </b>
-          {{getBirthDate(patientRequestDetailsModel.donorRequest.donorInfo?.birthDate)}}
-        </small>
-      </p>
-      <p>
-        <small><b>Country: </b>{{patientRequestDetailsModel.donorRequest.donorInfo?.country}}</small>
-      </p>
-      <p>
-        <small><b>City: </b>{{patientRequestDetailsModel.donorRequest.donorInfo?.city}}</small>
-      </p>
-      <p>
-        <small><b>Address: </b>{{patientRequestDetailsModel.donorRequest.donorInfo?.addressLine1}}</small>
-      </p>
-      <p>
-        <small *ngIf="patientRequestDetailsModel.donorRequest.donorInfo?.zipCode"><b>Zip: </b>{{patientRequestDetailsModel.patientInfo?.zipCode}}
-        </small>
-      </p>
-      </details>
       </p>
       <br>
     </div>
