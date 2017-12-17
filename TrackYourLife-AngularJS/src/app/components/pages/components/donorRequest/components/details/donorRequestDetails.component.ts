@@ -43,7 +43,6 @@ export class DonorRequestDetailsPageComponent implements OnInit, OnDestroy {
   }
 
   public ngOnInit() {
-    this.getClinics();
 
     this.donorRequestDetails = {} as IDonorRequestDetailsViewModel;
     this.subscription = this.route.params.subscribe(params => {
